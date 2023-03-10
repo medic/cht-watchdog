@@ -1,0 +1,49 @@
+version: "3.9"
+
+volumes:
+  prometheus-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PROMETHEUS_DATA:-./prometheus/data}
+      o: bind
+
+  grafana-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PROMETHEUS_DATA:-./prometheus/data}
+      o: bind
+
+services:
+  prometheus:
+    image: prom/prometheus:${PROMETHEUS_VERSION:-latest}
+# Uncomment to access Prometheus UI from the host
+#    ports:
+#      - "${PROMETHEUS_PORT:-9090}:9090"
+    volumes:
+      - ./prometheus/config:/etc/prometheus
+      - prometheus-data:/prometheus
+    networks:
+      - cht-monitoring-net
+    restart: always
+
+  grafana:
+    image: grafana/grafana-oss:${GRAFANA_VERSION:-latest}
+    ports:
+      - "${GRAFANA_PORT:-3000}:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+    environment:
+      - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-medic}
+      - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-password}
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_INSTALL_PLUGINS=${GRAFANA_PLUGINS:-}
+    networks:
+      - cht-monitoring-net
+    restart: always
+
+networks:
+  cht-monitoring-net:
