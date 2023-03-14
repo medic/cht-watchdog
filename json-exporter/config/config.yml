@@ -1,10 +1,10 @@
 # Reusable extensions (used for pushing data from different parts of the JSON to the same metric)
-x-cht_couchdb_doc_count: &cht_couchdb_doc_count
-  name: cht_couchdb_doc_count
+x-cht_couchdb_doc_total: &cht_couchdb_doc_total
+  name: cht_couchdb_doc_total
   help: The number of docs in the db.
   valuetype: counter
-x-cht_couchdb_doc_del_count: &cht_couchdb_doc_del_count
-  name: cht_couchdb_doc_del_count
+x-cht_couchdb_doc_del_total: &cht_couchdb_doc_del_total
+  name: cht_couchdb_doc_del_total
   help: The number of deleted docs in the db.
   valuetype: counter
 x-cht_couchdb_fragmentation: &cht_couchdb_fragmentation
@@ -48,36 +48,36 @@ modules:
         help: Number of users that have connected to the api in the last 7 days.
         valuetype: gauge
 
-      - <<: *cht_couchdb_doc_count
+      - <<: *cht_couchdb_doc_total
         path: '{.couchdb.medic.doc_count}'
         labels:
           db: 'medic'
-      - <<: *cht_couchdb_doc_count
+      - <<: *cht_couchdb_doc_total
         path: '{.couchdb.sentinel.doc_count}'
         labels:
           db: 'sentinel'
-      - <<: *cht_couchdb_doc_count
+      - <<: *cht_couchdb_doc_total
         path: '{.couchdb.usersmeta.doc_count}'
         labels:
           db: 'medic-users-meta'
-      - <<: *cht_couchdb_doc_count
+      - <<: *cht_couchdb_doc_total
         path: '{.couchdb.users.doc_count}'
         labels:
           db: '_users'
 
-      - <<: *cht_couchdb_doc_del_count
+      - <<: *cht_couchdb_doc_del_total
         path: '{.couchdb.medic.doc_del_count}'
         labels:
           db: 'medic'
-      - <<: *cht_couchdb_doc_del_count
+      - <<: *cht_couchdb_doc_del_total
         path: '{.couchdb.sentinel.doc_del_count}'
         labels:
           db: 'sentinel'
-      - <<: *cht_couchdb_doc_del_count
+      - <<: *cht_couchdb_doc_del_total
         path: '{.couchdb.usersmeta.doc_del_count}'
         labels:
           db: 'medic-users-meta'
-      - <<: *cht_couchdb_doc_del_count
+      - <<: *cht_couchdb_doc_del_total
         path: '{.couchdb.users.doc_del_count}'
         labels:
           db: '_users'
@@ -116,17 +116,17 @@ modules:
         labels:
           db: '_users'
 
-      - name: cht_date_current
+      - name: cht_date_current_millis
         path: '{.date.current}'
         help: The current server date in millis since the epoch, useful for ensuring the server time is correct.
         valuetype: counter
 
-      - name: cht_date_uptime
+      - name: cht_date_uptime_seconds
         path: '{.date.uptime}'
         help: How long API has been running.
         valuetype: counter
 
-      - name: cht_feedback_count
+      - name: cht_feedback_total
         path: '{.feedback.count}'
         help: Number of feedback docs created usually indicative of client side errors.
         valuetype: counter
@@ -208,7 +208,7 @@ modules:
         labels:
           status: 'delivered'
 
-      - name: cht_outbound_push_backlog
+      - name: cht_outbound_push_backlog_count
         path: '{.outbound_push.backlog}'
         help: Number of changes yet to be processed by Outbound Push.
         valuetype: gauge
@@ -218,7 +218,7 @@ modules:
         help: Number of users that exceeded the replication limit of documents.
         valuetype: gauge
 
-      - name: cht_sentinel_backlog
+      - name: cht_sentinel_backlog_count
         path: '{.sentinel.backlog}'
         help: Number of changes yet to be processed by Sentinel.
         valuetype: gauge

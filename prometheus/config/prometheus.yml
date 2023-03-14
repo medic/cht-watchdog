@@ -1,23 +1,24 @@
 global:
+  # TODO This should be increased before release
   scrape_interval: 5s
 scrape_configs:
-#  Prometheus itself
+  #  Prometheus itself
   - job_name: 'prometheus'
     static_configs:
       - targets: ['localhost:9090']
-#  The json-exporter itself
+  #  The json-exporter itself
   - job_name: json_exporter
     static_configs:
       - targets:
           - json-exporter:7979
-#  CHT /monitoring endpoint (via json-exporter)
+  #  CHT /monitoring endpoint (via json-exporter)
   - job_name: cht
     metrics_path: /probe
     params:
       module: [default]
-    static_configs:
-      - targets:
-          - https://192-168-1-248.my.local-ip.co:10443/api/v2/monitoring
+    file_sd_configs:
+      - files:
+        - cht-instances.yml
     relabel_configs:
       - source_labels: [__address__]
         target_label: __param_target

@@ -32,6 +32,8 @@ cp .env.example .env
 
 Open the new `.env` file in a text editor and set your desired configuration values.
 
+Edit the [`cht-instances.yml` file](./cht-instances.yml) to point to your desired CHT instance(s).
+
 Run the following command to deploy the stack:
 
 ```sh

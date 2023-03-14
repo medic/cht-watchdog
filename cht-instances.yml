@@ -1,0 +1,4 @@
+- targets:
+  # Update this URL to point to your CHT instance's /monitoring endpoint.
+  # Add additional URLs to monitor multiple instances.
+  - https://gamma.dev.medicmobile.org/api/v2/monitoring
