@@ -71,4 +71,6 @@ services:
     command: "npm start"
 
 networks:
+  traefik_external-net:
+    external: true
   cht-monitoring-net:
