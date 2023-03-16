@@ -1,4 +1,7 @@
 - targets:
   # Update this URL to point to your CHT instance's /monitoring endpoint.
   # Add additional URLs to monitor multiple instances.
-  - https://gamma.dev.medicmobile.org/api/v2/monitoring
+  # (Note that the connected_user_interval parameter affects the time interval that determines the
+  # cht_connected_users_count metric value. To preserve data consistency (and avoid the creation of extra time series)
+  # this value should NOT be adjusted after it is initially set.)
+  - https://gamma.dev.medicmobile.org/api/v2/monitoring?connected_user_interval=30
