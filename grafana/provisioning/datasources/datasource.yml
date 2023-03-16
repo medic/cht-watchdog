@@ -11,4 +11,4 @@ datasources:
     editable: true
     # Should match the minimum scrape_interval in prometheus.yml
     # TODO This should be increased before release
-    scrapeInterval: 5s
+    scrapeInterval: 10s

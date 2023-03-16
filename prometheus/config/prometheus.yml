@@ -1,6 +1,6 @@
 global:
   # TODO This should be increased before release
-  scrape_interval: 5s
+  scrape_interval: 10s
 scrape_configs:
   #  Prometheus itself
   - job_name: 'prometheus'

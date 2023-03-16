@@ -32,6 +32,12 @@ cp .env.example .env
 
 Open the new `.env` file in a text editor and set your desired configuration values.
 
+Make sure the folders you have configured for storing Prometheus and Grafana data exist:
+
+```shell
+mkdir grafana/data && mkdir prometheus/data 
+```
+
 Edit the [`cht-instances.yml` file](./cht-instances.yml) to point to your desired CHT instance(s).
 
 Run the following command to deploy the stack:
@@ -43,3 +49,13 @@ docker-compose up -d
 ## Using
 
 Grafana is available at `http://localhost:3000` by default. You can log in with your configured admin username and password (`medic`:`password` by default).
+
+## Monitoring Basics
+
+### Metric types
+
+[Prometheus supports](https://prometheus.io/docs/concepts/metric_types/) four metric types: Counter, Gauge, Histogram, and Summary.  Currently, the CHT only provides Counter and Gauge type metrics.  
+
+### Functions
+
+When building panels for Grafana dashboards, [Prometheus Functions](https://prometheus.io/docs/prometheus/latest/querying/functions/) can be used to manipulate the metric data.  
