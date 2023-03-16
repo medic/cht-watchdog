@@ -421,7 +421,7 @@
               }
             ]
           },
-          "unit": "docs/hr"
+          "unit": "docs/day"
         },
         "overrides": []
       },
@@ -460,8 +460,8 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "code",
-          "expr": "rate(cht_conflict_count[1h]) * 60 * 60",
+          "editorMode": "builder",
+          "expr": "rate(cht_conflict_count[24h]) * 60 * 60 * 24",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -496,11 +496,11 @@
               },
               {
                 "color": "red",
-                "value": 1
+                "value": 0.9999
               }
             ]
           },
-          "unit": "docs/hr"
+          "unit": "docs/day"
         },
         "overrides": []
       },
@@ -540,7 +540,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "builder",
-          "expr": "rate(cht_feedback_total[1h]) * 60 * 60",
+          "expr": "rate(cht_feedback_total[24h]) * 60 * 60 * 24",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -980,6 +980,131 @@
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       },
+      "description": "The percentage of messages delivered in the last 24hrs (vs messages that failed to be delivered). ",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "NaN": {
+                  "color": "blue",
+                  "index": 0,
+                  "text": "No Data"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 75
+              },
+              {
+                "color": "green",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percentunit"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 7,
+        "x": 0,
+        "y": 17
+      },
+      "id": 27,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Message States Docs",
+          "url": "https://docs.communityhealthtoolkit.org/apps/guides/messaging/sms-states/"
+        }
+      ],
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "builder",
+          "exemplar": false,
+          "expr": "rate(cht_messaging_outgoing_total{status=\"delivered\"}[24h])",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "builder",
+          "exemplar": false,
+          "expr": "rate(cht_messaging_outgoing_total{status=\"failed\"}[24h])",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "name": "Expression",
+            "type": "__expr__",
+            "uid": "__expr__"
+          },
+          "expression": "$A/($A + $B)",
+          "hide": false,
+          "refId": "C",
+          "type": "math"
+        }
+      ],
+      "title": "Message Delivery Rate (24hrs)",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "C"
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
       "description": "Number of users that have connected to the api in the past month. ",
       "fieldConfig": {
         "defaults": {
@@ -1007,7 +1132,7 @@
       "gridPos": {
         "h": 6,
         "w": 7,
-        "x": 10,
+        "x": 17,
         "y": 17
       },
       "id": 23,
@@ -1059,6 +1184,6 @@
   "timezone": "",
   "title": "CHT Admin",
   "uid": "oa2OfL-Vk",
-  "version": 2,
+  "version": 9,
   "weekStart": ""
 }
