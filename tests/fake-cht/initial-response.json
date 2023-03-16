@@ -1,0 +1,89 @@
+{
+  "version": {
+    "app": "4.1.1",
+    "node": "v16.17.1",
+    "couchdb": "2.3.1"
+  },
+  "couchdb": {
+    "medic": {
+      "name": "medic",
+      "update_sequence": 0,
+      "doc_count": 0,
+      "doc_del_count": 0,
+      "fragmentation": 0
+    },
+    "sentinel": {
+      "name": "medic-sentinel",
+      "update_sequence": 0,
+      "doc_count": 0,
+      "doc_del_count": 0,
+      "fragmentation": 0
+    },
+    "usersmeta": {
+      "name": "medic-users-meta",
+      "update_sequence": 0,
+      "doc_count": 0,
+      "doc_del_count": 0,
+      "fragmentation": 0
+    },
+    "users": {
+      "name": "_users",
+      "update_sequence": 0,
+      "doc_count": 0,
+      "doc_del_count": 0,
+      "fragmentation": 0
+    }
+  },
+  "date": {
+    "current": 0,
+    "uptime": 0
+  },
+  "sentinel": {
+    "backlog": 0
+  },
+  "messaging": {
+    "outgoing": {
+      "total": {
+        "due": 0,
+        "scheduled": 0,
+        "muted": 0,
+        "failed": 0,
+        "delivered": 0
+      },
+      "last_hundred": {
+        "pending": {
+          "pending": 0,
+          "forwarded-to-gateway": 0,
+          "received-by-gateway": 0,
+          "forwarded-by-gateway": 0
+        },
+        "final": {
+          "sent": 0,
+          "delivered": 0,
+          "failed": 0
+        },
+        "muted": {
+          "denied": 0,
+          "cleared": 0,
+          "muted": 0,
+          "duplicate": 0
+        }
+      }
+    }
+  },
+  "outbound_push": {
+    "backlog": 0
+  },
+  "feedback": {
+    "count": 0
+  },
+  "conflict": {
+    "count": 0
+  },
+  "replication_limit": {
+    "count": 0
+  },
+  "connected_users": {
+    "count": 0
+  }
+}
