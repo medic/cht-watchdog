@@ -20,7 +20,13 @@ services:
     image: prom/prometheus:${PROMETHEUS_VERSION:-latest}
 # Uncomment to access Prometheus UI from the host
 #    ports:
-#      - "${PROMETHEUS_PORT:-9090}:9090"
+#      - "9090:9090"
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=${PROMETHEUS_RETENTION_TIME:-60d}'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
     volumes:
       - ./prometheus/config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - ./cht-instances.yml:/etc/prometheus/cht-instances.yml:ro
