@@ -2,3 +2,6 @@
 grafana/data
 prometheus/data
 .env
+node_modules/
+last-response.json
+

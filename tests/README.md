@@ -1,5 +1,17 @@
 # Testing cht-monitoring
 
+## Stream Random Data
+
+The [`fake-cht` server](./fake-cht) can be used to simulate the `/monitoring` endpoint of a CHT instance. The data it returns is random (within certain limits).
+
+### Configure
+
+Set `http://fake-cht:8081` in the [list in `cht-instances.yml`](../cht-instances.yml).
+
+### Deploy
+
+From the root directory, run `docker compose -f docker-compose.yml -f tests/fake-cht/docker-compose.fake-cht.yml up -d`.
+
 ## e2e tests
 
 ### Grafana dashboard panels

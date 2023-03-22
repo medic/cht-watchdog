@@ -85,6 +85,12 @@ docker-compose up -d
 
 Grafana is available at `http://localhost:3000` by default. You can log in with your configured admin username and password (`medic`:`password` by default).
 
+### Grafana Dashboards
+
+Example dashboards are included in the `Examples` folder in the Grafana UI. These should not be updated directly, but can be used as a starting point for creating your own dashboards.
+
+Future updates to this configuration can include additions/updates to the example dashboards.
+
 ## Monitoring Basics
 
 ### Metric types
