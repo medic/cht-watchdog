@@ -10,16 +10,11 @@ Each test is associated with an `xlsx` file in this directory that contains the 
 
 #### Running a test
 
-Edit the [`docker-compose.yml` file](../docker-compose.yml) and add the following to the `prometheus` service:
+Edit the [`docker-compose.yml` file](../docker-compose.yml) and add the following to the `prometheus` service `command` block:
 
 ```yaml
     command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.allow-overlapping-blocks'
-      - '--storage.tsdb.retention.time=360d'
-      - '--storage.tsdb.path=/prometheus'
-      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
-      - '--web.console.templates=/usr/share/prometheus/consoles'
 ```
 
 Start a fresh deployment of cht-monitoring without providing any CHT URL.
