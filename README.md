@@ -67,6 +67,12 @@ mkdir grafana/data && mkdir prometheus/data
 
 Edit the [`cht-instances.yml` file](./cht-instances.yml) to point to your desired CHT instance(s).
 
+#### Email Alerts
+
+To support sending email alerts from Grafana, you must update the `smtp` section of the [`grafana.ini` file](./grafana/grafana.ini) with your SMTP server configuration.
+
+Specific alerting rules can be set in the Grafana UI.  See the [Grafana Documentation](https://grafana.com/docs/grafana/latest/alerting/) for more information.
+
 ### Deploy
 
 Run the following command to deploy the stack:

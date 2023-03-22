@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  maildev:
+    image: maildev/maildev:latest
+    ports:
+      - "1080:1080"
+    networks:
+      - cht-monitoring-net
+    restart: always

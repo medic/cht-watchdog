@@ -28,3 +28,16 @@ Run `docker compose exec prometheus promtool tsdb create-blocks-from openmetrics
 Now you can open Grafana and verify that the panel is displaying the expected data.
 
 Remember, that you have to completely destroy the prometheus data volume before running another test that uses the same metric.
+
+### Email alerts
+
+To test email alerts, we can use a `maildev` server to accept incoming SMTP requests from Grafana.
+
+Update the [`graphana.ini` file](../grafana/grafana.ini) and add the following to the `smtp` section:
+
+```ini
+enabled = true
+host = maildev:1025
+```
+
+Start the `maildev` server along with the rest of the monitoring stack by running `docker compose -f docker-compose.yml -f tests/docker-compose.smtp.yml up -d`.
