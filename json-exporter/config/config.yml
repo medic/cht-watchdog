@@ -22,7 +22,7 @@ x-cht_messaging_outgoing_last_hundred: &cht_messaging_outgoing_last_hundred
 x-cht_messaging_outgoing_total: &cht_messaging_outgoing_total
   name: cht_messaging_outgoing_total
   help: Counts of the total number of messages.
-  valuetype: gauge
+  valuetype: counter
 
 modules:
   default:
