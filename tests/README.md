@@ -1,5 +1,7 @@
 # Testing cht-monitoring
 
+Testing Grafana behavior is tricky since it requires data to test. Typically, a Grafana panel/alert will be based on either the latest value from a stream of data or a sequence of historical data values.
+
 ## Stream Random Data
 
 The [`fake-cht` server](./fake-cht) can be used to simulate the `/monitoring` endpoint of a CHT instance. The data it returns is random (within certain limits).
@@ -12,11 +14,9 @@ Set `http://fake-cht:8081` in the [list in `cht-instances.yml`](../cht-instances
 
 From the root directory, run `docker compose -f docker-compose.yml -f tests/fake-cht/docker-compose.fake-cht.yml up -d`.
 
-## e2e tests
+## Historical data
 
-### Grafana dashboard panels
-
-Testing Grafana dashboard panels is tricky since it requires data to test. The following is a manual process that involves creating a test data-set and injecting it into a fresh deployment of Prometheus.
+The following is a manual process that involves creating a test data-set and injecting it into a fresh deployment of Prometheus.
 
 Each test is associated with an `xlsx` file in this directory that contains the test data (and a description of the test).
 
@@ -37,11 +37,11 @@ In your terminal, navigate to the `tests` directory and run `cat data.csv | ./ge
 
 Run `docker compose exec prometheus promtool tsdb create-blocks-from openmetrics /prometheus/data.txt /prometheus && docker compose restart prometheus` to push the data into Prometheus.
 
-Now you can open Grafana and verify that the panel is displaying the expected data.
+Now you can open Grafana and verify that the panel is displaying the expected data or the expected alert has fired.
 
 Remember, that you have to completely destroy the prometheus data volume before running another test that uses the same metric.
 
-### Email alerts
+## Email alerts
 
 To test email alerts, we can use a `maildev` server to accept incoming SMTP requests from Grafana.
 
@@ -53,3 +53,5 @@ host = maildev:1025
 ```
 
 Start the `maildev` server along with the rest of the monitoring stack by running `docker compose -f docker-compose.yml -f tests/docker-compose.smtp.yml up -d`.
+
+You can view the MailDev UI at http://localhost:1080.
