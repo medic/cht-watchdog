@@ -22,7 +22,7 @@ x-cht_messaging_outgoing_last_hundred: &cht_messaging_outgoing_last_hundred
 x-cht_messaging_outgoing_total: &cht_messaging_outgoing_total
   name: cht_messaging_outgoing_total
   help: Counts of the total number of messages.
-  valuetype: counter
+  valuetype: gauge
 
 modules:
   default:
@@ -45,7 +45,7 @@ modules:
 
       - name: cht_connected_users_count
         path: '{.connected_users.count}'
-        help: Number of users that have connected to the api recently.  By default the time interval is 7 days. Otherwise it is equal to the connected_user_interval parameter value used when making the /monitoring request.
+        help: Number of users that have connected to the api recently. By default the time interval is 7 days. Otherwise it is equal to the connected_user_interval parameter value used when making the /monitoring request.
         valuetype: gauge
 
       - <<: *cht_couchdb_doc_total
