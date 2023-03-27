@@ -1633,7 +1633,7 @@
               "refId": "C"
             }
           ],
-          "title": "Dashboard Get Duration Summary",
+          "title": "Grafana Dashboard Get Duration Summary",
           "type": "timeseries"
         },
         {
