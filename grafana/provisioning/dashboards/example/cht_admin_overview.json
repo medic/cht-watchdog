@@ -135,9 +135,9 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
+          "editorMode": "code",
           "exemplar": false,
-          "expr": "cht_version",
+          "expr": "cht_version{instance=~\"$cht_instance\"}",
           "format": "time_series",
           "instant": true,
           "legendFormat": "__auto",
@@ -244,8 +244,8 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
-          "expr": "rate(cht_couchdb_doc_total[1h]) * 60 * 60",
+          "editorMode": "code",
+          "expr": "rate(cht_couchdb_doc_total{instance=~\"$cht_instance\"}[1h]) * 60 * 60",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -321,9 +321,9 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
+          "editorMode": "code",
           "exemplar": false,
-          "expr": "cht_date_current_millis",
+          "expr": "cht_date_current_millis{instance=~\"$cht_instance\"}",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
@@ -392,8 +392,8 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
-          "expr": "cht_date_uptime_seconds / 60 / 60 / 24",
+          "editorMode": "code",
+          "expr": "cht_date_uptime_seconds{instance=~\"$cht_instance\"} / 60 / 60 / 24",
           "hide": false,
           "legendFormat": "__auto",
           "range": true,
@@ -472,8 +472,8 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
-          "expr": "rate(cht_conflict_count[24h]) * 60 * 60 * 24",
+          "editorMode": "code",
+          "expr": "rate(cht_conflict_count{instance=~\"$cht_instance\"}[24h]) * 60 * 60 * 24",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -551,8 +551,8 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
-          "expr": "rate(cht_feedback_total[24h]) * 60 * 60 * 24",
+          "editorMode": "code",
+          "expr": "rate(cht_feedback_total{instance=~\"$cht_instance\"}[24h]) * 60 * 60 * 24",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -641,7 +641,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "floor(abs(cht_date_current_millis / 1000 - time()))",
+          "expr": "floor(abs(cht_date_current_millis{instance=~\"$cht_instance\"} / 1000 - time()))",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
@@ -725,8 +725,8 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
-          "expr": "cht_outbound_push_backlog_count",
+          "editorMode": "code",
+          "expr": "cht_outbound_push_backlog_count{instance=~\"$cht_instance\"}",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -808,8 +808,8 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
-          "expr": "cht_sentinel_backlog_count",
+          "editorMode": "code",
+          "expr": "cht_sentinel_backlog_count{instance=~\"$cht_instance\"}",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -886,8 +886,8 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
-          "expr": "cht_couchdb_fragmentation",
+          "editorMode": "code",
+          "expr": "cht_couchdb_fragmentation{instance=~\"$cht_instance\"}",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -977,8 +977,8 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
-          "expr": "cht_replication_limit_count",
+          "editorMode": "code",
+          "expr": "cht_replication_limit_count{instance=~\"$cht_instance\"}",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -1066,9 +1066,9 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
+          "editorMode": "code",
           "exemplar": false,
-          "expr": "rate(cht_messaging_outgoing_total{status=\"delivered\"}[24h])",
+          "expr": "rate(cht_messaging_outgoing_total{status=\"delivered\",instance=~\"$cht_instance\"}[24h])",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
@@ -1080,9 +1080,9 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
+          "editorMode": "code",
           "exemplar": false,
-          "expr": "rate(cht_messaging_outgoing_total{status=\"failed\"}[24h])",
+          "expr": "rate(cht_messaging_outgoing_total{status=\"failed\",instance=~\"$cht_instance\"}[24h])",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
@@ -1169,8 +1169,8 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "editorMode": "builder",
-          "expr": "cht_connected_users_count",
+          "editorMode": "code",
+          "expr": "cht_connected_users_count{instance=~\"$cht_instance\"}",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -1221,8 +1221,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "green",
@@ -1306,8 +1305,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "green",
@@ -1391,8 +1389,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "green",
@@ -1460,8 +1457,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "blue",
-                    "value": null
+                    "color": "blue"
                   }
                 ]
               },
@@ -1553,8 +1549,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -1684,8 +1679,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   }
                 ]
               },
@@ -1804,8 +1798,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "rgba(50, 172, 45, 0.97)",
-                    "value": null
+                    "color": "rgba(50, 172, 45, 0.97)"
                   },
                   {
                     "color": "rgba(237, 129, 40, 0.89)",
@@ -1874,7 +1867,34 @@
   "style": "dark",
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "All",
+          "value": "$__all"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
+        "definition": "query_result(up{job=~\"cht\"})",
+        "hide": 0,
+        "includeAll": true,
+        "multi": false,
+        "name": "cht_instance",
+        "options": [],
+        "query": {
+          "query": "query_result(up{job=~\"cht\"})",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "/.*instance=\"([^\"]+).*/",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
   },
   "time": {
     "from": "now-24h",
@@ -1884,6 +1904,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 1,
+  "version": 4,
   "weekStart": ""
 }
