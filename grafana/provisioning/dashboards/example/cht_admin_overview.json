@@ -24,10 +24,22 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
   "links": [],
   "liveNow": false,
   "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 29,
+      "panels": [],
+      "title": "CHT Stack",
+      "type": "row"
+    },
     {
       "datasource": {
         "type": "prometheus",
@@ -37,7 +49,7 @@
         "h": 5,
         "w": 4,
         "x": 0,
-        "y": 0
+        "y": 1
       },
       "id": 10,
       "links": [
@@ -95,7 +107,7 @@
         "h": 5,
         "w": 6,
         "x": 4,
-        "y": 0
+        "y": 1
       },
       "id": 12,
       "links": [
@@ -209,7 +221,7 @@
         "h": 5,
         "w": 14,
         "x": 10,
-        "y": 0
+        "y": 1
       },
       "id": 8,
       "links": [],
@@ -285,7 +297,7 @@
         "h": 3,
         "w": 4,
         "x": 0,
-        "y": 5
+        "y": 6
       },
       "id": 18,
       "options": {
@@ -356,7 +368,7 @@
         "h": 6,
         "w": 6,
         "x": 4,
-        "y": 5
+        "y": 6
       },
       "id": 16,
       "options": {
@@ -429,7 +441,7 @@
         "h": 6,
         "w": 7,
         "x": 10,
-        "y": 5
+        "y": 6
       },
       "id": 7,
       "links": [
@@ -508,7 +520,7 @@
         "h": 6,
         "w": 7,
         "x": 17,
-        "y": 5
+        "y": 6
       },
       "id": 14,
       "links": [
@@ -603,7 +615,7 @@
         "h": 3,
         "w": 4,
         "x": 0,
-        "y": 8
+        "y": 9
       },
       "id": 19,
       "options": {
@@ -684,7 +696,7 @@
         "h": 6,
         "w": 5,
         "x": 0,
-        "y": 11
+        "y": 12
       },
       "id": 2,
       "links": [
@@ -767,7 +779,7 @@
         "h": 6,
         "w": 5,
         "x": 5,
-        "y": 11
+        "y": 12
       },
       "id": 3,
       "links": [
@@ -849,7 +861,7 @@
         "h": 6,
         "w": 7,
         "x": 10,
-        "y": 11
+        "y": 12
       },
       "id": 13,
       "links": [],
@@ -936,7 +948,7 @@
         "h": 6,
         "w": 7,
         "x": 17,
-        "y": 11
+        "y": 12
       },
       "id": 21,
       "links": [
@@ -1023,7 +1035,7 @@
         "h": 6,
         "w": 7,
         "x": 0,
-        "y": 17
+        "y": 18
       },
       "id": 27,
       "links": [
@@ -1133,7 +1145,7 @@
         "h": 6,
         "w": 7,
         "x": 17,
-        "y": 17
+        "y": 18
       },
       "id": 23,
       "options": {
@@ -1166,6 +1178,694 @@
       ],
       "title": "Monthly Active Users",
       "type": "stat"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 31,
+      "panels": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Indicates if Grafana is up.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "index": 1,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "index": 0,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "max": 1,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "green",
+                    "value": 1
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 0,
+            "y": 25
+          },
+          "id": 33,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "builder",
+              "exemplar": false,
+              "expr": "up{job=\"grafana\"}",
+              "instant": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Grafana",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Indicates if Prometheus is up.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "index": 1,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "index": 0,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "max": 1,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "green",
+                    "value": 1
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 3,
+            "y": 25
+          },
+          "id": 34,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "builder",
+              "exemplar": false,
+              "expr": "up{job=\"prometheus\"}",
+              "instant": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Prometheus",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Indicates if the JSON Exporter (used for scraping CHT metrics)  is up.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "0": {
+                      "index": 1,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "index": 0,
+                      "text": "UP"
+                    }
+                  },
+                  "type": "value"
+                }
+              ],
+              "max": 1,
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "green",
+                    "value": 1
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 3,
+            "x": 6,
+            "y": 25
+          },
+          "id": 35,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "builder",
+              "exemplar": false,
+              "expr": "up{job=\"json_exporter\"}",
+              "instant": false,
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "JSON Exporter",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Rate of Prometheus samples collected in the last hour.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "blue",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "samples/hr"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 4,
+            "x": 9,
+            "y": 25
+          },
+          "id": 37,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "rate(prometheus_tsdb_head_samples_appended_total{type=\"float\"}[1h])",
+              "legendFormat": "__auto",
+              "range": true,
+              "refId": "A"
+            }
+          ],
+          "title": "Prometheus Sample Rate",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "summary for dashboard get duration",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green",
+                    "value": null
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "ms"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 11,
+            "w": 11,
+            "x": 13,
+            "y": 25
+          },
+          "id": 43,
+          "links": [],
+          "options": {
+            "legend": {
+              "calcs": [
+                "mean",
+                "lastNotNull",
+                "max",
+                "min"
+              ],
+              "displayMode": "table",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "grafana_api_dashboard_get_milliseconds{quantile=\"0.5\"}",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "0.5",
+              "range": true,
+              "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "grafana_api_dashboard_get_milliseconds{quantile=\"0.9\"}",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "0.9",
+              "range": true,
+              "refId": "B"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "grafana_api_dashboard_get_milliseconds{quantile=\"0.99\"}",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "0.99",
+              "range": true,
+              "refId": "C"
+            }
+          ],
+          "title": "Dashboard Get Duration Summary",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Total number of rejected scrapes in Prometheus",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "Scrapes",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "lineInterpolation": "linear",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "decimals": 0,
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  }
+                ]
+              },
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 7,
+            "w": 9,
+            "x": 0,
+            "y": 29
+          },
+          "id": 39,
+          "links": [],
+          "options": {
+            "legend": {
+              "calcs": [],
+              "displayMode": "list",
+              "placement": "bottom",
+              "showLegend": true
+            },
+            "tooltip": {
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(prometheus_target_scrapes_exceeded_sample_limit_total)",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "legendFormat": "exceeded sample limit",
+              "range": true,
+              "refId": "A",
+              "step": 4
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(prometheus_target_scrapes_sample_duplicate_timestamp_total)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 2,
+              "legendFormat": "duplicate timestamp",
+              "range": true,
+              "refId": "B",
+              "step": 4
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(prometheus_target_scrapes_sample_out_of_bounds_total)",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 2,
+              "legendFormat": "out of bounds",
+              "range": true,
+              "refId": "C",
+              "step": 4
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(prometheus_target_scrapes_sample_out_of_order_total) ",
+              "format": "time_series",
+              "hide": false,
+              "intervalFactor": 2,
+              "legendFormat": "out of order",
+              "range": true,
+              "refId": "D",
+              "step": 4
+            }
+          ],
+          "title": "Prometheus Rejected Scrapes",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "Sum of all skipped Prometheus scrapes in the past 30 days",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "match": "null",
+                    "result": {
+                      "text": "N/A"
+                    }
+                  },
+                  "type": "special"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "rgba(50, 172, 45, 0.97)",
+                    "value": null
+                  },
+                  {
+                    "color": "rgba(237, 129, 40, 0.89)",
+                    "value": 1
+                  },
+                  {
+                    "color": "rgba(245, 54, 54, 0.9)",
+                    "value": 10
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 4,
+            "x": 9,
+            "y": 30
+          },
+          "id": 41,
+          "links": [],
+          "maxDataPoints": 100,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(sum_over_time(prometheus_target_scrapes_exceeded_sample_limit_total[30d])) + \nsum(sum_over_time(prometheus_target_scrapes_sample_duplicate_timestamp_total[30d])) + \nsum(sum_over_time(prometheus_target_scrapes_sample_out_of_bounds_total[30d])) + \nsum(sum_over_time(prometheus_target_scrapes_sample_out_of_order_total[30d])) ",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "range": true,
+              "refId": "A",
+              "step": 40
+            }
+          ],
+          "title": "Skipped Scrapes [30d]",
+          "type": "stat"
+        }
+      ],
+      "title": "Monitoring Stack",
+      "type": "row"
     }
   ],
   "refresh": "5s",
@@ -1182,8 +1882,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "CHT Admin",
+  "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 9,
+  "version": 1,
   "weekStart": ""
 }
