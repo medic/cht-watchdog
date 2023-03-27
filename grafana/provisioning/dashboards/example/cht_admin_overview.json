@@ -101,7 +101,20 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "label"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 85
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 5,
@@ -126,7 +139,8 @@
           ],
           "show": false
         },
-        "showHeader": false
+        "showHeader": false,
+        "sortBy": []
       },
       "pluginVersion": "9.4.3",
       "targets": [
@@ -1114,6 +1128,209 @@
     },
     {
       "datasource": {
+        "type": "grafana-discourse-datasource",
+        "uid": "G6gpNLBVz"
+      },
+      "description": "Recent releases in the Community Healthcare Toolkit ecosystem",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": false,
+            "inspect": false
+          },
+          "links": [
+            {
+              "targetBlank": true,
+              "title": "Release Page",
+              "url": "https://forum.communityhealthtoolkit.org/t/${__data.fields.id}"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "created_at"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 117
+              },
+              {
+                "id": "unit",
+                "value": "dateTimeFromNow"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "id"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 10,
+        "x": 7,
+        "y": 18
+      },
+      "id": 44,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "",
+          "url": "https://forum.communityhealthtoolkit.org/c/product/releases/26"
+        }
+      ],
+      "options": {
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": false,
+        "sortBy": []
+      },
+      "pluginVersion": "9.4.3",
+      "targets": [
+        {
+          "category": "All categories",
+          "datasource": {
+            "type": "grafana-discourse-datasource",
+            "uid": "G6gpNLBVz"
+          },
+          "getPaginated": false,
+          "key": "Q-342fa67d-6732-461d-ab51-efdbefe6062a-0",
+          "period": "monthly",
+          "queryType": "search",
+          "refId": "A",
+          "reportName": "topics_with_no_response.json",
+          "searchArea": "topics_posts",
+          "searchAuthor": "",
+          "searchCategory": "releases",
+          "searchDate": "",
+          "searchPosted": "",
+          "searchQuery": "",
+          "searchSort": "latest",
+          "searchStatus": "",
+          "searchTag": "",
+          "tag": "",
+          "tagQuery": "",
+          "userQuery": "topPublicUsers"
+        }
+      ],
+      "title": "Recent CHT Releases",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "archetype": true,
+              "archived": true,
+              "bookmarked": true,
+              "bumped": true,
+              "bumped_at": true,
+              "category_id": true,
+              "closed": true,
+              "fancy_title": true,
+              "has_accepted_answer": true,
+              "highest_post_number": true,
+              "id": false,
+              "last_posted_at": true,
+              "liked": true,
+              "pinned": true,
+              "posts_count": true,
+              "reply_count": true,
+              "slug": true,
+              "tags": true,
+              "tags_descriptions": true,
+              "unpinned": true,
+              "unseen": true,
+              "visible": true
+            },
+            "indexByName": {
+              "archetype": 11,
+              "archived": 17,
+              "bookmarked": 18,
+              "bumped": 9,
+              "bumped_at": 10,
+              "category_id": 22,
+              "closed": 16,
+              "created_at": 0,
+              "fancy_title": 3,
+              "has_accepted_answer": 23,
+              "highest_post_number": 7,
+              "id": 2,
+              "last_posted_at": 8,
+              "liked": 19,
+              "pinned": 13,
+              "posts_count": 5,
+              "reply_count": 6,
+              "slug": 4,
+              "tags": 20,
+              "tags_descriptions": 21,
+              "title": 1,
+              "unpinned": 14,
+              "unseen": 12,
+              "visible": 15
+            },
+            "renameByName": {
+              "created_at": "",
+              "id": "",
+              "slug": ""
+            }
+          }
+        },
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "",
+                "destinationType": "time",
+                "targetField": "created_at"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "limit",
+          "options": {}
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       },
@@ -1904,6 +2121,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 7,
+  "version": 10,
   "weekStart": ""
 }

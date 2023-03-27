@@ -12,3 +12,13 @@ datasources:
     # Should match the minimum scrape_interval in prometheus.yml
     # TODO This should be increased before release
     scrapeInterval: 10s
+
+  - name: Discourse
+    type: grafana-discourse-datasource
+    access: proxy
+    orgId: 1
+    url: https://forum.communityhealthtoolkit.org
+    basicAuth: false
+    isDefault: false
+    editable: true
+    scrapeInterval: 1h

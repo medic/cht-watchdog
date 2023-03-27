@@ -36,18 +36,18 @@ cp .env.example .env
 
 Open the new `.env` file in a text editor and set your desired configuration values.
 
-| Name                        | Default             | Description                                                                                            |
-|-----------------------------|---------------------|--------------------------------------------------------------------------------------------------------|
-| `ADMIN_USER`                | `medic`             | Username for the Grafana admin user                                                                    |
-| `ADMIN_PASSWORD`            | `password`          | Password for the Grafana admin user                                                                    |
-| `GRAFANA_VERSION`           | `latest`            | Version of the `grafana/grafana-oss` image                                                             |
-| `GRAFANA_PORT`              | `3000`              | Port on the host where Grafana will be available                                                       |
-| `GRAFANA_DATA`              | `./grafana/data`    | The host directory where Grafana data will be stored                                                   |
-| `GRAFANA_PLUGINS`           | ``                  | Comma separated list of plugins to install (e.g: `grafana-clock-panel,grafana-simple-json-datasource`) |
-| `JSON_EXPORTER_VERSION`     | `latest`            | Version of the `prometheuscommunity/json-exporter` image                                               |
-| `PROMETHEUS_VERSION`        | `latest`            | Version of the `prom/prometheus` image                                                                 |
-| `PROMETHEUS_DATA`           | `./prometheus/data` | The host directory where Prometheus data will be stored                                                |
-| `PROMETHEUS_RETENTION_TIME` | `60d`               | Length of time that Prometheus will store data (e.g. `15d`, `6m`, `1y`)                                |
+| Name                        | Default                         | Description                                                                                            |
+|-----------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------|
+| `ADMIN_USER`                | `medic`                         | Username for the Grafana admin user                                                                    |
+| `ADMIN_PASSWORD`            | `password`                      | Password for the Grafana admin user                                                                    |
+| `GRAFANA_VERSION`           | `latest`                        | Version of the `grafana/grafana-oss` image                                                             |
+| `GRAFANA_PORT`              | `3000`                          | Port on the host where Grafana will be available                                                       |
+| `GRAFANA_DATA`              | `./grafana/data`                | The host directory where Grafana data will be stored                                                   |
+| `GRAFANA_PLUGINS`           | `grafana-discourse-datasource`  | Comma separated list of plugins to install (e.g: `grafana-clock-panel,grafana-simple-json-datasource`) |
+| `JSON_EXPORTER_VERSION`     | `latest`                        | Version of the `prometheuscommunity/json-exporter` image                                               |
+| `PROMETHEUS_VERSION`        | `latest`                        | Version of the `prom/prometheus` image                                                                 |
+| `PROMETHEUS_DATA`           | `./prometheus/data`             | The host directory where Prometheus data will be stored                                                |
+| `PROMETHEUS_RETENTION_TIME` | `60d`                           | Length of time that Prometheus will store data (e.g. `15d`, `6m`, `1y`)                                |
 
 ##### Prometheus Storage
 
