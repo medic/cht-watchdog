@@ -2098,6 +2098,7 @@
         "definition": "query_result(up{job=~\"cht\"})",
         "hide": 0,
         "includeAll": true,
+        "label": "CHT Instance",
         "multi": false,
         "name": "cht_instance",
         "options": [],
