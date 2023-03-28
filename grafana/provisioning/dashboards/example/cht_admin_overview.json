@@ -1509,7 +1509,7 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "description": "Rate of Prometheus samples collected in the last hour.",
+          "description": "Number of Prometheus samples collected in the last hour.",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1901,7 +1901,7 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "description": "Indicates if the JSON Exporter (used for scraping CHT metrics)  is up.",
+          "description": "Indicates if the JSON Exporter (used for scraping CHT metrics) is up.",
           "fieldConfig": {
             "defaults": {
               "color": {
