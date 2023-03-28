@@ -15,6 +15,7 @@ datasources:
 
   - name: Discourse
     type: grafana-discourse-datasource
+    uid: G6gpNLBVz
     access: proxy
     orgId: 1
     url: https://forum.communityhealthtoolkit.org
