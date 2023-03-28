@@ -1017,7 +1017,7 @@
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       },
-      "description": "The percentage of messages delivered in the last 24hrs (vs messages that failed to be delivered). ",
+      "description": "The percentage of messages successfully delivered in the last 24hrs",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1126,7 +1126,7 @@
           "type": "math"
         }
       ],
-      "title": "Message Delivery Rate (24hrs)",
+      "title": "Message Delivery Rate [24h]",
       "transformations": [
         {
           "id": "filterByRefId",
