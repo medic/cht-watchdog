@@ -28,6 +28,7 @@ Run the following commands to clone this repository and initialize your `.env` f
 git clone https://github.com/jkuester/cht-monitoring.git
 cd cht-monitoring
 cp .env.example .env
+cp cht-instances.example.yml cht-instances.yml
 ```
 
 ### Configure
