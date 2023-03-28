@@ -1424,91 +1424,6 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "description": "Indicates if Grafana is up.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [
-                {
-                  "options": {
-                    "0": {
-                      "index": 1,
-                      "text": "DOWN"
-                    },
-                    "1": {
-                      "index": 0,
-                      "text": "UP"
-                    }
-                  },
-                  "type": "value"
-                }
-              ],
-              "max": 1,
-              "min": 0,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "red",
-                    "value": null
-                  },
-                  {
-                    "color": "green",
-                    "value": 1
-                  }
-                ]
-              },
-              "unit": "none"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 4,
-            "w": 3,
-            "x": 0,
-            "y": 25
-          },
-          "id": 33,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "textMode": "auto"
-          },
-          "pluginVersion": "9.4.3",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "builder",
-              "exemplar": false,
-              "expr": "up{job=\"grafana\"}",
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "Grafana",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
           "description": "Indicates if Prometheus is up.",
           "fieldConfig": {
             "defaults": {
@@ -1550,9 +1465,9 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 4,
-            "w": 3,
-            "x": 3,
+            "h": 5,
+            "w": 4,
+            "x": 0,
             "y": 25
           },
           "id": 34,
@@ -1594,91 +1509,6 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "description": "Indicates if the JSON Exporter (used for scraping CHT metrics)  is up.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [
-                {
-                  "options": {
-                    "0": {
-                      "index": 1,
-                      "text": "DOWN"
-                    },
-                    "1": {
-                      "index": 0,
-                      "text": "UP"
-                    }
-                  },
-                  "type": "value"
-                }
-              ],
-              "max": 1,
-              "min": 0,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "red",
-                    "value": null
-                  },
-                  {
-                    "color": "green",
-                    "value": 1
-                  }
-                ]
-              },
-              "unit": "none"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 4,
-            "w": 3,
-            "x": 6,
-            "y": 25
-          },
-          "id": 35,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "textMode": "auto"
-          },
-          "pluginVersion": "9.4.3",
-          "targets": [
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "builder",
-              "exemplar": false,
-              "expr": "up{job=\"json_exporter\"}",
-              "instant": false,
-              "legendFormat": "__auto",
-              "range": true,
-              "refId": "A"
-            }
-          ],
-          "title": "JSON Exporter",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
           "description": "Rate of Prometheus samples collected in the last hour.",
           "fieldConfig": {
             "defaults": {
@@ -1700,9 +1530,9 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 5,
-            "w": 4,
-            "x": 9,
+            "h": 4,
+            "w": 5,
+            "x": 4,
             "y": 25
           },
           "id": 37,
@@ -1742,7 +1572,92 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "description": "summary for dashboard get duration",
+          "description": "Sum of all skipped Prometheus scrapes in the past 30 days",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [
+                {
+                  "options": {
+                    "match": "null",
+                    "result": {
+                      "text": "N/A"
+                    }
+                  },
+                  "type": "special"
+                }
+              ],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "rgba(50, 172, 45, 0.97)",
+                    "value": null
+                  },
+                  {
+                    "color": "rgba(237, 129, 40, 0.89)",
+                    "value": 1
+                  },
+                  {
+                    "color": "rgba(245, 54, 54, 0.9)",
+                    "value": 10
+                  }
+                ]
+              },
+              "unit": "none"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 4,
+            "x": 9,
+            "y": 25
+          },
+          "id": 41,
+          "links": [],
+          "maxDataPoints": 100,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "sum(sum_over_time(prometheus_target_scrapes_exceeded_sample_limit_total[30d])) + \nsum(sum_over_time(prometheus_target_scrapes_sample_duplicate_timestamp_total[30d])) + \nsum(sum_over_time(prometheus_target_scrapes_sample_out_of_bounds_total[30d])) + \nsum(sum_over_time(prometheus_target_scrapes_sample_out_of_order_total[30d])) ",
+              "format": "time_series",
+              "intervalFactor": 2,
+              "range": true,
+              "refId": "A",
+              "step": 40
+            }
+          ],
+          "title": "Skipped Scrapes [30d]",
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "description": "How long it took to scrape a data source",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -1755,7 +1670,7 @@
                 "axisPlacement": "auto",
                 "barAlignment": 0,
                 "drawStyle": "line",
-                "fillOpacity": 10,
+                "fillOpacity": 0,
                 "gradientMode": "none",
                 "hideFrom": {
                   "legend": false,
@@ -1768,7 +1683,7 @@
                 "scaleDistribution": {
                   "type": "linear"
                 },
-                "showPoints": "never",
+                "showPoints": "auto",
                 "spanNulls": false,
                 "stacking": {
                   "group": "A",
@@ -1785,39 +1700,30 @@
                   {
                     "color": "green",
                     "value": null
-                  },
-                  {
-                    "color": "red",
-                    "value": 80
                   }
                 ]
               },
-              "unit": "ms"
+              "unit": "s"
             },
             "overrides": []
           },
           "gridPos": {
-            "h": 11,
+            "h": 10,
             "w": 11,
             "x": 13,
             "y": 25
           },
-          "id": 43,
+          "id": 45,
           "links": [],
           "options": {
             "legend": {
-              "calcs": [
-                "mean",
-                "lastNotNull",
-                "max",
-                "min"
-              ],
-              "displayMode": "table",
+              "calcs": [],
+              "displayMode": "list",
               "placement": "bottom",
               "showLegend": true
             },
             "tooltip": {
-              "mode": "multi",
+              "mode": "single",
               "sort": "none"
             }
           },
@@ -1829,41 +1735,23 @@
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
-              "expr": "grafana_api_dashboard_get_milliseconds{quantile=\"0.5\"}",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "0.5",
+              "expr": "scrape_duration_seconds",
+              "instant": false,
+              "legendFormat": "__auto",
               "range": true,
               "refId": "A"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "grafana_api_dashboard_get_milliseconds{quantile=\"0.9\"}",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "0.9",
-              "range": true,
-              "refId": "B"
-            },
-            {
-              "datasource": {
-                "type": "prometheus",
-                "uid": "PBFA97CFB590B2093"
-              },
-              "editorMode": "code",
-              "expr": "grafana_api_dashboard_get_milliseconds{quantile=\"0.99\"}",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "legendFormat": "0.99",
-              "range": true,
-              "refId": "C"
             }
           ],
-          "title": "Grafana Dashboard Get Duration Summary",
+          "title": "Scrape Duration",
+          "transformations": [
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": ".*instance=\"([^\"]+)\".*",
+                "renamePattern": "$1"
+              }
+            }
+          ],
           "type": "timeseries"
         },
         {
@@ -1924,9 +1812,9 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 7,
+            "h": 6,
             "w": 9,
-            "x": 0,
+            "x": 4,
             "y": 29
           },
           "id": 39,
@@ -2013,7 +1901,7 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "description": "Sum of all skipped Prometheus scrapes in the past 30 days",
+          "description": "Indicates if the JSON Exporter (used for scraping CHT metrics)  is up.",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -2022,28 +1910,30 @@
               "mappings": [
                 {
                   "options": {
-                    "match": "null",
-                    "result": {
-                      "text": "N/A"
+                    "0": {
+                      "index": 1,
+                      "text": "DOWN"
+                    },
+                    "1": {
+                      "index": 0,
+                      "text": "UP"
                     }
                   },
-                  "type": "special"
+                  "type": "value"
                 }
               ],
+              "max": 1,
+              "min": 0,
               "thresholds": {
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "rgba(50, 172, 45, 0.97)",
+                    "color": "red",
                     "value": null
                   },
                   {
-                    "color": "rgba(237, 129, 40, 0.89)",
+                    "color": "green",
                     "value": 1
-                  },
-                  {
-                    "color": "rgba(245, 54, 54, 0.9)",
-                    "value": 10
                   }
                 ]
               },
@@ -2052,19 +1942,17 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 6,
+            "h": 5,
             "w": 4,
-            "x": 9,
+            "x": 0,
             "y": 30
           },
-          "id": 41,
-          "links": [],
-          "maxDataPoints": 100,
+          "id": 35,
           "options": {
             "colorMode": "value",
             "graphMode": "area",
             "justifyMode": "auto",
-            "orientation": "horizontal",
+            "orientation": "auto",
             "reduceOptions": {
               "calcs": [
                 "lastNotNull"
@@ -2081,16 +1969,16 @@
                 "type": "prometheus",
                 "uid": "PBFA97CFB590B2093"
               },
-              "editorMode": "code",
-              "expr": "sum(sum_over_time(prometheus_target_scrapes_exceeded_sample_limit_total[30d])) + \nsum(sum_over_time(prometheus_target_scrapes_sample_duplicate_timestamp_total[30d])) + \nsum(sum_over_time(prometheus_target_scrapes_sample_out_of_bounds_total[30d])) + \nsum(sum_over_time(prometheus_target_scrapes_sample_out_of_order_total[30d])) ",
-              "format": "time_series",
-              "intervalFactor": 2,
+              "editorMode": "builder",
+              "exemplar": false,
+              "expr": "up{job=\"json_exporter\"}",
+              "instant": false,
+              "legendFormat": "__auto",
               "range": true,
-              "refId": "A",
-              "step": 40
+              "refId": "A"
             }
           ],
-          "title": "Skipped Scrapes [30d]",
+          "title": "JSON Exporter",
           "type": "stat"
         }
       ],
@@ -2142,6 +2030,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 16,
+  "version": 1,
   "weekStart": ""
 }
