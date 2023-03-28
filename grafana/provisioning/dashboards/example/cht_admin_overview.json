@@ -435,7 +435,7 @@
             {
               "targetBlank": false,
               "title": "Doc Conflicts",
-              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=9&var-cht_instance=${cht_instance}"
+              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=9&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
             }
           ],
           "mappings": [],
