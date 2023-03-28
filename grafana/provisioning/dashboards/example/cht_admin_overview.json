@@ -431,6 +431,13 @@
           "color": {
             "mode": "thresholds"
           },
+          "links": [
+            {
+              "targetBlank": false,
+              "title": "Doc Conflicts",
+              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=9&var-cht_instance=${cht_instance}"
+            }
+          ],
           "mappings": [],
           "min": 0,
           "thresholds": {
@@ -1451,8 +1458,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "green",
@@ -1520,8 +1526,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "blue",
-                    "value": null
+                    "color": "blue"
                   }
                 ]
               },
@@ -1593,8 +1598,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "rgba(50, 172, 45, 0.97)",
-                    "value": null
+                    "color": "rgba(50, 172, 45, 0.97)"
                   },
                   {
                     "color": "rgba(237, 129, 40, 0.89)",
@@ -1698,8 +1702,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   }
                 ]
               },
@@ -1802,8 +1805,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   }
                 ]
               },
@@ -1928,8 +1930,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red",
-                    "value": null
+                    "color": "red"
                   },
                   {
                     "color": "green",
@@ -2030,6 +2031,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 1,
+  "version": 4,
   "weekStart": ""
 }
