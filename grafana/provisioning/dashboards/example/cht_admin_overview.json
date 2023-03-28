@@ -21,6 +21,7 @@
       }
     ]
   },
+  "description": "Provides an overview of the CHT system metrics",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
@@ -2140,6 +2141,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 14,
+  "version": 16,
   "weekStart": ""
 }
