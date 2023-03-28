@@ -407,10 +407,12 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
+          "exemplar": false,
           "expr": "cht_date_uptime_seconds{instance=~\"$cht_instance\"} / 60 / 60 / 24",
           "hide": false,
+          "instant": true,
           "legendFormat": "__auto",
-          "range": true,
+          "range": false,
           "refId": "A"
         }
       ],
@@ -740,9 +742,11 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
+          "exemplar": false,
           "expr": "cht_outbound_push_backlog_count{instance=~\"$cht_instance\"}",
+          "instant": true,
           "legendFormat": "__auto",
-          "range": true,
+          "range": false,
           "refId": "A"
         }
       ],
@@ -823,9 +827,11 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
+          "exemplar": false,
           "expr": "cht_sentinel_backlog_count{instance=~\"$cht_instance\"}",
+          "instant": true,
           "legendFormat": "__auto",
-          "range": true,
+          "range": false,
           "refId": "A"
         }
       ],
@@ -901,10 +907,11 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
+          "exemplar": false,
           "expr": "cht_couchdb_fragmentation{instance=~\"$cht_instance\"}",
-          "instant": false,
+          "instant": true,
           "legendFormat": "__auto",
-          "range": true,
+          "range": false,
           "refId": "A"
         }
       ],
@@ -992,9 +999,11 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
+          "exemplar": false,
           "expr": "cht_replication_limit_count{instance=~\"$cht_instance\"}",
+          "instant": true,
           "legendFormat": "__auto",
-          "range": true,
+          "range": false,
           "refId": "A"
         }
       ],
@@ -1387,9 +1396,11 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
+          "exemplar": false,
           "expr": "cht_connected_users_count{instance=~\"$cht_instance\"}",
+          "instant": true,
           "legendFormat": "__auto",
-          "range": true,
+          "range": false,
           "refId": "A"
         }
       ],
@@ -1438,7 +1449,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "green",
@@ -1522,7 +1534,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "green",
@@ -1606,7 +1619,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "green",
@@ -1674,7 +1688,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "blue"
+                    "color": "blue",
+                    "value": null
                   }
                 ]
               },
@@ -1766,7 +1781,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1896,7 +1912,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   }
                 ]
               },
@@ -2015,7 +2032,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "rgba(50, 172, 45, 0.97)"
+                    "color": "rgba(50, 172, 45, 0.97)",
+                    "value": null
                   },
                   {
                     "color": "rgba(237, 129, 40, 0.89)",
@@ -2122,6 +2140,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 10,
+  "version": 14,
   "weekStart": ""
 }
