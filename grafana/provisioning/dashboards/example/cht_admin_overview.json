@@ -77,7 +77,7 @@
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       },
-      "description": "",
+      "description": "Software versions for the CHT stack",
       "fieldConfig": {
         "defaults": {
           "color": {
