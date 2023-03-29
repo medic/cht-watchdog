@@ -1370,6 +1370,12 @@
           "color": {
             "mode": "thresholds"
           },
+          "links": [
+            {
+              "title": "Monthly Active Users",
+              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=29&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+            }
+          ],
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -2043,6 +2049,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 7,
+  "version": 9,
   "weekStart": ""
 }
