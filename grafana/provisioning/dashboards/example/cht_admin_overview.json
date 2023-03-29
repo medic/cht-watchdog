@@ -523,6 +523,12 @@
           "color": {
             "mode": "thresholds"
           },
+          "links": [
+            {
+              "title": "Fragmentation",
+              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=19&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+            }
+          ],
           "mappings": [],
           "min": 1,
           "noValue": "NO DATA",
@@ -2037,6 +2043,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 5,
+  "version": 7,
   "weekStart": ""
 }
