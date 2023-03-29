@@ -29,7 +29,7 @@ Each test is associated with an `xlsx` file in this directory that contains the 
 Start a fresh deployment of cht-monitoring without providing any CHT URL and with the test override:
 
 ```
-docker compose -f docker-compose.yml -f tests/fake-cht/prometheus-command-override.yml up -d`
+docker compose -f docker-compose.yml -f tests/docker-compose.test-data.yml up -d`
 ```
 
 Open the `xlsx` file of the test you want to run. Switch to the `data` sheet and Save As a `csv` file (named `data.csv`) in the `tests` directory.

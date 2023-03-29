@@ -3,6 +3,7 @@ version: "3.9"
 
 services:
   prometheus:
+    # Set storage.tsdb.allow-overlapping-blocks to support injecting test data with overlapping timestamps
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
