@@ -12,7 +12,11 @@ Set `http://fake-cht:8081` in the [list in `cht-instances.yml`](../cht-instances
 
 ### Deploy
 
-From the root directory, run `docker compose -f docker-compose.yml -f tests/fake-cht/docker-compose.fake-cht.yml up -d`.
+From the root directory, run:
+
+```
+docker compose -f docker-compose.yml -f tests/fake-cht/docker-compose.fake-cht.yml up -d`
+```
 
 ## Historical data
 
@@ -22,14 +26,11 @@ Each test is associated with an `xlsx` file in this directory that contains the 
 
 #### Running a test
 
-Edit the [`docker-compose.yml` file](../docker-compose.yml) and add the following to the `prometheus` service `command` block:
+Start a fresh deployment of cht-monitoring without providing any CHT URL and with the test override:
 
-```yaml
-    command:
-      - '--storage.tsdb.allow-overlapping-blocks'
 ```
-
-Start a fresh deployment of cht-monitoring without providing any CHT URL.
+docker compose -f docker-compose.yml -f tests/fake-cht/prometheus-command-override.yml up -d`
+```
 
 Open the `xlsx` file of the test you want to run. Switch to the `data` sheet and Save As a `csv` file (named `data.csv`) in the `tests` directory.
 
