@@ -96,7 +96,7 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 6,
+        "w": 12,
         "x": 0,
         "y": 1
       },
@@ -194,7 +194,7 @@
         "h": 6,
         "w": 9,
         "x": 0,
-        "y": 7
+        "y": 13
       },
       "id": 7,
       "options": {
@@ -292,7 +292,7 @@
         "h": 6,
         "w": 6,
         "x": 9,
-        "y": 7
+        "y": 13
       },
       "id": 9,
       "options": {
@@ -379,38 +379,13 @@
             ]
           }
         },
-        "overrides": [
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "sentinel"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
         "h": 6,
         "w": 9,
         "x": 15,
-        "y": 7
+        "y": 13
       },
       "id": 19,
       "options": {
@@ -527,6 +502,6 @@
   "timezone": "",
   "title": "CHT Admin Details",
   "uid": "hkQUbyfVk",
-  "version": 16,
+  "version": 18,
   "weekStart": ""
 }
