@@ -9,4 +9,6 @@ services:
       - ./tests/fake-cht:/home/node/app
     networks:
       - cht-monitoring-net
-    command: "npm start"
+    command: >
+      sh -c "npm install &&
+             npm start"
