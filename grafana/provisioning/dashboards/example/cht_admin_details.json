@@ -101,7 +101,7 @@
         "y": 1
       },
       "id": 2,
-      "maxPerRow": 4,
+      "maxPerRow": 2,
       "options": {
         "legend": {
           "calcs": [],
@@ -379,7 +379,32 @@
             ]
           }
         },
-        "overrides": []
+        "overrides": [
+          {
+            "__systemRef": "hideSeriesFrom",
+            "matcher": {
+              "id": "byNames",
+              "options": {
+                "mode": "exclude",
+                "names": [
+                  "sentinel"
+                ],
+                "prefix": "All except:",
+                "readOnly": true
+              }
+            },
+            "properties": [
+              {
+                "id": "custom.hideFrom",
+                "value": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": true
+                }
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 6,
@@ -502,6 +527,6 @@
   "timezone": "",
   "title": "CHT Admin Details",
   "uid": "hkQUbyfVk",
-  "version": 15,
+  "version": 16,
   "weekStart": ""
 }
