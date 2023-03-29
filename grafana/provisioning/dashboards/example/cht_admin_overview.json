@@ -25,6 +25,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 3,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -367,6 +368,12 @@
           "color": {
             "mode": "thresholds"
           },
+          "links": [
+            {
+              "title": "Failed Messages",
+              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=63&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+            }
+          ],
           "mappings": [
             {
               "options": {
@@ -771,6 +778,12 @@
             "mode": "thresholds"
           },
           "displayName": "changes",
+          "links": [
+            {
+              "title": "Outbound Push Backlog",
+              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=66&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+            }
+          ],
           "mappings": [],
           "max": 15,
           "min": 0,
@@ -856,6 +869,12 @@
             "mode": "thresholds"
           },
           "displayName": "changes",
+          "links": [
+            {
+              "title": "Sentinel Backlog",
+              "url": "./d/hkQUbyfVk/cht-admin-details?viewPanel=69&orgId=1&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+            }
+          ],
           "mappings": [],
           "max": 30,
           "min": 0,
@@ -940,6 +959,12 @@
           "color": {
             "mode": "thresholds"
           },
+          "links": [
+            {
+              "title": "Client Feedback/Errors",
+              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=41&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+            }
+          ],
           "mappings": [],
           "min": 0,
           "thresholds": {
@@ -1019,6 +1044,12 @@
           "color": {
             "mode": "thresholds"
           },
+          "links": [
+            {
+              "title": "Users Over Replication Limit",
+              "url": "./d/hkQUbyfVk/cht-admin-details?viewPanel=68&orgId=1&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+            }
+          ],
           "mappings": [],
           "max": 15,
           "min": 0,
@@ -1985,6 +2016,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 9,
+  "version": 17,
   "weekStart": ""
 }
