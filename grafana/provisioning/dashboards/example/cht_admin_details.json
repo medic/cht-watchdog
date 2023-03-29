@@ -355,48 +355,33 @@
         "current": {
           "selected": true,
           "text": [
-            "medic",
             "_users",
+            "medic",
             "medic-users-meta",
             "sentinel"
           ],
           "value": [
-            "medic",
             "_users",
+            "medic",
             "medic-users-meta",
             "sentinel"
           ]
         },
+        "definition": "cht_couchdb_doc_total{instance=~\"$cht_instance\"}",
         "hide": 2,
         "includeAll": false,
         "multi": true,
         "name": "db_name",
-        "options": [
-          {
-            "selected": true,
-            "text": "medic",
-            "value": "medic"
-          },
-          {
-            "selected": true,
-            "text": "_users",
-            "value": "_users"
-          },
-          {
-            "selected": true,
-            "text": "medic-users-meta",
-            "value": "medic-users-meta"
-          },
-          {
-            "selected": true,
-            "text": "sentinel",
-            "value": "sentinel"
-          }
-        ],
-        "query": "medic,_users,medic-users-meta,sentinel",
-        "queryValue": "",
+        "options": [],
+        "query": {
+          "query": "cht_couchdb_doc_total{instance=~\"$cht_instance\"}",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": ".*db=\"([^\"]+)\".*",
         "skipUrlSync": false,
-        "type": "custom"
+        "sort": 0,
+        "type": "query"
       }
     ]
   },
@@ -408,6 +393,6 @@
   "timezone": "",
   "title": "CHT Admin Details",
   "uid": "hkQUbyfVk",
-  "version": 9,
+  "version": 11,
   "weekStart": ""
 }
