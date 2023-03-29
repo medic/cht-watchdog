@@ -217,6 +217,12 @@
               "mode": "off"
             }
           },
+          "links": [
+            {
+              "title": "DB Doc Count",
+              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=2&var-cht_instance=${cht_instance}&var-db_name=${__field.labels.db}&from=${__from}&to=${__to}"
+            }
+          ],
           "mappings": [],
           "min": 0,
           "thresholds": {
