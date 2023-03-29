@@ -28,6 +28,17 @@
   "liveNow": false,
   "panels": [
     {
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 14,
+      "title": "CouchDB",
+      "type": "row"
+    },
+    {
       "datasource": {
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
@@ -84,7 +95,7 @@
         "h": 6,
         "w": 6,
         "x": 0,
-        "y": 0
+        "y": 1
       },
       "id": 2,
       "maxPerRow": 4,
@@ -180,7 +191,7 @@
         "h": 6,
         "w": 9,
         "x": 0,
-        "y": 6
+        "y": 7
       },
       "id": 7,
       "options": {
@@ -278,7 +289,7 @@
         "h": 6,
         "w": 6,
         "x": 9,
-        "y": 6
+        "y": 7
       },
       "id": 9,
       "options": {
@@ -397,6 +408,6 @@
   "timezone": "",
   "title": "CHT Admin Details",
   "uid": "hkQUbyfVk",
-  "version": 5,
+  "version": 9,
   "weekStart": ""
 }
