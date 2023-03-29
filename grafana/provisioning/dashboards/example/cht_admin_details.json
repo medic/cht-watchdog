@@ -514,6 +514,76 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
+          "description": "The current server date and time, useful for ensuring the server time is correct.",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "red",
+                    "value": null
+                  },
+                  {
+                    "color": "blue",
+                    "value": 0
+                  }
+                ]
+              },
+              "unit": "dateTimeAsLocal"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 3,
+            "w": 4,
+            "x": 0,
+            "y": 2
+          },
+          "id": 36,
+          "options": {
+            "colorMode": "value",
+            "graphMode": "area",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "textMode": "auto"
+          },
+          "pluginVersion": "9.4.3",
+          "targets": [
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "cht_date_current_millis{instance=~\"$cht_instance\"}",
+              "instant": true,
+              "legendFormat": "__auto",
+              "range": false,
+              "refId": "A"
+            }
+          ],
+          "title": "Current Server Time",
+          "transformations": [],
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
           "description": "Number of users that have connected to the api in the past month.",
           "fieldConfig": {
             "defaults": {
@@ -566,10 +636,10 @@
             "overrides": []
           },
           "gridPos": {
-            "h": 5,
+            "h": 6,
             "w": 12,
-            "x": 0,
-            "y": 26
+            "x": 4,
+            "y": 2
           },
           "id": 29,
           "options": {
@@ -681,6 +751,6 @@
   "timezone": "",
   "title": "CHT Admin Details",
   "uid": "hkQUbyfVk",
-  "version": 20,
+  "version": 22,
   "weekStart": ""
 }
