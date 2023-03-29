@@ -517,32 +517,37 @@
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       },
-      "description": "Number of feedback docs created usually indicative of client side errors.",
+      "description": "The fragmentation of the db, lower is better, “1” is no fragmentation.",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
           "mappings": [],
-          "min": 0,
+          "min": 1,
+          "noValue": "NO DATA",
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "red",
+                "color": "transparent",
                 "value": null
               },
               {
                 "color": "green",
-                "value": 0
+                "value": 1
+              },
+              {
+                "color": "#EAB839",
+                "value": 2
               },
               {
                 "color": "red",
-                "value": 1
+                "value": 3
               }
             ]
           },
-          "unit": "docs/day"
+          "unit": "none"
         },
         "overrides": []
       },
@@ -552,18 +557,12 @@
         "x": 17,
         "y": 6
       },
-      "id": 14,
-      "links": [
-        {
-          "targetBlank": true,
-          "title": "Managing Databases Docs",
-          "url": "https://docs.communityhealthtoolkit.org/apps/guides/database/"
-        }
-      ],
+      "id": 13,
+      "links": [],
       "options": {
-        "colorMode": "value",
-        "graphMode": "area",
-        "justifyMode": "auto",
+        "displayMode": "gradient",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -572,7 +571,7 @@
           "fields": "",
           "values": false
         },
-        "textMode": "auto"
+        "showUnfilled": true
       },
       "pluginVersion": "9.4.3",
       "targets": [
@@ -582,14 +581,25 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "rate(cht_feedback_total{instance=~\"$cht_instance\"}[24h]) * 60 * 60 * 24",
+          "exemplar": false,
+          "expr": "cht_couchdb_fragmentation{instance=~\"$cht_instance\"}",
+          "instant": true,
           "legendFormat": "__auto",
-          "range": true,
+          "range": false,
           "refId": "A"
         }
       ],
-      "title": "Client Feedback/Error Rate",
-      "type": "stat"
+      "title": "DB Fragmentation",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": ".*db=\"([^\"]+)\".*",
+            "renamePattern": "$1"
+          }
+        }
+      ],
+      "type": "bargauge"
     },
     {
       "datasource": {
@@ -857,37 +867,32 @@
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       },
-      "description": "The fragmentation of the db, lower is better, “1” is no fragmentation.",
+      "description": "Number of feedback docs created usually indicative of client side errors.",
       "fieldConfig": {
         "defaults": {
           "color": {
             "mode": "thresholds"
           },
           "mappings": [],
-          "min": 1,
-          "noValue": "NO DATA",
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent",
+                "color": "red",
                 "value": null
               },
               {
                 "color": "green",
-                "value": 1
-              },
-              {
-                "color": "#EAB839",
-                "value": 2
+                "value": 0
               },
               {
                 "color": "red",
-                "value": 3
+                "value": 1
               }
             ]
           },
-          "unit": "none"
+          "unit": "docs/day"
         },
         "overrides": []
       },
@@ -897,12 +902,18 @@
         "x": 10,
         "y": 12
       },
-      "id": 13,
-      "links": [],
+      "id": 14,
+      "links": [
+        {
+          "targetBlank": true,
+          "title": "Managing Databases Docs",
+          "url": "https://docs.communityhealthtoolkit.org/apps/guides/database/"
+        }
+      ],
       "options": {
-        "displayMode": "gradient",
-        "minVizHeight": 10,
-        "minVizWidth": 0,
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -911,7 +922,7 @@
           "fields": "",
           "values": false
         },
-        "showUnfilled": true
+        "textMode": "auto"
       },
       "pluginVersion": "9.4.3",
       "targets": [
@@ -921,25 +932,14 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "exemplar": false,
-          "expr": "cht_couchdb_fragmentation{instance=~\"$cht_instance\"}",
-          "instant": true,
+          "expr": "rate(cht_feedback_total{instance=~\"$cht_instance\"}[24h]) * 60 * 60 * 24",
           "legendFormat": "__auto",
-          "range": false,
+          "range": true,
           "refId": "A"
         }
       ],
-      "title": "DB Fragmentation",
-      "transformations": [
-        {
-          "id": "renameByRegex",
-          "options": {
-            "regex": ".*db=\"([^\"]+)\".*",
-            "renamePattern": "$1"
-          }
-        }
-      ],
-      "type": "bargauge"
+      "title": "Client Feedback/Error Rate",
+      "type": "stat"
     },
     {
       "datasource": {
@@ -2037,6 +2037,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 4,
+  "version": 5,
   "weekStart": ""
 }
