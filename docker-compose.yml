@@ -38,7 +38,7 @@ services:
   grafana:
     image: grafana/grafana-oss:${GRAFANA_VERSION:-latest}
     ports:
-      - "${GRAFANA_PORT:-3000}:3000"
+      - "${GRAFANA_BIND:-127.0.0.1}:${GRAFANA_PORT:-3000}:3000"
     volumes:
       - grafana-data:/var/lib/grafana
       - ./grafana/grafana.ini:/etc/grafana/grafana.ini:ro
