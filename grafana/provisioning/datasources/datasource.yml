@@ -10,8 +10,7 @@ datasources:
     isDefault: true
     editable: true
     # Should match the minimum scrape_interval in prometheus.yml
-    # TODO This should be increased before release
-    scrapeInterval: 10s
+    scrapeInterval: 10m
 
   - name: Discourse
     type: grafana-discourse-datasource
