@@ -18,9 +18,6 @@ volumes:
 services:
   prometheus:
     image: prom/prometheus:${PROMETHEUS_VERSION:-latest}
-# Uncomment to access Prometheus UI from the host
-#    ports:
-#      - "9090:9090"
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
