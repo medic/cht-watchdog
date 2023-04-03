@@ -26,7 +26,44 @@
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": 3,
-  "links": [],
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "doc",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "CHT Docs",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://docs.communityhealthtoolkit.org/"
+    },
+    {
+      "asDropdown": false,
+      "icon": "question",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "CHT Forum",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://forum.communityhealthtoolkit.org/"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [],
+      "targetBlank": false,
+      "title": "CHT Admin Overview",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
   "liveNow": false,
   "panels": [
     {
@@ -1443,7 +1480,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "green",
@@ -1459,7 +1497,7 @@
             "h": 5,
             "w": 4,
             "x": 0,
-            "y": 25
+            "y": 2
           },
           "id": 34,
           "options": {
@@ -1511,7 +1549,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "blue"
+                    "color": "blue",
+                    "value": null
                   }
                 ]
               },
@@ -1523,7 +1562,7 @@
             "h": 4,
             "w": 5,
             "x": 4,
-            "y": 25
+            "y": 2
           },
           "id": 37,
           "options": {
@@ -1583,7 +1622,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "rgba(50, 172, 45, 0.97)"
+                    "color": "rgba(50, 172, 45, 0.97)",
+                    "value": null
                   },
                   {
                     "color": "rgba(237, 129, 40, 0.89)",
@@ -1603,7 +1643,7 @@
             "h": 4,
             "w": 4,
             "x": 9,
-            "y": 25
+            "y": 2
           },
           "id": 41,
           "links": [],
@@ -1687,7 +1727,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               },
@@ -1699,7 +1740,7 @@
             "h": 10,
             "w": 11,
             "x": 13,
-            "y": 25
+            "y": 2
           },
           "id": 45,
           "links": [],
@@ -1790,7 +1831,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   }
                 ]
               },
@@ -1802,7 +1844,7 @@
             "h": 6,
             "w": 9,
             "x": 4,
-            "y": 29
+            "y": 6
           },
           "id": 39,
           "links": [],
@@ -1915,7 +1957,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "green",
@@ -1931,7 +1974,7 @@
             "h": 5,
             "w": 4,
             "x": 0,
-            "y": 30
+            "y": 7
           },
           "id": 35,
           "options": {
@@ -1981,7 +2024,7 @@
     "list": [
       {
         "current": {
-          "selected": true,
+          "selected": false,
           "text": "All",
           "value": "$__all"
         },
@@ -2016,6 +2059,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 17,
+  "version": 24,
   "weekStart": ""
 }
