@@ -48,7 +48,7 @@ services:
       - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-medic}
       - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-password}
       - GF_USERS_ALLOW_SIGN_UP=false
-      - GF_INSTALL_PLUGINS=${GRAFANA_PLUGINS:-}
+      - GF_INSTALL_PLUGINS=${GRAFANA_PLUGINS:-grafana-discourse-datasource}
     networks:
       - cht-monitoring-net
     restart: always
