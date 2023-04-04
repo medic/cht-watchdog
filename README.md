@@ -25,7 +25,7 @@ This configuration is designed for deployment with [docker-compose](https://docs
 Run the following commands to clone this repository and initialize your `.env` file:
 
 ```sh
-git clone https://github.com/jkuester/cht-monitoring.git
+git clone https://github.com/medic/cht-monitoring.git
 cd cht-monitoring
 cp .env.example .env
 cp cht-instances.example.yml cht-instances.yml
