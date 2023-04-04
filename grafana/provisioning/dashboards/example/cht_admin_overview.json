@@ -1363,7 +1363,7 @@
                 "NaN": {
                   "color": "blue",
                   "index": 0,
-                  "text": "No Data"
+                  "text": "N/A"
                 }
               },
               "type": "value"
@@ -2086,6 +2086,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 24,
+  "version": 25,
   "weekStart": ""
 }
