@@ -227,7 +227,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "builder",
-          "expr": "cht_conflict_count{instance=\"$cht_instance\"}",
+          "expr": "cht_conflict_count{instance=~\"$cht_instance\"}",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -320,7 +320,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "builder",
-          "expr": "cht_couchdb_doc_del_total{instance=\"$cht_instance\"}",
+          "expr": "cht_couchdb_doc_del_total{instance=~\"$cht_instance\"}",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -392,7 +392,7 @@
           },
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "cht_couchdb_update_sequence{instance=\"$cht_instance\"}",
+          "expr": "cht_couchdb_update_sequence{instance=~\"$cht_instance\"}",
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
@@ -1063,7 +1063,7 @@
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "builder",
-              "expr": "cht_connected_users_count{instance=\"$cht_instance\"}",
+              "expr": "cht_connected_users_count{instance=~\"$cht_instance\"}",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
