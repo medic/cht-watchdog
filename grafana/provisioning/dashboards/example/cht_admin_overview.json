@@ -25,7 +25,6 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 3,
   "links": [
     {
       "asDropdown": false,
@@ -107,7 +106,7 @@
         "content": "# CHT Admin Dashboard\n\nSee the [CHT documentation](https://docs.communityhealthtoolkit.org/apps/guides/hosting/monitoring/) for more information about monitoring and alerting!",
         "mode": "markdown"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.4.7",
       "type": "text"
     },
     {
@@ -181,7 +180,7 @@
         "showHeader": false,
         "sortBy": []
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
@@ -192,9 +191,9 @@
           "exemplar": false,
           "expr": "cht_version{instance=~\"$cht_instance\"}",
           "format": "time_series",
-          "instant": true,
+          "instant": false,
           "legendFormat": "__auto",
-          "range": false,
+          "range": true,
           "refId": "A"
         }
       ],
@@ -374,7 +373,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
@@ -450,7 +449,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
@@ -538,7 +537,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
@@ -622,7 +621,7 @@
         },
         "showUnfilled": true
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
@@ -727,7 +726,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
@@ -819,7 +818,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
@@ -910,7 +909,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
@@ -1000,7 +999,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
@@ -1087,7 +1086,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
@@ -1230,7 +1229,7 @@
         "showHeader": false,
         "sortBy": []
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "category": "All categories",
@@ -1418,7 +1417,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.4.3",
+      "pluginVersion": "9.4.7",
       "targets": [
         {
           "datasource": {
@@ -2086,6 +2085,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 25,
+  "version": 26,
   "weekStart": ""
 }
