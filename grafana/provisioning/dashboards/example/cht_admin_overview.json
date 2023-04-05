@@ -677,7 +677,7 @@
                 "result": {
                   "color": "green",
                   "index": 0,
-                  "text": "CORRECT"
+                  "text": "YES"
                 },
                 "to": 300
               },
@@ -689,7 +689,7 @@
                 "result": {
                   "color": "red",
                   "index": 1,
-                  "text": "INCORRECT"
+                  "text": "NO"
                 },
                 "to": 999999999999999
               },
