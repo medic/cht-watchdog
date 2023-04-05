@@ -500,8 +500,12 @@
                 "value": 0
               },
               {
+                "color": "#EAB839",
+                "value": 1
+              },
+              {
                 "color": "red",
-                "value": 10
+                "value": 5
               }
             ]
           },
@@ -1049,8 +1053,12 @@
                 "value": 0
               },
               {
-                "color": "red",
+                "color": "#EAB839",
                 "value": 1
+              },
+              {
+                "color": "red",
+                "value": 5
               }
             ]
           },
