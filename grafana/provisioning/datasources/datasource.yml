@@ -9,8 +9,8 @@ datasources:
     basicAuth: false
     isDefault: true
     editable: true
-    # Should match the minimum scrape_interval in prometheus.yml
-    scrapeInterval: 10m
+    jsonData:
+      timeInterval: 1m
 
   - name: Discourse
     type: grafana-discourse-datasource
@@ -21,4 +21,5 @@ datasources:
     basicAuth: false
     isDefault: false
     editable: true
-    scrapeInterval: 1h
+    jsonData:
+      timeInterval: 1h
