@@ -860,7 +860,7 @@
             }
           ],
           "mappings": [],
-          "max": 30,
+          "max": 750,
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -875,11 +875,11 @@
               },
               {
                 "color": "#EAB839",
-                "value": 10
+                "value": 100
               },
               {
                 "color": "red",
-                "value": 20
+                "value": 500
               }
             ]
           },
@@ -1212,7 +1212,7 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 10,
+        "w": 12,
         "x": 0,
         "y": 18
       },
@@ -1370,7 +1370,7 @@
                 "NaN": {
                   "color": "blue",
                   "index": 0,
-                  "text": "N/A"
+                  "text": "NO DATA"
                 }
               },
               "type": "value"
@@ -1385,11 +1385,11 @@
               },
               {
                 "color": "#EAB839",
-                "value": 0.95
+                "value": 0.9
               },
               {
                 "color": "green",
-                "value": 0.99
+                "value": 1
               }
             ]
           },
@@ -1399,8 +1399,8 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 7,
-        "x": 10,
+        "w": 5,
+        "x": 12,
         "y": 18
       },
       "id": 27,
