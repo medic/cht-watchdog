@@ -675,13 +675,13 @@
                   "index": 0,
                   "text": "CORRECT"
                 },
-                "to": 60
+                "to": 300
               },
               "type": "range"
             },
             {
               "options": {
-                "from": 61,
+                "from": 301,
                 "result": {
                   "color": "red",
                   "index": 1,
