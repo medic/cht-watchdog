@@ -348,7 +348,7 @@
               }
             ]
           },
-          "unit": "d"
+          "unit": "dtdurations"
         },
         "overrides": []
       },
@@ -382,7 +382,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "cht_date_uptime_seconds{instance=~\"$cht_instance\"} / 60 / 60 / 24",
+          "expr": "cht_date_uptime_seconds{instance=~\"$cht_instance\"}",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
