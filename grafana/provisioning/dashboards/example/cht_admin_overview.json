@@ -191,9 +191,9 @@
           "exemplar": false,
           "expr": "cht_version{instance=~\"$cht_instance\"}",
           "format": "time_series",
-          "instant": false,
+          "instant": true,
           "legendFormat": "__auto",
-          "range": true,
+          "range": false,
           "refId": "A"
         }
       ],
@@ -348,7 +348,7 @@
               }
             ]
           },
-          "unit": "d"
+          "unit": "dtdurations"
         },
         "overrides": []
       },
@@ -382,7 +382,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "cht_date_uptime_seconds{instance=~\"$cht_instance\"} / 60 / 60 / 24",
+          "expr": "cht_date_uptime_seconds{instance=~\"$cht_instance\"}",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
@@ -459,9 +459,9 @@
           "editorMode": "code",
           "exemplar": false,
           "expr": "cht_connected_users_count{instance=~\"$cht_instance\"}",
-          "instant": true,
+          "instant": false,
           "legendFormat": "__auto",
-          "range": false,
+          "range": true,
           "refId": "A"
         }
       ],
@@ -500,8 +500,12 @@
                 "value": 0
               },
               {
+                "color": "#EAB839",
+                "value": 1
+              },
+              {
                 "color": "red",
-                "value": 10
+                "value": 5
               }
             ]
           },
@@ -587,11 +591,11 @@
               },
               {
                 "color": "#EAB839",
-                "value": 2
+                "value": 3
               },
               {
                 "color": "red",
-                "value": 3
+                "value": 9
               }
             ]
           },
@@ -673,19 +677,19 @@
                 "result": {
                   "color": "green",
                   "index": 0,
-                  "text": "CORRECT"
+                  "text": "YES"
                 },
-                "to": 60
+                "to": 300
               },
               "type": "range"
             },
             {
               "options": {
-                "from": 61,
+                "from": 301,
                 "result": {
                   "color": "red",
                   "index": 1,
-                  "text": "INCORRECT"
+                  "text": "NO"
                 },
                 "to": 999999999999999
               },
@@ -856,7 +860,7 @@
             }
           ],
           "mappings": [],
-          "max": 30,
+          "max": 750,
           "min": 0,
           "thresholds": {
             "mode": "absolute",
@@ -871,11 +875,11 @@
               },
               {
                 "color": "#EAB839",
-                "value": 10
+                "value": 100
               },
               {
                 "color": "red",
-                "value": 20
+                "value": 500
               }
             ]
           },
@@ -1049,8 +1053,12 @@
                 "value": 0
               },
               {
-                "color": "red",
+                "color": "#EAB839",
                 "value": 1
+              },
+              {
+                "color": "red",
+                "value": 5
               }
             ]
           },
@@ -1204,7 +1212,7 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 10,
+        "w": 12,
         "x": 0,
         "y": 18
       },
@@ -1362,7 +1370,7 @@
                 "NaN": {
                   "color": "blue",
                   "index": 0,
-                  "text": "N/A"
+                  "text": "NO DATA"
                 }
               },
               "type": "value"
@@ -1377,11 +1385,11 @@
               },
               {
                 "color": "#EAB839",
-                "value": 0.95
+                "value": 0.9
               },
               {
                 "color": "green",
-                "value": 0.99
+                "value": 1
               }
             ]
           },
@@ -1391,8 +1399,8 @@
       },
       "gridPos": {
         "h": 6,
-        "w": 7,
-        "x": 10,
+        "w": 5,
+        "x": 12,
         "y": 18
       },
       "id": 27,
