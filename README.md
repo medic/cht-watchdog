@@ -4,15 +4,13 @@ A monitoring and alerting stack for the CHT built on [Prometheus](https://promet
 
 Prometheus records real-time metrics from your CHT instance and stores them in a time series database.
 
-Grafana allows you to visualize the metrics in configurable dashboards.
-
-TODO Alerting!
+Grafana allows you to visualize the metrics in configurable dashboards and sends alerts when metrics exceed a threshold.
 
 See the [CHT Documentation](https://docs.communityhealthtoolkit.org/apps/guides/hosting/monitoring/) for more information on monitoring the CHT.
 
 ## Deploying
 
-This configuration is designed for deployment with [docker-compose](https://docs.docker.com/compose/).  
+This configuration is designed for deployment with [Docker Compose](https://docs.docker.com/compose/).  
 
 ### Prerequisites
 
@@ -72,16 +70,16 @@ Edit the [`cht-instances.yml` file](./cht-instances.yml) to point to your desire
 
 #### Email Alerts
 
-To support sending email alerts from Grafana, you must update the `smtp` section of the [`grafana.ini` file](./grafana/grafana.ini) with your SMTP server configuration.
+To support sending email alerts from Grafana, you must update the `smtp` section of your `grafana/grafana.ini` file with your SMTP server configuration.
 
-Specific alerting rules can be set in the Grafana UI.  See the [Grafana Documentation](https://grafana.com/docs/grafana/latest/alerting/) for more information.
+Specific alerting rules (and other contact points) can be set in the Grafana UI.  See the [Grafana Documentation](https://grafana.com/docs/grafana/latest/alerting/) for more information.
 
 ### Deploy
 
 Run the following command to deploy the stack:
 
 ```sh
-docker-compose up -d
+docker compose up -d
 ```
 
 ## Using
