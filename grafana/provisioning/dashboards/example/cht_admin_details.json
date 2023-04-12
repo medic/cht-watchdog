@@ -2220,14 +2220,9 @@
   "templating": {
     "list": [
       {
-        "current": {
-          "selected": true,
-          "text": "All",
-          "value": "$__all"
-        },
         "definition": "query_result(up{job=~\"cht\"})",
         "hide": 0,
-        "includeAll": true,
+        "includeAll": false,
         "label": "CHT Instance",
         "multi": false,
         "name": "cht_instance",

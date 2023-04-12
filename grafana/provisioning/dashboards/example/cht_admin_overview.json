@@ -2057,18 +2057,13 @@
   "templating": {
     "list": [
       {
-        "current": {
-          "selected": false,
-          "text": "All",
-          "value": "$__all"
-        },
         "datasource": {
           "type": "prometheus",
           "uid": "PBFA97CFB590B2093"
         },
         "definition": "query_result(up{job=~\"cht\"})",
         "hide": 0,
-        "includeAll": true,
+        "includeAll": false,
         "label": "CHT Instance",
         "multi": false,
         "name": "cht_instance",
