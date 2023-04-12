@@ -1125,7 +1125,7 @@
       },
       "id": 47,
       "options": {
-        "alertInstanceLabelFilter": "",
+        "alertInstanceLabelFilter": "instance=~\"$cht_instance\"",
         "alertName": "",
         "dashboardAlerts": false,
         "groupBy": [],
