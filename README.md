@@ -29,6 +29,7 @@ git clone https://github.com/medic/cht-monitoring.git
 cd cht-monitoring
 cp .env.example .env
 cp cht-instances.example.yml cht-instances.yml
+cp grafana/grafana.example.ini grafana/grafana.ini
 ```
 
 ### Configure
