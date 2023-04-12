@@ -40,8 +40,8 @@ Open the new `.env` file in a text editor and set your desired configuration val
 
 | Name                        | Default                         | Description                                                                                            |
 |-----------------------------|---------------------------------|--------------------------------------------------------------------------------------------------------|
-| `ADMIN_USER`                | `medic`                         | Username for the Grafana admin user                                                                    |
-| `ADMIN_PASSWORD`            | `password`                      | Password for the Grafana admin user                                                                    |
+| `GRAFANA_ADMIN_USER`        | `medic`                         | Username for the Grafana admin user                                                                    |
+| `GRAFANA_ADMIN_PASSWORD`    | `password`                      | Password for the Grafana admin user                                                                    |
 | `GRAFANA_VERSION`           | `latest`                        | Version of the `grafana/grafana-oss` image                                                             |
 | `GRAFANA_PORT`              | `3000`                          | Port on the host where Grafana will be available                                                       |
 | `GRAFANA_BIND`              | `127.0.0.1`                     | Interface Grafana will bind to.  Change to `0.0.0.0` if you want to expose to all interfaces.  |
