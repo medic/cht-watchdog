@@ -113,15 +113,17 @@ The following CHT metrics are tracked in prometheus:
 
 ### Grafana Dashboards
 
-Example dashboards are included in the `Examples` folder in the Grafana UI. These should not be updated directly, but can be used as a starting point for creating your own dashboards.
+Pre-provisioned dashboards are included in the `CHT` folder in the Grafana UI. These should not be updated directly, but can be used as a starting point for creating your own dashboards.
 
-Future updates to this configuration can include additions/updates to the example dashboards.
+Future updates to this configuration can include additions/updates to the CHT dashboards.
 
 ### Alerts
 
 This configuration includes number of pre-provisioned alerts.  See the [Grafana Documentation](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/#provision-alert-rules) for more information on how to edit or remove these provisioned alerts.
 
 To receive these alerts by email, you must [configure Grafana's SMTP settings](#email-alerts) and then, in the web interface, add the desired recipient email addresses in the `grafana-default-email` contact point settings.
+
+Future updates to this configuration can include additions/updates to the CHT alerts.
 
 ## Monitoring Basics
 

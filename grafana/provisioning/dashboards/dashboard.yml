@@ -1,9 +1,9 @@
 apiVersion: 1
 
 providers:
-  - name: 'Example Dashboards'
-    folder: 'Example'
+  - name: 'CHT Dashboards'
+    folder: 'CHT'
     disableDeletion: false
     allowUiUpdates: false
     options:
-      path: /etc/grafana/provisioning/dashboards/example
+      path: /etc/grafana/provisioning/dashboards/CHT
