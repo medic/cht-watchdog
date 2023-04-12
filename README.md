@@ -125,6 +125,30 @@ To receive these alerts by email, you must [configure Grafana's SMTP settings](#
 
 Future updates to this configuration can include additions/updates to the CHT alerts.
 
+## Upgrading
+
+Before upgrading, you should back up both your current configuration settings and your Prometheus time-series data.
+
+### Third-party services
+
+To upgrade the third-party dependencies being used in this monitoring stack, simply update the version numbers set in your `.env` file (or leave them set to `latest`).  Then run the following commands:
+
+```shell
+docker compose pull
+docker compose up -d
+```
+
+### cht-monitoring configuration
+
+Check for new releases of this `cht-monitoring` configuration [on GitHub](https://github.com/medic/cht-monitoring/releases).  Review the release notes and upgrade instructions for the new release. Then, run the following commands to deploy the new configuration:
+
+```shell
+git fetch
+git checkout <new-release-tag>
+docker compose pull
+docker compose up -d --remove-orphans
+```
+
 ## Monitoring Basics
 
 ### Metric types
