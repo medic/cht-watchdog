@@ -144,6 +144,15 @@
         }
       ],
       "title": "Doc Count [$db_name]",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "cht_couchdb_doc_total"
+          }
+        }
+      ],
       "type": "timeseries"
     },
     {
@@ -233,6 +242,15 @@
         }
       ],
       "title": "Total Doc Conflicts",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "cht_conflict_count"
+          }
+        }
+      ],
       "type": "timeseries"
     },
     {
@@ -693,6 +711,15 @@
             }
           ],
           "title": "Sentinel Backlog",
+          "transformations": [
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": "(.*)",
+                "renamePattern": "cht_sentinel_backlog_count"
+              }
+            }
+          ],
           "type": "timeseries"
         },
         {
@@ -791,6 +818,15 @@
             }
           ],
           "title": "Users Over Replication Limit",
+          "transformations": [
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": "(.*)",
+                "renamePattern": "cht_replication_limit_count"
+              }
+            }
+          ],
           "type": "timeseries"
         },
         {
@@ -881,6 +917,15 @@
             }
           ],
           "title": "Client Feedback/Errors",
+          "transformations": [
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": "(.*)",
+                "renamePattern": "cht_feedback_total"
+              }
+            }
+          ],
           "type": "timeseries"
         },
         {
@@ -984,6 +1029,15 @@
             }
           ],
           "title": "Outbound Push Backlog",
+          "transformations": [
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": "(.*)",
+                "renamePattern": "cht_outbound_push_backlog_count"
+              }
+            }
+          ],
           "type": "timeseries"
         },
         {
@@ -1075,6 +1129,15 @@
             }
           ],
           "title": "Monthly Active Users",
+          "transformations": [
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": "(.*)",
+                "renamePattern": "cht_connected_users_count"
+              }
+            }
+          ],
           "type": "timeseries"
         }
       ],
@@ -1178,6 +1241,15 @@
             }
           ],
           "title": "Total Messages",
+          "transformations": [
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": "(.*)",
+                "renamePattern": "cht_messaging_outgoing_total"
+              }
+            }
+          ],
           "type": "timeseries"
         },
         {
@@ -1267,6 +1339,15 @@
             }
           ],
           "title": "Due",
+          "transformations": [
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": "(.*)",
+                "renamePattern": "cht_messaging_outgoing_total"
+              }
+            }
+          ],
           "type": "timeseries"
         },
         {
@@ -1356,6 +1437,15 @@
             }
           ],
           "title": "Delivered",
+          "transformations": [
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": "(.*)",
+                "renamePattern": "cht_messaging_outgoing_total"
+              }
+            }
+          ],
           "type": "timeseries"
         },
         {
@@ -1445,6 +1535,15 @@
             }
           ],
           "title": "Muted",
+          "transformations": [
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": "(.*)",
+                "renamePattern": "cht_messaging_outgoing_total"
+              }
+            }
+          ],
           "type": "timeseries"
         },
         {
@@ -1534,6 +1633,15 @@
             }
           ],
           "title": "Failed",
+          "transformations": [
+            {
+              "id": "renameByRegex",
+              "options": {
+                "regex": "(.*)",
+                "renamePattern": "cht_messaging_outgoing_total"
+              }
+            }
+          ],
           "type": "timeseries"
         }
       ],
@@ -2283,6 +2391,6 @@
   "timezone": "",
   "title": "CHT Admin Details",
   "uid": "hkQUbyfVk",
-  "version": 37,
+  "version": 38,
   "weekStart": ""
 }

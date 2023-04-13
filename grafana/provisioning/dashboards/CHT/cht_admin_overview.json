@@ -391,6 +391,15 @@
         }
       ],
       "title": "CHT Uptime",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "cht_date_uptime_seconds"
+          }
+        }
+      ],
       "type": "stat"
     },
     {
@@ -466,6 +475,15 @@
         }
       ],
       "title": "Monthly Active Users",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "cht_connected_users_count"
+          }
+        }
+      ],
       "type": "stat"
     },
     {
@@ -556,6 +574,15 @@
         }
       ],
       "title": "DB Conflicts Rate",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "cht_conflict_count"
+          }
+        }
+      ],
       "type": "stat"
     },
     {
@@ -747,7 +774,15 @@
         }
       ],
       "title": "Server Time Accurate",
-      "transformations": [],
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "cht_date_current_millis"
+          }
+        }
+      ],
       "type": "stat"
     },
     {
@@ -1109,6 +1144,15 @@
         }
       ],
       "title": "Client Feedback/Error Rate",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "cht_feedback_total"
+          }
+        }
+      ],
       "type": "stat"
     },
     {
@@ -1473,6 +1517,13 @@
           "id": "filterByRefId",
           "options": {
             "include": "C"
+          }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "cht_messaging_outgoing_total"
           }
         }
       ],
@@ -2088,6 +2139,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 26,
+  "version": 27,
   "weekStart": ""
 }
