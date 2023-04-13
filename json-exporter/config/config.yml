@@ -1,0 +1,224 @@
+# Reusable extensions (used for pushing data from different parts of the JSON to the same metric)
+x-cht_couchdb_doc_total: &cht_couchdb_doc_total
+  name: cht_couchdb_doc_total
+  help: The number of docs in the db.
+  valuetype: counter
+x-cht_couchdb_doc_del_total: &cht_couchdb_doc_del_total
+  name: cht_couchdb_doc_del_total
+  help: The number of deleted docs in the db.
+  valuetype: counter
+x-cht_couchdb_fragmentation: &cht_couchdb_fragmentation
+  name: cht_couchdb_fragmentation
+  help: The fragmentation of the db, lower is better, “1” is no fragmentation.
+  valuetype: gauge
+x-cht_couchdb_update_sequence: &cht_couchdb_update_sequence
+  name: cht_couchdb_update_sequence
+  help: The number of changes in the db.
+  valuetype: counter
+x-cht_messaging_outgoing_last_hundred: &cht_messaging_outgoing_last_hundred
+  name: cht_messaging_outgoing_last_hundred
+  help: Counts of last 100 messages that have received status updates.
+  valuetype: gauge
+x-cht_messaging_outgoing_total: &cht_messaging_outgoing_total
+  name: cht_messaging_outgoing_total
+  help: Counts of the total number of messages.
+  valuetype: counter
+
+modules:
+  default:
+    metrics:
+      - name: cht
+        type: object
+        help: Version information for the CHT instance (recorded in labels)
+        path: '{.version}'
+        labels:
+          app: '{.app}'
+          node: '{.node}'
+          couchdb: '{.couchdb}'
+        values:
+          version: 1
+
+      - name: cht_conflict_count
+        path: '{.conflict.count}'
+        help: Number of doc conflicts which need to be resolved manually.
+        valuetype: gauge
+
+      - name: cht_connected_users_count
+        path: '{.connected_users.count}'
+        help: Number of users that have connected to the api recently. By default the time interval is 7 days. Otherwise it is equal to the connected_user_interval parameter value used when making the /monitoring request.
+        valuetype: gauge
+
+      - <<: *cht_couchdb_doc_total
+        path: '{.couchdb.medic.doc_count}'
+        labels:
+          db: 'medic'
+      - <<: *cht_couchdb_doc_total
+        path: '{.couchdb.sentinel.doc_count}'
+        labels:
+          db: 'sentinel'
+      - <<: *cht_couchdb_doc_total
+        path: '{.couchdb.usersmeta.doc_count}'
+        labels:
+          db: 'medic-users-meta'
+      - <<: *cht_couchdb_doc_total
+        path: '{.couchdb.users.doc_count}'
+        labels:
+          db: '_users'
+
+      - <<: *cht_couchdb_doc_del_total
+        path: '{.couchdb.medic.doc_del_count}'
+        labels:
+          db: 'medic'
+      - <<: *cht_couchdb_doc_del_total
+        path: '{.couchdb.sentinel.doc_del_count}'
+        labels:
+          db: 'sentinel'
+      - <<: *cht_couchdb_doc_del_total
+        path: '{.couchdb.usersmeta.doc_del_count}'
+        labels:
+          db: 'medic-users-meta'
+      - <<: *cht_couchdb_doc_del_total
+        path: '{.couchdb.users.doc_del_count}'
+        labels:
+          db: '_users'
+
+      - <<: *cht_couchdb_fragmentation
+        path: '{.couchdb.medic.fragmentation}'
+        labels:
+          db: 'medic'
+      - <<: *cht_couchdb_fragmentation
+        path: '{.couchdb.sentinel.fragmentation}'
+        labels:
+          db: 'sentinel'
+      - <<: *cht_couchdb_fragmentation
+        path: '{.couchdb.usersmeta.fragmentation}'
+        labels:
+          db: 'medic-users-meta'
+      - <<: *cht_couchdb_fragmentation
+        path: '{.couchdb.users.fragmentation}'
+        labels:
+          db: '_users'
+
+      - <<: *cht_couchdb_update_sequence
+        path: '{.couchdb.medic.update_sequence}'
+        labels:
+          db: 'medic'
+      - <<: *cht_couchdb_update_sequence
+        path: '{.couchdb.sentinel.update_sequence}'
+        labels:
+          db: 'sentinel'
+      - <<: *cht_couchdb_update_sequence
+        path: '{.couchdb.usersmeta.update_sequence}'
+        labels:
+          db: 'medic-users-meta'
+      - <<: *cht_couchdb_update_sequence
+        path: '{.couchdb.users.update_sequence}'
+        labels:
+          db: '_users'
+
+      - name: cht_date_current_millis
+        path: '{.date.current}'
+        help: The current server date in millis since the epoch, useful for ensuring the server time is correct.
+        valuetype: counter
+
+      - name: cht_date_uptime_seconds
+        path: '{.date.uptime}'
+        help: How long API has been running.
+        valuetype: counter
+
+      - name: cht_feedback_total
+        path: '{.feedback.count}'
+        help: Number of feedback docs created usually indicative of client side errors.
+        valuetype: counter
+
+      - <<: *cht_messaging_outgoing_last_hundred
+        path: '{.messaging.outgoing.last_hundred.pending.pending}'
+        labels:
+          group: 'pending'
+          status: 'pending'
+      - <<: *cht_messaging_outgoing_last_hundred
+        path: '{.messaging.outgoing.last_hundred.pending.forwarded-to-gateway}'
+        labels:
+          group: 'pending'
+          status: 'forwarded-to-gateway'
+      - <<: *cht_messaging_outgoing_last_hundred
+        path: '{.messaging.outgoing.last_hundred.pending.received-by-gateway}'
+        labels:
+          group: 'pending'
+          status: 'received-by-gateway'
+      - <<: *cht_messaging_outgoing_last_hundred
+        path: '{.messaging.outgoing.last_hundred.pending.forwarded-by-gateway}'
+        labels:
+          group: 'pending'
+          status: 'forwarded-by-gateway'
+      - <<: *cht_messaging_outgoing_last_hundred
+        path: '{.messaging.outgoing.last_hundred.final.sent}'
+        labels:
+          group: 'final'
+          status: 'sent'
+      - <<: *cht_messaging_outgoing_last_hundred
+        path: '{.messaging.outgoing.last_hundred.final.delivered}'
+        labels:
+          group: 'final'
+          status: 'delivered'
+      - <<: *cht_messaging_outgoing_last_hundred
+        path: '{.messaging.outgoing.last_hundred.final.failed}'
+        labels:
+          group: 'final'
+          status: 'failed'
+      - <<: *cht_messaging_outgoing_last_hundred
+        path: '{.messaging.outgoing.last_hundred.muted.denied}'
+        labels:
+          group: 'muted'
+          status: 'denied'
+      - <<: *cht_messaging_outgoing_last_hundred
+        path: '{.messaging.outgoing.last_hundred.muted.cleared}'
+        labels:
+          group: 'muted'
+          status: 'cleared'
+      - <<: *cht_messaging_outgoing_last_hundred
+        path: '{.messaging.outgoing.last_hundred.muted.muted}'
+        labels:
+          group: 'muted'
+          status: 'muted'
+      - <<: *cht_messaging_outgoing_last_hundred
+        path: '{.messaging.outgoing.last_hundred.muted.duplicate}'
+        labels:
+          group: 'muted'
+          status: 'duplicate'
+
+      - <<: *cht_messaging_outgoing_total
+        path: '{.messaging.outgoing.total.due}'
+        labels:
+          status: 'due'
+      - <<: *cht_messaging_outgoing_total
+        path: '{.messaging.outgoing.total.scheduled}'
+        labels:
+          status: 'scheduled'
+      - <<: *cht_messaging_outgoing_total
+        path: '{.messaging.outgoing.total.muted}'
+        labels:
+          status: 'muted'
+      - <<: *cht_messaging_outgoing_total
+        path: '{.messaging.outgoing.total.failed}'
+        labels:
+          status: 'failed'
+      - <<: *cht_messaging_outgoing_total
+        path: '{.messaging.outgoing.total.delivered}'
+        labels:
+          status: 'delivered'
+
+      - name: cht_outbound_push_backlog_count
+        path: '{.outbound_push.backlog}'
+        help: Number of changes yet to be processed by Outbound Push.
+        valuetype: gauge
+
+      - name: cht_replication_limit_count
+        path: '{.replication_limit.count}'
+        help: Number of users that exceeded the replication limit of documents.
+        valuetype: gauge
+
+      - name: cht_sentinel_backlog_count
+        path: '{.sentinel.backlog}'
+        help: Number of changes yet to be processed by Sentinel.
+        valuetype: gauge

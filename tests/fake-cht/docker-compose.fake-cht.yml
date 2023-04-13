@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  fake-cht:
+    image: node:latest
+    user: "node"
+    working_dir: /home/node/app
+    volumes:
+      - ./tests/fake-cht:/home/node/app
+    networks:
+      - cht-monitoring-net
+    command: >
+      sh -c "npm install &&
+             npm start"

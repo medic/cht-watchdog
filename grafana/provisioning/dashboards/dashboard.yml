@@ -1,0 +1,9 @@
+apiVersion: 1
+
+providers:
+  - name: 'CHT Dashboards'
+    folder: 'CHT'
+    disableDeletion: false
+    allowUiUpdates: false
+    options:
+      path: /etc/grafana/provisioning/dashboards/CHT

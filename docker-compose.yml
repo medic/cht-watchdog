@@ -1,0 +1,61 @@
+version: "3.9"
+
+volumes:
+  prometheus-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PROMETHEUS_DATA:-./prometheus/data}
+      o: bind
+
+  grafana-data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${GRAFANA_DATA:-./grafana/data}
+      o: bind
+
+services:
+  prometheus:
+    image: prom/prometheus:${PROMETHEUS_VERSION:-latest}
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=${PROMETHEUS_RETENTION_TIME:-60d}'
+      - '--web.console.libraries=/usr/share/prometheus/console_libraries'
+      - '--web.console.templates=/usr/share/prometheus/consoles'
+    volumes:
+      - ./prometheus/config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./cht-instances.yml:/etc/prometheus/cht-instances.yml:ro
+      - prometheus-data:/prometheus
+    networks:
+      - cht-monitoring-net
+    restart: always
+
+  grafana:
+    image: grafana/grafana-oss:${GRAFANA_VERSION:-latest}
+    ports:
+      - "${GRAFANA_BIND:-127.0.0.1}:${GRAFANA_PORT:-3000}:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini:ro
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER:-medic}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-password}
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_INSTALL_PLUGINS=${GRAFANA_PLUGINS:-grafana-discourse-datasource}
+    networks:
+      - cht-monitoring-net
+    restart: always
+
+  json-exporter:
+    image: prometheuscommunity/json-exporter:${JSON_EXPORTER_VERSION:-latest}
+    volumes:
+      - ./json-exporter/config/config.yml:/config.yml:ro
+    networks:
+      - cht-monitoring-net
+    restart: always
+
+networks:
+  cht-monitoring-net:
