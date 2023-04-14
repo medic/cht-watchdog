@@ -1,24 +1,39 @@
-# Testing cht-monitoring
+# Developing
+
+This repo has a manual release process where each feature/bug fix will be released immediately after it is merged to `main`:
+
+0. Update QA with the work to be done to ensure they're informed and can guide development
+1. Create a ticket for the feature/bug fix.
+2. Submit a PR
+3. Have the PR reviewed
+4. Merge the PR to `main`
+5. Following SemVer create either a `N.X.X` (eg Major `1.x.x`), `N.N.X` (eg Minor `1.1.x`) or `N.N.N.X` (eg Patch `1.1.1.x`) branch.  Push this branch to repo.
+6. Create a [new release](https://github.com/medic/cht-monitoring/releases/new) being sure to specify the Target branch (eg `1.1.x`) and set the correct release (eg `1.1.0`) and release notes.  Here's an example of releasing a fictitious `1.1.0` release:
+
+   ![Screenshot showing GitHub "Create new Release" page in this repo](./release.png)
+7. Close the ticket
+
+## Testing during development
 
 Testing Grafana behavior is tricky since it requires data to test. Typically, a Grafana panel/alert will be based on either the latest value from a stream of data or a sequence of historical data values.
 
-## Stream Random Data
+### Stream Random Data
 
 The [`fake-cht` server](./fake-cht) can be used to simulate the `/monitoring` endpoint of a CHT instance. The data it returns is random (within certain limits).
 
-### Configure
+#### Configure
 
 Set `http://fake-cht:8081` in the [list in `cht-instances.yml`](../cht-instances.yml).
 
-### Deploy
+#### Deploy
 
 From the root directory, run:
 
 ```
-docker compose -f docker-compose.yml -f tests/fake-cht/docker-compose.fake-cht.yml up -d`
+docker compose -f docker-compose.yml -f tests/fake-cht/docker-compose.fake-cht.yml up -d
 ```
 
-## Historical data
+### Historical data
 
 The following is a manual process that involves creating a test data-set and injecting it into a fresh deployment of Prometheus.
 
