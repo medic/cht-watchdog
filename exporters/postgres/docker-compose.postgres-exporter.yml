@@ -8,8 +8,11 @@ services:
     image: prometheuscommunity/postgres-exporter:${POSTGRES_EXPORTER_VERSIO:-latest}
     command:
       - '--config.file=/etc/postgres-exporter/postgres_exporter.yml'
+    environment:
+      - PG_EXPORTER_EXTEND_QUERY_PATH=/etc/postgres-exporter/queries.yml
     volumes:
       - ./exporters/postgres/postgres_exporter.yml:/etc/postgres-exporter/postgres_exporter.yml
+      - ./exporters/postgres/cht-queries.yml:/etc/postgres-exporter/queries.yml
     networks:
       - cht-monitoring-net
     restart: always

@@ -1,0 +1,14 @@
+couch2pg_progress:
+  query: |
+    SELECT 
+      substring(seq for position('-' in seq) - 1) as sequence, 
+      substring(source from position('/' in source) + 1) as db 
+    FROM 
+      couchdb_progress
+  metrics:
+    - db:
+        usage: "LABEL"
+        description: "Name of the database"
+    - sequence:
+        usage: "COUNTER"
+        description: "Latest update sequence of Couch db processed by couch2pg"
