@@ -52,7 +52,7 @@ services:
   json-exporter:
     image: prometheuscommunity/json-exporter:${JSON_EXPORTER_VERSION:-latest}
     volumes:
-      - ./json-exporter/config.yml:/config.yml:ro
+      - ./exporters/json/config.yml:/config.yml:ro
     networks:
       - cht-monitoring-net
     restart: always

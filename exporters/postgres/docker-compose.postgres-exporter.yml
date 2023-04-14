@@ -3,13 +3,13 @@ version: "3.9"
 services:
   prometheus:
     volumes:
-      - ./postgres-exporter/postgres-instances.yml:/etc/prometheus/postgres-instances.yml:ro
+      - ./exporters/postgres/postgres-instances.yml:/etc/prometheus/postgres-instances.yml:ro
   postgres-exporter:
     image: prometheuscommunity/postgres-exporter:${POSTGRES_EXPORTER_VERSIO:-latest}
     command:
       - '--config.file=/etc/postgres-exporter/postgres_exporter.yml'
     volumes:
-      - ./postgres-exporter/postgres_exporter.yml:/etc/postgres-exporter/postgres_exporter.yml
+      - ./exporters/postgres/postgres_exporter.yml:/etc/postgres-exporter/postgres_exporter.yml
     networks:
       - cht-monitoring-net
     restart: always
