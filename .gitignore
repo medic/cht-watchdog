@@ -5,4 +5,5 @@ prometheus/data
 node_modules/
 last-response.json
 cht-instances.yml
+postgres-instances.yml
 grafana.ini
