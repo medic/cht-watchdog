@@ -4,6 +4,7 @@ services:
   prometheus:
     volumes:
       - ./exporters/postgres/postgres-instances.yml:/etc/prometheus/postgres-instances.yml:ro
+      - ./exporters/postgres/scrape_config.yml:/etc/prometheus/scrape_configs/postgres.yml:ro
   postgres-exporter:
     image: prometheuscommunity/postgres-exporter:${POSTGRES_EXPORTER_VERSIO:-latest}
     command:
@@ -11,8 +12,8 @@ services:
     environment:
       - PG_EXPORTER_EXTEND_QUERY_PATH=/etc/postgres-exporter/queries.yml
     volumes:
-      - ./exporters/postgres/postgres_exporter.yml:/etc/postgres-exporter/postgres_exporter.yml
-      - ./exporters/postgres/cht-queries.yml:/etc/postgres-exporter/queries.yml
+      - ./exporters/postgres/postgres_exporter.yml:/etc/postgres-exporter/postgres_exporter.yml:ro
+      - ./exporters/postgres/cht-queries.yml:/etc/postgres-exporter/queries.yml:ro
     networks:
       - cht-monitoring-net
     restart: always
