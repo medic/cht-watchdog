@@ -126,7 +126,13 @@ app.get('/', (req, res) => {
   };
   lastResponse = metrics;
   fs.writeFileSync('./last-response.json', JSON.stringify(metrics, null, 2));
+  console.log(Date.now() + " " + req.get('user-agent'));
   res.json(metrics);
-});
+})
+app.get('*', (req, res) => {
+  const wrong_url_msg = "Wrong URL. Use /api/v2/monitoring instead";
+  console.log(wrong_url_msg);
+  res.json( {error:  wrong_url_msg } );
+})
 
 app.listen(8081);
