@@ -1,6 +1,6 @@
+# Update this data to point to your Postgres DB endpoint and your CHT instance.
+# To monitor multiple instances, add additional entries to the outer list (target/labels pairs).
 - targets:
-    # Update this URL to point to your Postgres DB endpoint.
-    # Add additional URLs to monitor multiple instances.
-    - 192.168.1.161:5432/cht
+    - gamma.dev.medicmobile.org:5432/cht
   labels:
-    cht_instance: fake-cht:8081
+    cht_instance: gamma.dev.medicmobile.org
