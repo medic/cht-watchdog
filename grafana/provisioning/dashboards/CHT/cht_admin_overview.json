@@ -1117,7 +1117,7 @@
           "calcs": [
             "lastNotNull"
           ],
-          "fields": "/^C$/",
+          "fields": "",
           "values": false
         },
         "showThresholdLabels": false,
@@ -1165,6 +1165,14 @@
         }
       ],
       "title": "Couch2pg Backlog",
+      "transformations": [
+        {
+          "id": "filterByRefId",
+          "options": {
+            "include": "C"
+          }
+        }
+      ],
       "type": "gauge"
     },
     {
@@ -2249,6 +2257,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 28,
+  "version": 29,
   "weekStart": ""
 }
