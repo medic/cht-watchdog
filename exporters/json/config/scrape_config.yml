@@ -9,7 +9,7 @@ scrape_configs:
       module: [default]
     file_sd_configs:
       - files:
-          - cht-instances.yml
+          - '/etc/prometheus/cht-instances.yml'
     relabel_configs:
       - source_labels: [__address__]
         regex: "(.*?)(?:\\/|)$"
