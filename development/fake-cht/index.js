@@ -111,7 +111,7 @@ try {
   console.log('Using initial-response data.');
 }
 
-app.get('/', (req, res) => {
+app.get('/api/v2/monitoring', (req, res) => {
   const metrics = {
     version: getVersion(),
     couchdb: getAllCouchDbs(lastResponse.couchdb),
