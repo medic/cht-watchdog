@@ -4,7 +4,7 @@ A monitoring and alerting stack for the CHT built on [Prometheus](https://promet
 
 ## Using
 
-See our [docs site](docs.communityhealthtoolkit.org/apps/guides/hosting/monitoring/#grafana-and-prometheus)!
+See our [docs site](https://docs.communityhealthtoolkit.org/apps/guides/hosting/monitoring/#grafana-and-prometheus)!
 
 ## Development and Releasing
 
