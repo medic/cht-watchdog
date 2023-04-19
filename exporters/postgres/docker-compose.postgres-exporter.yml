@@ -4,7 +4,7 @@ services:
   prometheus:
     volumes:
       - ./exporters/postgres/postgres-instances.yml:/etc/prometheus/postgres-instances.yml:ro
-      - ./exporters/postgres/config/scrape_config.yml:/etc/prometheus/scrape_configs/postgres.yml:ro
+      - ./exporters/postgres/config/scrape_config.yml:/etc/prometheus/scrape_configs/cht-postgres.yml:ro
   postgres-exporter:
     image: prometheuscommunity/postgres-exporter:${POSTGRES_EXPORTER_VERSIO:-latest}
     command:
