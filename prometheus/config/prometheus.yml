@@ -20,9 +20,11 @@ scrape_configs:
         - cht-instances.yml
     relabel_configs:
       - source_labels: [__address__]
+        regex: "(.*?)(?:\\/|)$"
+        replacement: "${1}/api/v2/monitoring?connected_user_interval=30"
         target_label: __param_target
-      - source_labels: [__param_target]
-        regex: "(?:https?:\\/\\/|)(?:www\\.|)(.*?)(?:\\/api.*|)"
+      - source_labels: [__address__]
+        regex: "(?:https?:\\/\\/|)(?:www\\.|)(.*?)(?:\\/|)$"
         target_label: instance
         replacement: "$1"
       - target_label: __address__

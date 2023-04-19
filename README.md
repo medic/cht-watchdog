@@ -66,13 +66,12 @@ mkdir grafana/data && mkdir prometheus/data
 
 #### CHT Instance(s)
 
-Edit the [`cht-instances.yml` file](./cht-instances.yml) to point to your desired CHT instance(s). When using the provided CHT Admin Overview dashboard, you should set the `connected_user_interval=30` parameter on your CHT connection URL (so that the `cht_connected_users_count` metric is populated with user data from the last 30 days).
+Edit the [`cht-instances.yml` file](./cht-instances.yml) to point to your desired CHT instance(s).
 
 ```yml
-  - https://gamma.dev.medicmobile.org/api/v2/monitoring?connected_user_interval=30
+- targets:
+    - https://gamma.dev.medicmobile.org
 ```
-
-To preserve data consistency this parameter value should NOT be adjusted after it is initially set.
 
 #### Email Alerts
 
