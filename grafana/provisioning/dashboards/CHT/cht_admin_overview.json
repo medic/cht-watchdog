@@ -257,7 +257,7 @@
           "links": [
             {
               "title": "DB Doc Count",
-              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=2&var-cht_instance=${cht_instance}&var-db_name=${__field.labels.db}&from=${__from}&to=${__to}"
+              "url": "/d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=2&var-cht_instance=${cht_instance}&var-db_name=${__field.labels.db}&from=${__from}&to=${__to}"
             }
           ],
           "mappings": [],
@@ -416,7 +416,7 @@
           "links": [
             {
               "title": "Monthly Active Users",
-              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=29&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+              "url": "/d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=29&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
             }
           ],
           "mappings": [],
@@ -501,7 +501,7 @@
             {
               "targetBlank": false,
               "title": "Doc Conflicts",
-              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=9&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+              "url": "/d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=9&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
             }
           ],
           "mappings": [],
@@ -599,7 +599,7 @@
           "links": [
             {
               "title": "Fragmentation",
-              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=19&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+              "url": "/d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=19&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
             }
           ],
           "mappings": [],
@@ -694,7 +694,7 @@
           "links": [
             {
               "title": "Server Time",
-              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=36&var-cht_instance=${cht_instance}"
+              "url": "/d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=36&var-cht_instance=${cht_instance}"
             }
           ],
           "mappings": [
@@ -800,7 +800,7 @@
           "links": [
             {
               "title": "Outbound Push Backlog",
-              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=66&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+              "url": "/d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=66&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
             }
           ],
           "mappings": [],
@@ -891,7 +891,7 @@
           "links": [
             {
               "title": "Sentinel Backlog",
-              "url": "./d/hkQUbyfVk/cht-admin-details?viewPanel=69&orgId=1&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+              "url": "/d/hkQUbyfVk/cht-admin-details?viewPanel=69&orgId=1&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
             }
           ],
           "mappings": [],
@@ -981,7 +981,7 @@
           "links": [
             {
               "title": "Users Over Replication Limit",
-              "url": "./d/hkQUbyfVk/cht-admin-details?viewPanel=68&orgId=1&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+              "url": "/d/hkQUbyfVk/cht-admin-details?viewPanel=68&orgId=1&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
             }
           ],
           "mappings": [],
@@ -1071,7 +1071,7 @@
           "links": [
             {
               "title": "Client Feedback/Errors",
-              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=41&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+              "url": "/d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=41&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
             }
           ],
           "mappings": [],
@@ -1405,7 +1405,7 @@
           "links": [
             {
               "title": "Failed Messages",
-              "url": "./d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=63&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+              "url": "/d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=63&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
             }
           ],
           "mappings": [
