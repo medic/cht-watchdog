@@ -4,7 +4,7 @@ auth_modules:
   gamma.dev.medicmobile.org:5432/cht: # Needs to match the target URL in postgres-instances.yml
     type: userpass
     userpass:
-      username: postgres_root
-      password: postgres_root_password
+      username: postgres_readonly_user
+      password: postgres_readonly_password
     options:
       sslmode: disable
