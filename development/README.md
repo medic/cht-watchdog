@@ -30,7 +30,7 @@ Set `http://fake-cht:8081` in the [list in `cht-instances.yml`](../cht-instances
 From the root directory, run:
 
 ```
-docker compose -f docker-compose.yml -f tests/fake-cht/docker-compose.fake-cht.yml up -d
+docker compose -f docker-compose.yml -f development/fake-cht/docker-compose.fake-cht.yml up -d
 ```
 
 ### Historical data
@@ -44,12 +44,12 @@ Each test is associated with an `xlsx` file in this directory that contains the 
 Start a fresh deployment of cht-monitoring without providing any CHT URL and with the test override:
 
 ```
-docker compose -f docker-compose.yml -f tests/docker-compose.test-data.yml up -d
+docker compose -f docker-compose.yml -f development/docker-compose.test-data.yml up -d
 ```
 
-Open the `xlsx` file of the test you want to run. Switch to the `data` sheet and Save As a `csv` file (named `data.csv`) in the `tests` directory.
+Open the `xlsx` file of the test you want to run. Switch to the `data` sheet and Save As a `csv` file (named `data.csv`) in the `development` directory.
 
-In your terminal, navigate to the `tests` directory and run `cat data.csv | ./generate_test_data.js > ../prometheus/data/data.txt`. This converts the `csv` file to the OpenMetrics format that Prometheus expects and injects it into the Prometheus data volume. _(This is a good point to stop and double-check the `data.txt` file to make sure it looks correct.)_
+In your terminal, navigate to the `development` directory and run `cat data.csv | ./generate_test_data.js > ../prometheus/data/data.txt`. This converts the `csv` file to the OpenMetrics format that Prometheus expects and injects it into the Prometheus data volume. _(This is a good point to stop and double-check the `data.txt` file to make sure it looks correct.)_
 
 Run `docker compose exec prometheus promtool tsdb create-blocks-from openmetrics /prometheus/data.txt /prometheus && docker compose restart prometheus` to push the data into Prometheus.
 
@@ -68,6 +68,6 @@ enabled = true
 host = maildev:1025
 ```
 
-Start the `maildev` server along with the rest of the monitoring stack by running `docker compose -f docker-compose.yml -f tests/docker-compose.smtp.yml up -d`.
+Start the `maildev` server along with the rest of the monitoring stack by running `docker compose -f docker-compose.yml -f development/docker-compose.smtp.yml up -d`.
 
 You can view the MailDev UI at http://localhost:1080.
