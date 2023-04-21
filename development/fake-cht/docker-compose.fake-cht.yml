@@ -6,7 +6,7 @@ services:
     user: "node"
     working_dir: /home/node/app
     volumes:
-      - ./tests/fake-cht:/home/node/app
+      - ./development/fake-cht:/home/node/app
     networks:
       - cht-monitoring-net
     command: >
