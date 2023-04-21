@@ -1069,6 +1069,12 @@
             "mode": "thresholds"
           },
           "displayName": "changes",
+          "links": [
+            {
+              "title": "Couch2pg backlog",
+              "url": "/d/hkQUbyfVk/cht-admin-details?orgId=1&viewPanel=24&var-cht_instance=${cht_instance}&from=${__from}&to=${__to}"
+            }
+          ],
           "mappings": [],
           "max": 100,
           "min": 0,
@@ -2257,6 +2263,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 29,
+  "version": 30,
   "weekStart": ""
 }
