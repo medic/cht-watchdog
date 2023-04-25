@@ -6,7 +6,7 @@ services:
       - ./exporters/postgres/postgres-instances.yml:/etc/prometheus/postgres-instances.yml:ro
       - ./exporters/postgres/config/scrape_config.yml:/etc/prometheus/scrape_configs/cht-postgres.yml:ro
   postgres-exporter:
-    image: prometheuscommunity/postgres-exporter:${POSTGRES_EXPORTER_VERSIO:-latest}
+    image: prometheuscommunity/postgres-exporter:${POSTGRES_EXPORTER_VERSION:-latest}
     command:
       - '--config.file=/etc/postgres-exporter/postgres_exporter.yml'
     environment:
