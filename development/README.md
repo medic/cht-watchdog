@@ -33,7 +33,7 @@ cp development/fake-cht/example-config/postgres* ./exporters/postgres
 #### Deploy
 
 From the root directory, run:
-1
+
 ```
 docker compose -f docker-compose.yml -f development/fake-cht/docker-compose.fake-cht.yml up -d
 ```
