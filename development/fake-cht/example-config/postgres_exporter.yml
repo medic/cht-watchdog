@@ -1,0 +1,10 @@
+# Configuration for Postgres Exporter.
+# Add additional entries to auth_modules for each of your Postgres DB endpoints.
+auth_modules:
+  postgres:5432/cht: # Needs to match the target URL in postgres-instances.yml
+    type: userpass
+    userpass:
+      username: postgres_root
+      password: postgres_root_password
+    options:
+      sslmode: disable

@@ -19,18 +19,29 @@ Testing Grafana behavior is tricky since it requires data to test. Typically, a 
 
 ### Stream Random Data
 
-The [`fake-cht` server](./fake-cht) can be used to simulate the `/monitoring` endpoint of a CHT instance. The data it returns is random (within certain limits).
+The [`fake-cht` server](./fake-cht) can be used to simulate the `/monitoring` endpoint of a CHT instance. It will also populate Couch2pg-style data in a Postgres instance. The data it returns is random (within certain limits).
 
 #### Configure
 
-Set `http://fake-cht:8081` in the [list in `cht-instances.yml`](../cht-instances.yml).
+Copy the example config files:
+
+```shell
+cp development/fake-cht/example-config/cht-instances.yml cht-instances.yml
+cp development/fake-cht/example-config/postgres* ./exporters/postgres
+```
 
 #### Deploy
 
 From the root directory, run:
 
+```shell
+docker compose -f docker-compose.yml -f exporters/postgres/docker-compose.postgres-exporter.yml -f development/fake-cht/docker-compose.fake-cht.yml up -d
 ```
-docker compose -f docker-compose.yml -f development/fake-cht/docker-compose.fake-cht.yml up -d
+
+The Postgres data will be persisted in a Docker volume. To clear the data when you are finished testing (to allow for a fresh environment on the next run), run your `docker compose down` command with the `-v` flag to delete the volume.
+
+```shell
+docker compose -f docker-compose.yml -f exporters/postgres/docker-compose.postgres-exporter.yml -f development/fake-cht/docker-compose.fake-cht.yml down -v
 ```
 
 ### Historical data
@@ -44,7 +55,7 @@ Each test is associated with an `xlsx` file in this directory that contains the 
 Start a fresh deployment of cht-monitoring without providing any CHT URL and with the test override:
 
 ```
-docker compose -f docker-compose.yml -f development/docker-compose.test-data.yml up -d
+docker compose -f docker-compose.yml -f exporters/postgres/docker-compose.postgres-exporter.yml -f development/fake-cht/docker-compose.fake-cht.yml up -d
 ```
 
 Open the `xlsx` file of the test you want to run. Switch to the `data` sheet and Save As a `csv` file (named `data.csv`) in the `development` directory.

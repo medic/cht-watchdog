@@ -1,0 +1,4 @@
+- targets:
+    # Update this URL to point to your CHT instance.
+    # Add additional URLs to monitor multiple instances.
+    - http://fake-cht:8081

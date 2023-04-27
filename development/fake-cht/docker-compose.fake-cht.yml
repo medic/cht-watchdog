@@ -1,5 +1,8 @@
 version: "3.9"
 
+volumes:
+  fake-cht-postgres-data:
+
 services:
   fake-cht:
     image: node:latest
@@ -12,3 +15,14 @@ services:
     command: >
       sh -c "npm install &&
              npm start"
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: cht
+      POSTGRES_USER: postgres_root
+      POSTGRES_PASSWORD: postgres_root_password
+    volumes:
+      - fake-cht-postgres-data:/var/lib/postgresql/data
+    networks:
+      - cht-monitoring-net

@@ -27,6 +27,7 @@ services:
     volumes:
       - ./prometheus/config/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - ./cht-instances.yml:/etc/prometheus/cht-instances.yml:ro
+      - ./exporters/json/config/scrape_config.yml:/etc/prometheus/scrape_configs/cht-json.yml:ro
       - prometheus-data:/prometheus
     networks:
       - cht-monitoring-net
@@ -52,7 +53,7 @@ services:
   json-exporter:
     image: prometheuscommunity/json-exporter:${JSON_EXPORTER_VERSION:-latest}
     volumes:
-      - ./json-exporter/config/config.yml:/config.yml:ro
+      - ./exporters/json/config/cht.yml:/config.yml:ro
     networks:
       - cht-monitoring-net
     restart: always

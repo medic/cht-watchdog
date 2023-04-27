@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
-const initialResponse = require('./initial-response');
+const initialResponse = require('../initial-response.json');
+const { updatePostgres } = require('./postgres');
 
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
@@ -104,7 +105,7 @@ const getConnectedUsers = ({ count }) => ({
 const app = express();
 let lastResponse;
 try {
-  lastResponse = require('./last-response');
+  lastResponse = require('../last-response.json');
   console.log('Using last-response data.');
 } catch (e) {
   lastResponse = initialResponse;
@@ -125,7 +126,9 @@ app.get('/api/v2/monitoring', (req, res) => {
     connected_users: getConnectedUsers(lastResponse.connected_users),
   };
   lastResponse = metrics;
+  updatePostgres(metrics);
   fs.writeFileSync('./last-response.json', JSON.stringify(metrics, null, 2));
+  console.log(`Sent metrics at ${new Date()}`);
   res.json(metrics);
 });
 

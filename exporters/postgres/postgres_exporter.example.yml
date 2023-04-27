@@ -1,0 +1,10 @@
+# Configuration for Postgres Exporter.
+# Add additional entries to auth_modules for each of your Postgres DB endpoints.
+auth_modules:
+  gamma.dev.medicmobile.org:5432/cht: # Needs to match the target URL in postgres-instances.yml
+    type: userpass
+    userpass:
+      username: postgres_readonly_user
+      password: postgres_readonly_password
+    options:
+      sslmode: disable
