@@ -9,8 +9,7 @@ This repo has a manual release process where each feature/bug fix will be releas
 2. Submit a PR
 3. Have the PR reviewed
 4. Merge the PR to `main`
-5. Following SemVer create either a `N.X.X` (eg Major `1.x.x`), `N.N.X` (eg Minor `1.1.x`) or `N.N.N.X` (eg Patch `1.1.1.x`) branch.  Push this branch to repo.
-6. Create a [new release](https://github.com/medic/cht-monitoring/releases/new) being sure to specify the Target branch (eg `1.1.x`) and set the correct release (eg `1.1.0`) and release notes.
+6. Create a [new release](https://github.com/medic/cht-monitoring/releases/new) being sure to follow SemVer and set the release notes. This will cause a new tag to be created.
 7. Close the ticket
 
 ## Development patches
