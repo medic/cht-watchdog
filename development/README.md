@@ -10,6 +10,7 @@ This repo has a manual release process where each feature/bug fix will be releas
 3. Have the PR reviewed
 4. Merge the PR to `main`
 6. Create a [new release](https://github.com/medic/cht-monitoring/releases/new) being sure to follow SemVer and set the release notes. This will cause a new tag to be created.
+   ![Screenshot showing GitHub "Create new Release" page in this repo](./release.png)
 7. Close the ticket
 
 ## Development patches
