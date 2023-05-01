@@ -52,6 +52,16 @@ Metrics loaded from the CHT `/monitoring` endpoint are configured via the json-e
 
 Metrics loaded from a Couch2pg Postgres DB are configured via the postgres-exporter's [`cht-queries.yml`](../exporters/postgres/config/cht-queries.yml) file. New entries into the file can specify the associated Postgres query for loading the metric data. See the [postgres_exporter project](https://github.com/prometheus-community/postgres_exporter) on GitHub for more information.
 
+### Scraping metrics from a new resource
+
+Configuration for new Prometheus endpoints to scrape can be added in a new directory inside [`exporters`](../exporters). In the new directory, create a `config` directory for any static config files that the consumer should not edit/reference. In this `config` directory, create a `scrape_config.yml` file with the Prometheus scrape configuration for the endpoint.  Then, add a new docker compose `yml` file to your exporter directory. In this file, update the `prometheus` service to include a new `volumes` entry that maps your `scrape_config.yml` file to the Prometheus container in the `/etc/prometheus/scrape_configs` directory.
+
+If you are scraping a resource that natively supports returning Prometheus metrics, this should be all the configuration you need. If your resource does not provide Prometheus metrics, itself, you will need to update the docker compose configuration to include a new exporter container that can convert the resource's metrics into Prometheus metrics.
+
+See the existing exporters for examples.
+
+To start the cht-monitoring services with your new exporter configuration, simply use `-f` to include your new docker compose file when starting the services.
+
 ## Adding/modifying Grafana resources
 
 Consumers of cht-monitoring cannot edit the provisioned Grafana configuration (for dashboards and alerts) directly. This means that we can continue to evolve the configuration without worrying about breaking existing deployments. 
