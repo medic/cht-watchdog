@@ -1,0 +1,30 @@
+*** grafana/provisioning/datasources/cht.yml	2023-04-27 16:35:37.544198677 -0500
+--- grafana/provisioning/datasources/cht1.yml	2023-05-01 10:49:25.444526391 -0500
+***************
+*** 10,16 ****
+      isDefault: true
+      editable: true
+      jsonData:
+!       timeInterval: 1m
+  
+    - name: Discourse
+      type: grafana-discourse-datasource
+--- 10,16 ----
+      isDefault: true
+      editable: true
+      jsonData:
+!       timeInterval: 1s
+  
+    - name: Discourse
+      type: grafana-discourse-datasource
+***************
+*** 22,25 ****
+      isDefault: false
+      editable: true
+      jsonData:
+!       timeInterval: 1h
+--- 22,25 ----
+      isDefault: false
+      editable: true
+      jsonData:
+!       timeInterval: 1m
