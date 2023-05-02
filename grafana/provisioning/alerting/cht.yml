@@ -16,7 +16,7 @@ groups:
             datasourceUid: PBFA97CFB590B2093
             model:
               editorMode: code
-              expr: cht_couchdb_fragmentation
+              expr: cht_couchdb_fragmentation and on (db) (cht_couchdb_doc_total > 1000)
               hide: false
               intervalMs: 1000
               legendFormat: __auto
