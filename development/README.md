@@ -76,9 +76,23 @@ Modifications to the existing dashboards can be made directly to the JSON files 
 
 ### Alerts
 
-The configuration for provisioned alert rules is stored in the [`grafana/provisioning/alerting/cht.yml](../grafana/provisioning/alerting/cht.yml) file. See the [Grafana documentation](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/) for more information.
+The configuration for provisioned alert rules is stored in the [`grafana/provisioning/alerting/cht.yml`](../grafana/provisioning/alerting/cht.yml) file. See the [Grafana documentation](https://grafana.com/docs/grafana/latest/alerting/set-up/provision-alerting-resources/file-provisioning/) for more information.
 
 Minor modifications to alert rules can be done directly in the yml file, but any significant additions or modifications to the alert rules should be done in the Grafana UI and then exported via the [Alerting provisioning API](https://grafana.com/docs/grafana/latest/developers/http_api/alerting_provisioning/#route-get-alert-rule-export).
+
+To make significant modifications to an existing alert:
+
+1. View the alert in the Grafana Alert Rules UI, and select the "Copy" button. This will prompt you to create a new rule that "will NOT be marked as provisioned". This is what you want to do.
+2. Make your desired changes to your copied rule and save the rule into a new Evaluation group (the details of the group can be anything).
+3. View your new rule in the Grafana Alert Rules UI and note the `Rule UID` value.
+4. Query the Grafana API for the config of your new rule:
+
+    ```shell
+    curl http://medic:password@localhost:3000/api/v1/provisioning/alert-rules/YOUR-NEW-RULE-UID/export
+    ```
+
+5. Diff the contents of the `rules` object in the response with the existing configuration for your rule in the [`grafana/provisioning/alerting/cht.yml`](../grafana/provisioning/alerting/cht.yml) file. Include all the desired changes in the `cht.yml` file, but do not change things like the `uid`, etc. 
+6. Delete the copied rule from the Grafana UI.
 
 ## Testing during development
 
