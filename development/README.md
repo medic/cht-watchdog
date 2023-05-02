@@ -85,13 +85,8 @@ To make significant modifications to an existing alert:
 1. View the alert in the Grafana Alert Rules UI, and select the "Copy" button. This will prompt you to create a new rule that "will NOT be marked as provisioned". This is what you want to do.
 2. Make your desired changes to your copied rule and save the rule into a new Evaluation group (the details of the group can be anything).
 3. View your new rule in the Grafana Alert Rules UI and note the `Rule UID` value.
-4. Query the Grafana API for the config of your new rule:
-
-    ```shell
-    curl http://medic:password@localhost:3000/api/v1/provisioning/alert-rules/YOUR-NEW-RULE-UID/export
-    ```
-
-5. Diff the contents of the `rules` object in the response with the existing configuration for your rule in the [`grafana/provisioning/alerting/cht.yml`](../grafana/provisioning/alerting/cht.yml) file. Include all the desired changes in the `cht.yml` file, but do not change things like the `uid`, etc. 
+4. In the Grafana Alert Rules UI, use the "Export" button to download a `yml` file containing the updated configuration.
+5. Find the `rules` entry with your `uid` value and diff that with the existing configuration for your rule in the [`grafana/provisioning/alerting/cht.yml`](../grafana/provisioning/alerting/cht.yml) file. Include all the desired changes in the `cht.yml` file, but do not change things like the `uid`, etc. 
 6. Delete the copied rule from the Grafana UI.
 
 ## Testing during development
