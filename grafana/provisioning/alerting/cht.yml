@@ -540,22 +540,43 @@ groups:
         isPaused: false
       - uid: nBTZsCY4k
         title: Client Feedback/Error Rate
-        condition: C
+        condition: B
         data:
-          - refId: A
+          - refId: feedback_rate
             relativeTimeRange:
               from: 600
               to: 0
             datasourceUid: PBFA97CFB590B2093
             model:
               editorMode: code
+              exemplar: false
               expr: rate(cht_feedback_total[24h]) * 60 * 60 * 24
               hide: false
+              instant: true
               intervalMs: 1000
               legendFormat: __auto
               maxDataPoints: 43200
-              range: true
-              refId: A
+              range: false
+              refId: feedback_rate
+          - refId: threshold
+            relativeTimeRange:
+              from: 600
+              to: 0
+            datasourceUid: PBFA97CFB590B2093
+            model:
+              datasource:
+                type: prometheus
+                uid: PBFA97CFB590B2093
+              editorMode: code
+              exemplar: false
+              expr: cht_connected_users_count / 10
+              hide: false
+              instant: true
+              intervalMs: 1000
+              legendFormat: __auto
+              maxDataPoints: 43200
+              range: false
+              refId: threshold
           - refId: B
             relativeTimeRange:
               from: 600
@@ -564,58 +585,27 @@ groups:
             model:
               conditions:
                 - evaluator:
-                    params: []
+                    params:
+                      - 0
+                      - 0
                     type: gt
                   operator:
                     type: and
                   query:
-                    params:
-                      - B
+                    params: []
                   reducer:
                     params: []
-                    type: last
+                    type: avg
                   type: query
               datasource:
+                name: Expression
                 type: __expr__
                 uid: __expr__
-              expression: A
-              hide: false
+              expression: ${feedback_rate} > ${threshold}
               intervalMs: 1000
               maxDataPoints: 43200
-              reducer: last
               refId: B
-              settings:
-                mode: ""
-              type: reduce
-          - refId: C
-            relativeTimeRange:
-              from: 600
-              to: 0
-            datasourceUid: __expr__
-            model:
-              conditions:
-                - evaluator:
-                    params:
-                      - 4
-                    type: gt
-                  operator:
-                    type: and
-                  query:
-                    params:
-                      - C
-                  reducer:
-                    params: []
-                    type: last
-                  type: query
-              datasource:
-                type: __expr__
-                uid: __expr__
-              expression: B
-              hide: false
-              intervalMs: 1000
-              maxDataPoints: 43200
-              refId: C
-              type: threshold
+              type: math
         dashboardUid: oa2OfL-Vk
         panelId: 14
         noDataState: NoData
@@ -716,52 +706,44 @@ groups:
         isPaused: false
       - uid: 0R-OsCYVz
         title: Message Delivery Rate
-        condition: C
+        condition: alert
         data:
-          - refId: A
+          - refId: delivered_rate
             relativeTimeRange:
               from: 600
               to: 0
             datasourceUid: PBFA97CFB590B2093
             model:
               editorMode: code
-              expr: rate(cht_messaging_outgoing_total{status="delivered"}[24h]) / on (instance) (rate(cht_messaging_outgoing_total{status="delivered"}[24h]) + on (instance) rate(cht_messaging_outgoing_total{status="failed"}[24h]))
+              exemplar: false
+              expr: rate(cht_messaging_outgoing_total{status="delivered"}[24h])
               hide: false
+              instant: true
               intervalMs: 1000
               legendFormat: __auto
               maxDataPoints: 43200
-              range: true
-              refId: A
-          - refId: C
+              range: false
+              refId: delivered_rate
+          - refId: total_rate
             relativeTimeRange:
               from: 600
               to: 0
-            datasourceUid: __expr__
+            datasourceUid: PBFA97CFB590B2093
             model:
-              conditions:
-                - evaluator:
-                    params:
-                      - 0.9
-                    type: lt
-                  operator:
-                    type: and
-                  query:
-                    params:
-                      - C
-                  reducer:
-                    params: []
-                    type: last
-                  type: query
               datasource:
-                type: __expr__
-                uid: __expr__
-              expression: E
+                type: prometheus
+                uid: PBFA97CFB590B2093
+              editorMode: code
+              exemplar: false
+              expr: rate(cht_messaging_outgoing_total{status="delivered"}[24h]) + on(instance) rate(cht_messaging_outgoing_total{status="failed"}[24h])
               hide: false
+              instant: true
               intervalMs: 1000
+              legendFormat: __auto
               maxDataPoints: 43200
-              refId: C
-              type: threshold
-          - refId: E
+              range: false
+              refId: total_rate
+          - refId: delivered_pct
             relativeTimeRange:
               from: 600
               to: 0
@@ -785,15 +767,38 @@ groups:
                 name: Expression
                 type: __expr__
                 uid: __expr__
-              expression: A
+              expression: ${delivered_rate}/${total_rate}
               intervalMs: 1000
               maxDataPoints: 43200
-              reducer: last
-              refId: E
-              settings:
-                mode: replaceNN
-                replaceWithValue: 1
-              type: reduce
+              refId: delivered_pct
+              type: math
+          - refId: alert
+            datasourceUid: __expr__
+            model:
+              conditions:
+                - evaluator:
+                    params:
+                      - 0
+                      - 0
+                    type: gt
+                  operator:
+                    type: and
+                  query:
+                    params: []
+                  reducer:
+                    params: []
+                    type: avg
+                  type: query
+              datasource:
+                name: Expression
+                type: __expr__
+                uid: __expr__
+              expression: '!is_nan(${delivered_pct}) && ${delivered_pct} < 0.9'
+              hide: false
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: alert
+              type: math
         dashboardUid: oa2OfL-Vk
         panelId: 27
         noDataState: NoData
