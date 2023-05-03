@@ -1,4 +1,4 @@
-# CHT Monitoring & Alerting (CMA)
+# CHT Watchdog
 
 A monitoring and alerting stack for the CHT built on [Prometheus](https://prometheus.io/) and [Grafana](https://grafana.com/).
 
