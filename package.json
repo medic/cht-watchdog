@@ -1,11 +1,30 @@
 {
+  "name": "cht-watchdog",
   "scripts": {
     "lint": "eslint 'development/**/*.js'",
     "apply-dev-patches": "node ./development/development_patches.js apply",
-    "revert-dev-patches": "node ./development/development_patches.js revert"
+    "revert-dev-patches": "node ./development/development_patches.js revert",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@medic/eslint-config": "^1.1.0",
-    "eslint": "^8.39.0"
+    "eslint": "^8.39.0",
+    "semantic-release": "^21.0.2"
+  },
+  "version": "0.0.0-development",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/medic/cht-monitoring.git"
+  },
+  "releases": {
+    "branches": [
+      "+([0-9]).+([0-9]).x",
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github"
+    ]
   }
 }
