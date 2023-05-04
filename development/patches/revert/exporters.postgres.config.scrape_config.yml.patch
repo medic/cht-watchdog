@@ -1,0 +1,17 @@
+*** exporters/postgres/config/scrape_config1.yml	2023-05-01 10:55:44.066414120 -0500
+--- exporters/postgres/config/scrape_config.yml	2023-05-01 09:11:50.580353623 -0500
+***************
+*** 1,6 ****
+  scrape_configs:
+    - job_name: postgres
+!     scrape_interval: 5s
+      metrics_path: /probe
+      file_sd_configs:
+        - files:
+--- 1,6 ----
+  scrape_configs:
+    - job_name: postgres
+!     scrape_interval: 5m
+      metrics_path: /probe
+      file_sd_configs:
+        - files:

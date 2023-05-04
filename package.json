@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "lint": "eslint 'development/**/*.js'",
+    "apply-dev-patches": "node ./development/development_patches.js apply",
+    "revert-dev-patches": "node ./development/development_patches.js revert"
+  },
+  "devDependencies": {
+    "@medic/eslint-config": "^1.1.0",
+    "eslint": "^8.39.0"
+  }
+}

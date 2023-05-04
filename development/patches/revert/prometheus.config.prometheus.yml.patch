@@ -1,0 +1,15 @@
+*** prometheus/config/prometheus1.yml	2023-05-01 10:59:00.703394525 -0500
+--- prometheus/config/prometheus.yml	2023-05-01 09:11:50.580353623 -0500
+***************
+*** 1,5 ****
+  global:
+!   scrape_interval: 1s
+  scrape_config_files:
+    - /etc/prometheus/scrape_configs/*.yml
+  scrape_configs:
+--- 1,5 ----
+  global:
+!   scrape_interval: 1m
+  scrape_config_files:
+    - /etc/prometheus/scrape_configs/*.yml
+  scrape_configs:
