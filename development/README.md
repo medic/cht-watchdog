@@ -2,6 +2,8 @@
 
 ## Development process
 
+[//]: # (TODO: update with release steps that explain the commit message format)
+
 This repo has a manual release process where each feature/bug fix will be released immediately after it is merged to `main`:
 
 0. Update QA with the work to be done to ensure they're informed and can guide development
