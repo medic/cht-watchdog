@@ -103,7 +103,7 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "# CHT Admin Dashboard\n\nSee the [CHT documentation](https://docs.communityhealthtoolkit.org/apps/guides/hosting/monitoring/) for more information about monitoring and alerting!",
+        "content": "# CHT Watchdog\n\nSee the [CHT documentation](https://docs.communityhealthtoolkit.org/apps/guides/hosting/monitoring/) for more information about monitoring and alerting!",
         "mode": "markdown"
       },
       "pluginVersion": "9.4.7",
