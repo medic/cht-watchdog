@@ -24,38 +24,6 @@ Examples are provided below.
 | Non-code    | chore(#123): update README                                                                          | none         |
 | Breaking    | perf(#2): remove reporting rates feature <br/> BREAKING CHANGE: reporting rates no longer supported | major        |
 
-### Release branches
-
-We create release branches for the major and minor releases with the form `<major>.<minor>.x`.
-The latest existing branch release (e.g. `1.1.x` currently) receives fix commits. New features should therefore be associated with a new release branch.
-
-Creating and updating these branches is not automated yet, you will find the steps below to handle each scenario:
-
-#### Creating a release branch
-
-For this example, let's say we want to create the `1.3.x` release branch:
-
-```shell
-# get the latest changes from main
-git checkout main
-git pull
-# then, create the branch
-git checkout -b 1.3.x
-# and finally, push it to remote
-git push --set-upstream origin 1.3.x
-```
-
-#### Updating a release branch
-
-For this example, let's say we want to update the `1.3.x` release branch to the latest patch version `1.3.4`:
-
-```shell
-git checkout 1.3.x
-# cherry-pick every commit between the latest commit on `1.3.x` and the commit of tag `1.3.4`
-git cherry-pick HEAD..1.3.4
-git push
-```
-
 ## Development patches
 
 When testing updates to this repository, it is useful to be able to iterate quickly.  The default configuration values set for the metric collection time intervals are intended for production usage and are not suitable for testing/development. You can use the `apply-dev-patches` NPM script to apply a set of patches that will lower the interval values to make testing easier.
