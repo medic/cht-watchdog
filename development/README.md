@@ -2,16 +2,27 @@
 
 ## Development process
 
-This repo has a manual release process where each feature/bug fix will be released immediately after it is merged to `main`:
+This repo has an automated release process where each feature/bug fix will be released immediately after it is merged to `main`:
 
-0. Update QA with the work to be done to ensure they're informed and can guide development
-1. Create a ticket for the feature/bug fix.
-2. Submit a PR
-3. Have the PR reviewed
-4. Merge the PR to `main`
-6. Create a [new release](https://github.com/medic/cht-monitoring/releases/new) being sure to follow SemVer and set the release notes. This will cause a new tag to be created.
-   ![Screenshot showing GitHub "Create new Release" page in this repo](./release.png)
-7. Close the ticket
+1. Update QA with the work to be done to ensure they're informed and can guide development.
+2. Create a ticket for the feature/bug fix.
+3. Submit a PR, and make sure that the PR title is clear, readable, and follows the strict commit message format described in the commit message format section below. If the PR title does not comply, automatic release will fail.
+4. Have the PR reviewed.
+5. Squash and merge the PR to `main`. The commit message should be the already-formatted PR title but double check it's clear, readable, and follows the strict commit message format to make sure the automatic release works as expected.
+6. Close the ticket.
+
+### Commit message format
+
+The commit format should follow the convention outlined in the [CHT docs](https://docs.communityhealthtoolkit.org/contribute/code/workflow/#commit-message-format).
+Examples are provided below.
+
+| Type        | Example commit message                                                                              | Release type |
+|-------------|-----------------------------------------------------------------------------------------------------|--------------|
+| Bug fixes   | fix(#123): infinite spinner when clicking contacts tab twice                                        | patch        |
+| Performance | perf(#789): lazily loaded angular modules                                                           | patch        |
+| Features    | feat(#456): add home tab                                                                            | minor        |
+| Non-code    | chore(#123): update README                                                                          | none         |
+| Breaking    | perf(#2): remove reporting rates feature <br/> BREAKING CHANGE: reporting rates no longer supported | major        |
 
 ## Development patches
 
