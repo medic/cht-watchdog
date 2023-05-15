@@ -1,3 +1,16 @@
+# [1.2.0](https://github.com/medic/cht-monitoring/compare/1.1.0...1.2.0) (2023-05-15)
+
+
+### Bug Fixes
+
+* **35:** update DB Fragmentation and Message Delivery Rate alerts ([#37](https://github.com/medic/cht-monitoring/issues/37)) ([7e19a10](https://github.com/medic/cht-monitoring/commit/7e19a106408fe90826f907841ae0b5d3bd4acdf1))
+
+
+### Features
+
+* **#34:** automate releases ([#42](https://github.com/medic/cht-monitoring/issues/42)) ([158ff6e](https://github.com/medic/cht-monitoring/commit/158ff6ec089b3c12440081b718331c1088dff2c1)), closes [#34](https://github.com/medic/cht-monitoring/issues/34) [#34](https://github.com/medic/cht-monitoring/issues/34) [#34](https://github.com/medic/cht-monitoring/issues/34) [#34](https://github.com/medic/cht-monitoring/issues/34) [#34](https://github.com/medic/cht-monitoring/issues/34) [#34](https://github.com/medic/cht-monitoring/issues/34) [#34](https://github.com/medic/cht-monitoring/issues/34) [#34](https://github.com/medic/cht-monitoring/issues/34) [#34](https://github.com/medic/cht-monitoring/issues/34)
+* **releases:** fix releases tag format ([#48](https://github.com/medic/cht-monitoring/issues/48)) ([66f07de](https://github.com/medic/cht-monitoring/commit/66f07de0b67c71e4eba652340f1c0ee57932ed6f))
+
 # 1.0.0 (2023-05-11)
 
 
