@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/medic/cht-monitoring/compare/1.2.0...1.2.1) (2023-05-15)
+
+
+### Bug Fixes
+
+* **config:** add server url to grafana.example.ini ([#44](https://github.com/medic/cht-monitoring/issues/44)) ([03c0dd2](https://github.com/medic/cht-monitoring/commit/03c0dd23855c8fa57ba67b2f95277e371b47a1a9))
+
 # [1.2.0](https://github.com/medic/cht-monitoring/compare/1.1.0...1.2.0) (2023-05-15)
 
 
