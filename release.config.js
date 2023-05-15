@@ -1,6 +1,7 @@
 module.exports = {
-  'branches': ['main'],
-  'plugins': [
+  branches: ['main'],
+  tagFormat: '${version}',
+  plugins: [
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
     [
