@@ -71,11 +71,11 @@ If you are scraping a resource that natively supports returning Prometheus metri
 
 See the existing exporters for examples.
 
-To start the cht-monitoring services with your new exporter configuration, simply use `-f` to include your new docker compose file when starting the services.
+To start the cht-watchdog services with your new exporter configuration, simply use `-f` to include your new docker compose file when starting the services.
 
 ## Adding/modifying Grafana resources
 
-Consumers of cht-monitoring cannot edit the provisioned Grafana configuration (for dashboards and alerts) directly. This means that we can continue to evolve the configuration without worrying about breaking existing deployments. 
+Consumers of cht-watchdog cannot edit the provisioned Grafana configuration (for dashboards and alerts) directly. This means that we can continue to evolve the configuration without worrying about breaking existing deployments. 
 
 ### Dashboards
 
@@ -139,7 +139,7 @@ Each test is associated with an `xlsx` file in this directory that contains the 
 
 #### Running a test
 
-Start a fresh deployment of cht-monitoring without providing any CHT URL and with the test override:
+Start a fresh deployment of cht-watchdog without providing any CHT URL and with the test override:
 
 ```
 docker compose -f docker-compose.yml -f exporters/postgres/docker-compose.postgres-exporter.yml -f development/fake-cht/docker-compose.fake-cht.yml up -d
