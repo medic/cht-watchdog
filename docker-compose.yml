@@ -30,7 +30,7 @@ services:
       - ./exporters/json/config/scrape_config.yml:/etc/prometheus/scrape_configs/cht-json.yml:ro
       - prometheus-data:/prometheus
     networks:
-      - cht-monitoring-net
+      - cht-watchdog-net
     restart: always
 
   grafana:
@@ -47,7 +47,7 @@ services:
       - GF_USERS_ALLOW_SIGN_UP=false
       - GF_INSTALL_PLUGINS=${GRAFANA_PLUGINS:-grafana-discourse-datasource}
     networks:
-      - cht-monitoring-net
+      - cht-watchdog-net
     restart: always
 
   json-exporter:
@@ -55,8 +55,8 @@ services:
     volumes:
       - ./exporters/json/config/cht.yml:/config.yml:ro
     networks:
-      - cht-monitoring-net
+      - cht-watchdog-net
     restart: always
 
 networks:
-  cht-monitoring-net:
+  cht-watchdog-net:

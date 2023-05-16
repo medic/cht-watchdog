@@ -6,5 +6,5 @@ services:
     ports:
       - "1080:1080"
     networks:
-      - cht-monitoring-net
+      - cht-watchdog-net
     restart: always
