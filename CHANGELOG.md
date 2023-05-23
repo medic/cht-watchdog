@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/medic/cht-watchdog/compare/1.2.1...1.3.0) (2023-05-23)
+
+
+### Features
+
+* **53:** add recommended method for deleting provisioned alerts ([#54](https://github.com/medic/cht-watchdog/issues/54)) ([5971c28](https://github.com/medic/cht-watchdog/commit/5971c281952ff1ca7df8cfaf5215870f0d0a0f6a))
+
 ## [1.2.1](https://github.com/medic/cht-monitoring/compare/1.2.0...1.2.1) (2023-05-15)
 
 
