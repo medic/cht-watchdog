@@ -117,6 +117,13 @@ cp development/fake-cht/example-config/cht-instances.yml cht-instances.yml
 cp development/fake-cht/example-config/postgres* ./exporters/postgres
 ```
 
+You will also need to run a few additional commands from the [normal setup process](https://docs.communityhealthtoolkit.org/apps/guides/hosting/monitoring/setup/#setup) to prepare your new instance:
+
+```shell
+cp grafana/grafana.example.ini grafana/grafana.ini
+mkdir -p grafana/data && mkdir  -p prometheus/data 
+```
+
 #### Deploy
 
 From the root directory, run:
