@@ -8,3 +8,4 @@ cht-instances.yml
 postgres-instances.yml
 postgres_exporter.yml
 grafana.ini
+delete-rules.yml

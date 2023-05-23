@@ -1,4 +1,5 @@
 {
+  "name": "fake-cht",
   "scripts": {
     "start": "node src/index.js"
   },

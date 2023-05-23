@@ -11,7 +11,7 @@ services:
     volumes:
       - ./development/fake-cht:/home/node/app
     networks:
-      - cht-monitoring-net
+      - cht-watchdog-net
     command: >
       sh -c "npm install &&
              npm start"
@@ -25,4 +25,4 @@ services:
     volumes:
       - fake-cht-postgres-data:/var/lib/postgresql/data
     networks:
-      - cht-monitoring-net
+      - cht-watchdog-net

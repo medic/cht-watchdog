@@ -15,5 +15,5 @@ services:
       - ./exporters/postgres/postgres_exporter.yml:/etc/postgres-exporter/postgres_exporter.yml:ro
       - ./exporters/postgres/config/cht-queries.yml:/etc/postgres-exporter/queries.yml:ro
     networks:
-      - cht-monitoring-net
+      - cht-watchdog-net
     restart: always
