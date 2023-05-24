@@ -1,100 +1,6 @@
 apiVersion: 1
 groups:
   - orgId: 1
-    name: 30m
-    folder: CHT
-    interval: 30m
-    rules:
-      - uid: Q1A-BjL4k
-        title: API Server Down
-        condition: C
-        data:
-          - refId: A
-            relativeTimeRange:
-              from: 600
-              to: 0
-            datasourceUid: PBFA97CFB590B2093
-            model:
-              editorMode: code
-              expr: up{job="cht"}
-              hide: false
-              intervalMs: 1000
-              legendFormat: __auto
-              maxDataPoints: 43200
-              range: true
-              refId: A
-          - refId: B
-            relativeTimeRange:
-              from: 600
-              to: 0
-            datasourceUid: __expr__
-            model:
-              conditions:
-                - evaluator:
-                    params: [ ]
-                    type: gt
-                  operator:
-                    type: and
-                  query:
-                    params:
-                      - B
-                  reducer:
-                    params: [ ]
-                    type: last
-                  type: query
-              datasource:
-                type: __expr__
-                uid: __expr__
-              expression: A
-              hide: false
-              intervalMs: 1000
-              maxDataPoints: 43200
-              reducer: last
-              refId: B
-              settings:
-                mode: ""
-              type: reduce
-          - refId: C
-            relativeTimeRange:
-              from: 600
-              to: 0
-            datasourceUid: __expr__
-            model:
-              conditions:
-                - evaluator:
-                    params:
-                      - 1
-                    type: lt
-                  operator:
-                    type: and
-                  query:
-                    params:
-                      - C
-                  reducer:
-                    params: [ ]
-                    type: last
-                  type: query
-              datasource:
-                type: __expr__
-                uid: __expr__
-              expression: B
-              hide: false
-              intervalMs: 1000
-              maxDataPoints: 43200
-              refId: C
-              type: threshold
-        dashboardUid: oa2OfL-Vk
-        panelId: 16
-        noDataState: Alerting
-        execErrState: Error
-        for: 1m
-        annotations:
-          __dashboardUid__: oa2OfL-Vk
-          __panelId__: "16"
-          description: CHT Server [{{ $labels.instance }}] is not responding!
-        isPaused: false
-
-  - orgId: 1
     name: 10m
     folder: CHT
     interval: 10m
@@ -544,6 +450,94 @@ groups:
     folder: CHT
     interval: 1m
     rules:
+      - uid: Q1A-BjL4k
+        title: API Server Down
+        condition: C
+        data:
+          - refId: A
+            relativeTimeRange:
+              from: 600
+              to: 0
+            datasourceUid: PBFA97CFB590B2093
+            model:
+              editorMode: code
+              expr: up{job="cht"}
+              hide: false
+              intervalMs: 1000
+              legendFormat: __auto
+              maxDataPoints: 43200
+              range: true
+              refId: A
+          - refId: B
+            relativeTimeRange:
+              from: 600
+              to: 0
+            datasourceUid: __expr__
+            model:
+              conditions:
+                - evaluator:
+                    params: []
+                    type: gt
+                  operator:
+                    type: and
+                  query:
+                    params:
+                      - B
+                  reducer:
+                    params: []
+                    type: last
+                  type: query
+              datasource:
+                type: __expr__
+                uid: __expr__
+              expression: A
+              hide: false
+              intervalMs: 1000
+              maxDataPoints: 43200
+              reducer: last
+              refId: B
+              settings:
+                mode: ""
+              type: reduce
+          - refId: C
+            relativeTimeRange:
+              from: 600
+              to: 0
+            datasourceUid: __expr__
+            model:
+              conditions:
+                - evaluator:
+                    params:
+                      - 1
+                    type: lt
+                  operator:
+                    type: and
+                  query:
+                    params:
+                      - C
+                  reducer:
+                    params: []
+                    type: last
+                  type: query
+              datasource:
+                type: __expr__
+                uid: __expr__
+              expression: B
+              hide: false
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: C
+              type: threshold
+        dashboardUid: oa2OfL-Vk
+        panelId: 16
+        noDataState: Alerting
+        execErrState: Error
+        for: 30m
+        annotations:
+          __dashboardUid__: oa2OfL-Vk
+          __panelId__: "16"
+          description: CHT Server [{{ $labels.instance }}] is not responding!
+        isPaused: false
       - uid: nBTZsCY4k
         title: Client Feedback/Error Rate
         condition: B
