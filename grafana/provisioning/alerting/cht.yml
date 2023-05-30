@@ -532,7 +532,7 @@ groups:
         panelId: 16
         noDataState: Alerting
         execErrState: Error
-        for: 1m
+        for: 30m
         annotations:
           __dashboardUid__: oa2OfL-Vk
           __panelId__: "16"
