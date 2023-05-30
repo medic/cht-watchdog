@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/medic/cht-watchdog/compare/1.3.0...1.4.0) (2023-05-30)
+
+
+### Features
+
+* **alerts:** reduce sensitivity for API Server Down alert ([#56](https://github.com/medic/cht-watchdog/issues/56)) ([d88ea16](https://github.com/medic/cht-watchdog/commit/d88ea16239329430c39af399a5e9f278348684cf))
+
 # [1.3.0](https://github.com/medic/cht-watchdog/compare/1.2.1...1.3.0) (2023-05-23)
 
 
