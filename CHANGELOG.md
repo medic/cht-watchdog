@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/medic/cht-watchdog/compare/1.4.0...1.4.1) (2023-06-06)
+
+
+### Bug Fixes
+
+* **#35:** fix DB Fragmentation alert on multi-instance deployments ([#57](https://github.com/medic/cht-watchdog/issues/57)) ([6f89594](https://github.com/medic/cht-watchdog/commit/6f8959416d778e77929006244ed92d0198295859))
+
 # [1.4.0](https://github.com/medic/cht-watchdog/compare/1.3.0...1.4.0) (2023-05-30)
 
 
