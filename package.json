@@ -1,11 +1,16 @@
 {
   "name": "cht-watchdog",
+  "engines" : {
+    "node" : ">=18.0.0"
+  },
   "scripts": {
     "lint": "eslint 'development/**/*.js'",
     "apply-dev-patches": "node ./development/development_patches.js apply",
     "revert-dev-patches": "node ./development/development_patches.js revert",
     "semantic-release": "semantic-release",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "test": "npm run test-integration",
+    "test-integration": "mocha \"./development/tests/integration/**/*.js\" --timeout 100000"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",
@@ -13,13 +18,18 @@
     "@medic/eslint-config": "^1.1.0",
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "chai": "^4.3.7",
     "eslint": "^8.39.0",
     "husky": "^8.0.3",
+    "mocha": "^10.2.0",
     "semantic-release": "^21.0.2"
   },
   "version": "1.4.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/medic/cht-watchdog.git"
+  },
+  "mocha": {
+    "timeout": 100000
   }
 }
