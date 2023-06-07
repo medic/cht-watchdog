@@ -39,29 +39,27 @@ const waitUntilStarted = async (tries = 0) => {
   }
 };
 
-const getAlertRuleId = async (alertUID) => {
-  // https://grafana.com/docs/grafana/next/developers/http_api/alerting_provisioning/
-  const response = await fetchWithTimeout(new URL(`${GRAFANA_URL}/api/v1/provisioning/alert-rules/${alertUID}`));
-  return (await response.json()).id;
-};
-
-const getAnnotationsForAlert = async (alertUID, tries = 0) => {
-  if (tries > 60) {
-    throw new Error(`Could not find any annotations for alert: ${alertUID}.`);
+const getAlert = async (ruleName, instance, tries = 0) => {
+  if (tries > 30) {
+    throw new Error(`Could not find any alert for Rule: ${ruleName}.`);
   }
-  const alertRuleId = await getAlertRuleId(alertUID);
-  // https://grafana.com/docs/grafana/latest/developers/http_api/annotations/
-  const response = await fetchWithTimeout(new URL(`${GRAFANA_URL}/api/annotations?alertId=${alertRuleId}`));
-  const annotations = await response.json();
-  if (!annotations.length) {
+  const response = await fetchWithTimeout(new URL(`${GRAFANA_URL}/api/prometheus/grafana/api/v1/rules`));
+  const alert = (await response.json())
+    ?.data
+    ?.groups
+    ?.flatMap(group => group.rules)
+    ?.find(rule => rule.name === ruleName)
+    ?.alerts
+    ?.find(alert => alert.labels.instance === instance);
+  if (!alert) {
     await sleep(1000);
-    return getAnnotationsForAlert(alertUID, tries + 1);
+    return getAlert(ruleName, instance, tries + 1);
   }
-  return annotations.reverse();
+  return alert;
 };
 
 module.exports = {
-  getAnnotationsForAlert,
+  getAlert,
   waitUntilStarted
 };
 

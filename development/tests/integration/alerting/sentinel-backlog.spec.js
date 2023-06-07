@@ -2,19 +2,31 @@ const prometheus = require('../utils/prometheus.js');
 const grafana = require('../utils/grafana.js');
 const { expect } = require('chai');
 
-const ALERT_RULE_UID = 'FzCrECYVk';
+const ALERT_RULE_NAME = 'Sentinel Backlog';
 
 describe('Sentinel Backlog alert rule', () => {
-  it('my first test', async () => {
-    const now = Date.now() / 1000;
+  let instance;
 
-    const testData = [
-      { timestamp: now, metricName: 'cht_sentinel_backlog_count', value: 500, labels: { instance: 'http://hello.world', job: 'cht' }  },
-    ];
-    await prometheus.injectTestData(testData);
+  beforeEach(() => {
+    instance = `test-instance-${Date.now()}`;
+  });
 
-    const alertAnnotations = await grafana.getAnnotationsForAlert(ALERT_RULE_UID);
-    expect(alertAnnotations.length).to.be.greaterThan(0);
-    expect(alertAnnotations[0].newState).to.equal('Pending');
+  [
+    [499, 'Normal'],
+    [500, 'Pending'],
+  ].forEach(([value, expectedState]) => {
+    it(`has state [${expectedState}] when the backlog is [${value}]`, async () => {
+      const testData = [{
+        timestamp: Date.now() / 1000,
+        metricName: 'cht_sentinel_backlog_count',
+        value,
+        labels: { instance, job: 'cht' }
+      }];
+      await prometheus.injectTestData(testData);
+
+      const alert = await grafana.getAlert(ALERT_RULE_NAME, instance);
+
+      expect(alert.state).to.equal(expectedState);
+    });
   });
 });
