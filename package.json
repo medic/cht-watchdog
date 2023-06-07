@@ -30,6 +30,9 @@
     "url": "https://github.com/medic/cht-watchdog.git"
   },
   "mocha": {
-    "timeout": 100000
+    "timeout": 10000,
+    "require": [
+      "./development/tests/integration/mocha-hooks.js"
+    ]
   }
 }
