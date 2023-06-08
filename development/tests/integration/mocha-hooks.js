@@ -14,7 +14,7 @@ exports.mochaGlobalSetup = async () => {
   await grafana.waitUntilStarted();
 };
 
-exports.mochaGlobalTeardown = async function () {
+exports.mochaGlobalTeardown = async function() {
   await stopWatchdog();
   await revertPatches();
 };

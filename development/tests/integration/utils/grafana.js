@@ -9,7 +9,7 @@ const FETCH_HEADERS = {
   'Authorization': AUTH_HEADER
 };
 
-const fetchWithTimeout =  async (resource, options = {}, body) => {
+const fetchWithTimeout = async (resource, options = {}, body) => {
   const { timeout = 1000 } = options;
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), timeout);
@@ -17,7 +17,7 @@ const fetchWithTimeout =  async (resource, options = {}, body) => {
     ...options,
     signal: controller.signal,
     headers: FETCH_HEADERS,
-    body: body ? JSON.stringify(body): null,
+    body: body ? JSON.stringify(body) : null,
   });
   clearTimeout(id);
   return response;

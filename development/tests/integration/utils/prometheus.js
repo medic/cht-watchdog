@@ -46,7 +46,7 @@ const extrapolateMetrics = (startMetric, endMetric) => {
       const index = i + 1;
       const timestamp = startMetric.timestamp + index;
       const value = startMetric.value + (valueChangePerSec * index);
-      return { ...startMetric, timestamp, value, labels: {...startMetric.labels} };
+      return { ...startMetric, timestamp, value, labels: { ...startMetric.labels } };
     });
   return [startMetric, ...newMetrics, endMetric];
 };

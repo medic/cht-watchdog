@@ -3,7 +3,7 @@ const { ROOT_PATH } = require('./constants.js');
 
 const exec = command => new Promise((resolve, reject) => {
   childProcess.exec(command, (err, stout, sterr) => {
-    if(err) {
+    if (err) {
       reject(sterr);
     } else {
       resolve(stout);

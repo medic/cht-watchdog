@@ -6,14 +6,14 @@ const pathExists = async (path) => fs
   .catch(() => false);
 
 const copyIfNotExists = async (source, destination) => {
-  if(await pathExists(destination)) {
+  if (await pathExists(destination)) {
     return;
   }
   await fs.copyFile(source, destination);
 };
 
 const createDirIfNotExists = async (path) => {
-  if(await pathExists(path)) {
+  if (await pathExists(path)) {
     return;
   }
   await fs.mkdir(path);
