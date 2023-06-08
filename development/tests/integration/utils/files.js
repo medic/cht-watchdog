@@ -19,7 +19,10 @@ const createDirIfNotExists = async (path) => {
   await fs.mkdir(path);
 };
 
+const writeFile = async (path, content) => fs.writeFile(path, content);
+
 module.exports = {
   copyIfNotExists,
   createDirIfNotExists,
+  writeFile
 };

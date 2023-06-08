@@ -30,7 +30,11 @@ const execInContainer = async (containerName, command) => exec(`docker compose e
 
 const restartContainer = async (containerName) => exec(`docker compose restart ${containerName}`);
 
+const copyToContainer = async (containerName, source, destination) =>
+  exec(`docker compose cp ${source} ${containerName}:${destination}`);
+
 module.exports = {
+  copyToContainer,
   execInContainer,
   restartContainer,
   startWatchdog,
