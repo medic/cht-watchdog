@@ -1,15 +1,7 @@
 const childProcess = require('child_process');
-const { ROOT_PATH } = require('./constants.js');
+const { ROOT_PATH } = require('./constants');
 
-const exec = command => new Promise((resolve, reject) => {
-  childProcess.exec(command, (err, stout, sterr) => {
-    if (err) {
-      reject(sterr);
-    } else {
-      resolve(stout);
-    }
-  });
-});
+const exec = require('util').promisify(childProcess.exec);
 
 const startWatchdog = async () => {
   await exec(`docker compose \

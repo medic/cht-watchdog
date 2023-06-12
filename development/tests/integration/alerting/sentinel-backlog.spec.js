@@ -1,5 +1,5 @@
-const prometheus = require('../utils/prometheus.js');
-const grafana = require('../utils/grafana.js');
+const prometheus = require('../utils/prometheus');
+const grafana = require('../utils/grafana');
 const { expect } = require('chai');
 
 const ALERT_RULE_NAME = 'Sentinel Backlog';
@@ -7,9 +7,7 @@ const ALERT_RULE_NAME = 'Sentinel Backlog';
 describe('Sentinel Backlog alert rule', () => {
   let instance;
 
-  beforeEach(() => {
-    instance = `test-instance-${Date.now()}`;
-  });
+  beforeEach( () => instance = `test-instance-${Date.now()}` );
 
   [
     [499, 10, 'Normal'],

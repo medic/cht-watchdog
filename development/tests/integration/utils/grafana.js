@@ -29,7 +29,6 @@ const waitUntilStarted = async (tries = 0) => {
   }
 
   try {
-    // https://grafana.com/docs/grafana/latest/developers/http_api/other/#health-api
     const url = new URL(`${GRAFANA_URL}/api/health`);
     await fetchWithTimeout(url);
   } catch (err) {
