@@ -10,7 +10,7 @@
     "semantic-release": "semantic-release",
     "postinstall": "husky install",
     "test": "npm run test-integration",
-    "test-integration": "mocha \"./development/tests/integration/**/*.js\" --timeout 100000"
+    "test-integration": "mocha \"./development/tests/integration/**/*.js\""
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.3",
