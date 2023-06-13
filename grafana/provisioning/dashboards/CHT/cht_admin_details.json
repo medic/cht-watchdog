@@ -700,7 +700,7 @@
             "h": 3,
             "w": 5,
             "x": 0,
-            "y": 26
+            "y": 2
           },
           "id": 36,
           "options": {
@@ -717,7 +717,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "9.5.2",
+          "pluginVersion": "10.0.0",
           "targets": [
             {
               "datasource": {
@@ -796,7 +796,7 @@
             "h": 6,
             "w": 10,
             "x": 5,
-            "y": 26
+            "y": 2
           },
           "id": 69,
           "options": {
@@ -928,7 +928,7 @@
             "h": 6,
             "w": 9,
             "x": 15,
-            "y": 26
+            "y": 2
           },
           "id": 68,
           "options": {
@@ -1027,7 +1027,7 @@
             "h": 9,
             "w": 5,
             "x": 0,
-            "y": 29
+            "y": 5
           },
           "id": 41,
           "options": {
@@ -1126,7 +1126,7 @@
             "h": 6,
             "w": 10,
             "x": 5,
-            "y": 32
+            "y": 8
           },
           "id": 66,
           "options": {
@@ -1161,7 +1161,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "rate(cht_couchdb_update_sequence{db=\"medic\", instance=~\"$cht_instance\"}[30d]) * 60 * 60",
+              "expr": "rate(cht_couchdb_update_sequence{db=\"medic\", instance=~\"$cht_instance\"}[30d]) * 60 * 60 * 0.05 + 5",
               "hide": false,
               "instant": true,
               "legendFormat": "threshold",
@@ -1253,7 +1253,7 @@
             "h": 6,
             "w": 9,
             "x": 15,
-            "y": 32
+            "y": 8
           },
           "id": 29,
           "options": {
