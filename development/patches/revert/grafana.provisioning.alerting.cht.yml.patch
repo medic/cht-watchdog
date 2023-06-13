@@ -1,0 +1,36 @@
+*** cht1.yml	2023-06-07 11:59:46.966940390 -0500
+--- cht.yml	2023-06-07 13:33:34.325613309 -0500
+***************
+*** 3,9 ****
+    - orgId: 1
+      name: 10m
+      folder: CHT
+!     interval: 10s
+      rules:
+        - uid: ot6lYCYVz
+          title: DB Fragmentation
+--- 3,9 ----
+    - orgId: 1
+      name: 10m
+      folder: CHT
+!     interval: 10m
+      rules:
+        - uid: ot6lYCYVz
+          title: DB Fragmentation
+***************
+*** 439,445 ****
+    - orgId: 1
+      name: 1m
+      folder: CHT
+!     interval: 10s
+      rules:
+        - uid: Q1A-BjL4k
+          title: API Server Down
+--- 439,445 ----
+    - orgId: 1
+      name: 1m
+      folder: CHT
+!     interval: 1m
+      rules:
+        - uid: Q1A-BjL4k
+          title: API Server Down
