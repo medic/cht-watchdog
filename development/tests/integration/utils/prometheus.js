@@ -2,7 +2,7 @@ const { execInContainer, restartContainer } = require('./docker');
 const { writeFile } = require('./files');
 const { copyToContainer } = require('./docker');
 const { BUILD_PATH } = require('./constants');
-const { getTestInstance } = require('./index');
+const { getTestInstance } = require('../utils');
 
 const METRIC_SRC_PATH = `${BUILD_PATH}/test-metrics.txt`;
 const METRIC_DEST_PATH = '/prometheus/test-metrics.txt';

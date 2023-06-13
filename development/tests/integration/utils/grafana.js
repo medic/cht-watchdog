@@ -1,5 +1,5 @@
 const { sleep } = require('./');
-const { getTestInstance } = require('./index');
+const { getTestInstance } = require('../utils');
 
 const GRAFANA_URL = 'http://127.0.0.1:3000';
 const ADMIN_USER = 'medic';
