@@ -1161,7 +1161,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "rate(cht_couchdb_update_sequence{db=\"medic\"}[30d]) * 60 * 60",
+              "expr": "rate(cht_couchdb_update_sequence{db=\"medic\", instance=~\"$cht_instance\"}[30d]) * 60 * 60",
               "hide": false,
               "instant": true,
               "legendFormat": "threshold",
