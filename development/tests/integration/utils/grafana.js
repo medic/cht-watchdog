@@ -1,4 +1,5 @@
 const { sleep } = require('./');
+const { getTestInstance } = require('./index');
 
 const GRAFANA_URL = 'http://127.0.0.1:3000';
 const ADMIN_USER = 'medic';
@@ -38,7 +39,7 @@ const waitUntilStarted = async (tries = 0) => {
   }
 };
 
-const getAlert = async (ruleName, instance, tries = 0) => {
+const getAlert = async (ruleName, instance = getTestInstance(), tries = 0) => {
   if (tries > 30) {
     throw new Error(`Could not find any alert for Rule: ${ruleName}.`);
   }

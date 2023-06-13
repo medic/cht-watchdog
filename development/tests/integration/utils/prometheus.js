@@ -2,6 +2,7 @@ const { execInContainer, restartContainer } = require('./docker');
 const { writeFile } = require('./files');
 const { copyToContainer } = require('./docker');
 const { BUILD_PATH } = require('./constants');
+const { getTestInstance } = require('./index');
 
 const METRIC_SRC_PATH = `${BUILD_PATH}/test-metrics.txt`;
 const METRIC_DEST_PATH = '/prometheus/test-metrics.txt';
@@ -29,11 +30,11 @@ const injectMetrics = async (data) => {
   await restartContainer('prometheus');
 };
 
-const createMetric = (metricName, instance, value = 0, millis = Date.now()) => ({
+const createMetric = (metricName, value, millis, labels = {}) => ({
   metricName,
   value,
   timestamp: millis / 1000,
-  labels: { instance, job: 'cht' }
+  labels: { instance: getTestInstance(), job: 'cht', ...labels }
 });
 
 const extrapolateMetrics = (startMetric, endMetric) => {
