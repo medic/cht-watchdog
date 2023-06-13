@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/medic/cht-watchdog/compare/1.4.1...1.5.0) (2023-06-13)
+
+
+### Features
+
+* **#52:** set dynamic threshold for Sentinel Backlog alert rule ([#58](https://github.com/medic/cht-watchdog/issues/58)) ([d57294b](https://github.com/medic/cht-watchdog/commit/d57294b5195860fa701713d4cc92f3bc28eaba06)), closes [#52](https://github.com/medic/cht-watchdog/issues/52)
+
 ## [1.4.1](https://github.com/medic/cht-watchdog/compare/1.4.0...1.4.1) (2023-06-06)
 
 
