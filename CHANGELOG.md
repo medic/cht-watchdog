@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/medic/cht-watchdog/compare/1.5.2...1.6.0) (2023-06-14)
+
+
+### Features
+
+* **#52:** set dynamic threshold for Outbound Push Backlog ([#62](https://github.com/medic/cht-watchdog/issues/62)) ([0bcdd55](https://github.com/medic/cht-watchdog/commit/0bcdd552edd5b86bed4236340c4606523c27cd24)), closes [#52](https://github.com/medic/cht-watchdog/issues/52)
+
 ## [1.5.2](https://github.com/medic/cht-watchdog/compare/1.5.1...1.5.2) (2023-06-14)
 
 
