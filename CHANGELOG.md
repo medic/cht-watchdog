@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/medic/cht-watchdog/compare/1.5.1...1.5.2) (2023-06-14)
+
+
+### Bug Fixes
+
+* **#63:** fix Sentinel Backlog panels for multiple CHT instances ([#64](https://github.com/medic/cht-watchdog/issues/64)) ([c6ed722](https://github.com/medic/cht-watchdog/commit/c6ed722410e9844a0bb291e0b511301d32003f8b))
+
 ## [1.5.1](https://github.com/medic/cht-watchdog/compare/1.5.0...1.5.1) (2023-06-14)
 
 
