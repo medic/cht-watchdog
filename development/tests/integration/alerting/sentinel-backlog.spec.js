@@ -5,7 +5,6 @@ const { expect } = require('chai');
 const ALERT_RULE_NAME = 'Sentinel Backlog';
 
 describe('Sentinel Backlog alert rule', () => {
-
   [
     [499, 10, 'Normal'],
     [520, 10, 'Pending'],
