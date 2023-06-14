@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/medic/cht-watchdog/compare/1.5.0...1.5.1) (2023-06-14)
+
+
+### Bug Fixes
+
+* **#55:** support postgres <10 ([#59](https://github.com/medic/cht-watchdog/issues/59)) ([612c2d7](https://github.com/medic/cht-watchdog/commit/612c2d7e7c3f1dfabf91bbc7273351985b35776f)), closes [#55](https://github.com/medic/cht-watchdog/issues/55)
+
 # [1.5.0](https://github.com/medic/cht-watchdog/compare/1.4.1...1.5.0) (2023-06-13)
 
 
