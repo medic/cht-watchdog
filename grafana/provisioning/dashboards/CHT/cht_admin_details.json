@@ -909,14 +909,6 @@
                   {
                     "color": "green",
                     "value": null
-                  },
-                  {
-                    "color": "#EAB839",
-                    "value": 1
-                  },
-                  {
-                    "color": "red",
-                    "value": 10
                   }
                 ]
               },
@@ -953,11 +945,37 @@
               "expr": "cht_replication_limit_count{instance=~\"$cht_instance\"}",
               "legendFormat": "__auto",
               "range": true,
-              "refId": "A"
+              "refId": "users_over_limit"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "cht_connected_users_count{instance=~\"$cht_instance\"} * 0.003 + 2",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "users_threshold",
+              "range": false,
+              "refId": "users_threshold"
             }
           ],
           "title": "Users Over Replication Limit",
           "transformations": [
+            {
+              "id": "configFromData",
+              "options": {
+                "configRefId": "users_threshold",
+                "mappings": [
+                  {
+                    "fieldName": "users_threshold",
+                    "handlerKey": "threshold1"
+                  }
+                ]
+              }
+            },
             {
               "id": "renameByRegex",
               "options": {
@@ -2535,6 +2553,6 @@
   "timezone": "",
   "title": "CHT Admin Details",
   "uid": "hkQUbyfVk",
-  "version": 40,
+  "version": 41,
   "weekStart": ""
 }
