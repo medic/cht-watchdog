@@ -9,6 +9,8 @@ services:
     image: prometheuscommunity/postgres-exporter:${POSTGRES_EXPORTER_VERSION:-latest}
     command:
       - '--config.file=/etc/postgres-exporter/postgres_exporter.yml'
+      # disables the collection of logical replication metrics to keep the exporter working with Postgres 9.6 (https://github.com/medic/cht-watchdog/issues/55)
+      - '--no-collector.replication_slot'
     environment:
       - PG_EXPORTER_EXTEND_QUERY_PATH=/etc/postgres-exporter/queries.yml
     volumes:
