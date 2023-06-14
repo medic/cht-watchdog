@@ -106,7 +106,7 @@
         "content": "# CHT Watchdog\n\nSee the [CHT documentation](https://docs.communityhealthtoolkit.org/apps/guides/hosting/monitoring/) for more information about monitoring and alerting!",
         "mode": "markdown"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.0.0",
       "type": "text"
     },
     {
@@ -181,7 +181,7 @@
         "showHeader": false,
         "sortBy": []
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
@@ -374,7 +374,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
@@ -459,7 +459,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
@@ -558,7 +558,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
@@ -638,7 +638,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
@@ -762,7 +762,7 @@
         "showUnfilled": true,
         "valueMode": "color"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
@@ -867,7 +867,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
@@ -920,20 +920,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "red",
-                "value": null
-              },
-              {
                 "color": "green",
-                "value": 0
-              },
-              {
-                "color": "#EAB839",
-                "value": 5
-              },
-              {
-                "color": "red",
-                "value": 10
+                "value": null
               }
             ]
           },
@@ -967,7 +955,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
@@ -980,10 +968,38 @@
           "instant": true,
           "legendFormat": "__auto",
           "range": false,
-          "refId": "A"
+          "refId": "backlog"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "rate(cht_couchdb_update_sequence{db=\"medic\", instance=~\"$cht_instance\"}[30d]) * 60 * 60 * 0.05 + 5",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "threshold",
+          "range": false,
+          "refId": "changes_hr"
         }
       ],
       "title": "Outbound Push Backlog",
+      "transformations": [
+        {
+          "id": "configFromData",
+          "options": {
+            "configRefId": "changes_hr",
+            "mappings": [
+              {
+                "fieldName": "threshold",
+                "handlerKey": "threshold1"
+              }
+            ]
+          }
+        }
+      ],
       "type": "gauge"
     },
     {
@@ -1046,7 +1062,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
@@ -1163,7 +1179,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
@@ -1275,7 +1291,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
@@ -1452,7 +1468,7 @@
         "showHeader": false,
         "sortBy": []
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "category": "All categories",
@@ -1640,7 +1656,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "9.5.2",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
@@ -2310,6 +2326,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 32,
+  "version": 33,
   "weekStart": ""
 }

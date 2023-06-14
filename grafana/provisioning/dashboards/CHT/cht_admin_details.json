@@ -683,7 +683,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "red"
+                    "color": "red",
+                    "value": null
                   },
                   {
                     "color": "blue",
@@ -699,7 +700,7 @@
             "h": 3,
             "w": 5,
             "x": 0,
-            "y": 10
+            "y": 2
           },
           "id": 36,
           "options": {
@@ -716,7 +717,7 @@
             },
             "textMode": "auto"
           },
-          "pluginVersion": "9.4.7",
+          "pluginVersion": "10.0.0",
           "targets": [
             {
               "datasource": {
@@ -795,7 +796,7 @@
             "h": 6,
             "w": 10,
             "x": 5,
-            "y": 26
+            "y": 2
           },
           "id": 69,
           "options": {
@@ -906,7 +907,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "#EAB839",
@@ -926,7 +928,7 @@
             "h": 6,
             "w": 9,
             "x": 15,
-            "y": 10
+            "y": 2
           },
           "id": 68,
           "options": {
@@ -1013,7 +1015,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   }
                 ]
               }
@@ -1024,7 +1027,7 @@
             "h": 9,
             "w": 5,
             "x": 0,
-            "y": 13
+            "y": 5
           },
           "id": 41,
           "options": {
@@ -1110,19 +1113,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
-                  },
-                  {
                     "color": "green",
-                    "value": 0
-                  },
-                  {
-                    "color": "yellow",
-                    "value": 5
-                  },
-                  {
-                    "color": "red",
-                    "value": 10
+                    "value": null
                   }
                 ]
               },
@@ -1134,7 +1126,7 @@
             "h": 6,
             "w": 10,
             "x": 5,
-            "y": 16
+            "y": 8
           },
           "id": 66,
           "options": {
@@ -1161,10 +1153,36 @@
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "exemplar": false,
+              "expr": "rate(cht_couchdb_update_sequence{db=\"medic\", instance=~\"$cht_instance\"}[30d]) * 60 * 60 * 0.05 + 5",
+              "hide": false,
+              "instant": true,
+              "legendFormat": "threshold",
+              "range": false,
+              "refId": "changes_hr"
             }
           ],
           "title": "Outbound Push Backlog",
           "transformations": [
+            {
+              "id": "configFromData",
+              "options": {
+                "configRefId": "changes_hr",
+                "mappings": [
+                  {
+                    "fieldName": "threshold",
+                    "handlerKey": "threshold1"
+                  }
+                ]
+              }
+            },
             {
               "id": "renameByRegex",
               "options": {
@@ -1222,7 +1240,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "blue"
+                    "color": "blue",
+                    "value": null
                   }
                 ]
               },
@@ -1234,7 +1253,7 @@
             "h": 6,
             "w": 9,
             "x": 15,
-            "y": 16
+            "y": 8
           },
           "id": 29,
           "options": {
@@ -2516,6 +2535,6 @@
   "timezone": "",
   "title": "CHT Admin Details",
   "uid": "hkQUbyfVk",
-  "version": 39,
+  "version": 40,
   "weekStart": ""
 }

@@ -95,82 +95,73 @@ groups:
         isPaused: false
       - uid: KgP8PjY4k
         title: Outbound Push Backlog
-        condition: C
+        condition: A
         data:
-          - refId: A
+          - refId: backlog_hr
             relativeTimeRange:
               from: 600
               to: 0
             datasourceUid: PBFA97CFB590B2093
             model:
+              datasource:
+                type: prometheus
+                uid: PBFA97CFB590B2093
               editorMode: code
-              expr: cht_outbound_push_backlog_count
+              exemplar: false
+              expr: deriv(cht_outbound_push_backlog_count [1h]) * 60 * 60
               hide: false
+              instant: true
               intervalMs: 1000
               legendFormat: __auto
               maxDataPoints: 43200
-              range: true
+              range: false
+              refId: backlog_hr
+          - refId: changes_hr
+            relativeTimeRange:
+              from: 600
+              to: 0
+            datasourceUid: PBFA97CFB590B2093
+            model:
+              datasource:
+                type: prometheus
+                uid: PBFA97CFB590B2093
+              editorMode: code
+              exemplar: false
+              expr: rate(cht_couchdb_update_sequence{db="medic"}[30d]) * 60 * 60
+              hide: false
+              instant: true
+              intervalMs: 1000
+              legendFormat: __auto
+              maxDataPoints: 43200
+              range: false
+              refId: changes_hr
+          - refId: A
+            datasourceUid: __expr__
+            model:
+              conditions:
+                - evaluator:
+                    params:
+                      - 0
+                      - 0
+                    type: gt
+                  operator:
+                    type: and
+                  query:
+                    params: []
+                  reducer:
+                    params: []
+                    type: avg
+                  type: query
+              datasource:
+                name: Expression
+                type: __expr__
+                uid: __expr__
+              expression: $backlog_hr > ($changes_hr * 0.05 + 5)
+              hide: false
+              intervalMs: 1000
+              maxDataPoints: 43200
               refId: A
-          - refId: B
-            relativeTimeRange:
-              from: 600
-              to: 0
-            datasourceUid: __expr__
-            model:
-              conditions:
-                - evaluator:
-                    params: []
-                    type: gt
-                  operator:
-                    type: and
-                  query:
-                    params:
-                      - B
-                  reducer:
-                    params: []
-                    type: last
-                  type: query
-              datasource:
-                type: __expr__
-                uid: __expr__
-              expression: A
-              hide: false
-              intervalMs: 1000
-              maxDataPoints: 43200
-              reducer: last
-              refId: B
-              settings:
-                mode: ""
-              type: reduce
-          - refId: C
-            relativeTimeRange:
-              from: 600
-              to: 0
-            datasourceUid: __expr__
-            model:
-              conditions:
-                - evaluator:
-                    params:
-                      - 9
-                    type: gt
-                  operator:
-                    type: and
-                  query:
-                    params:
-                      - C
-                  reducer:
-                    params: []
-                    type: last
-                  type: query
-              datasource:
-                type: __expr__
-                uid: __expr__
-              expression: B
-              hide: false
-              intervalMs: 1000
-              maxDataPoints: 43200
-              refId: C
-              type: threshold
+              type: math
         dashboardUid: oa2OfL-Vk
         panelId: 2
         noDataState: NoData
