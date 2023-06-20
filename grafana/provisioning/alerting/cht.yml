@@ -341,82 +341,73 @@ groups:
         isPaused: false
       - uid: ttAeECYVz
         title: Users Over Replication Limit
-        condition: C
+        condition: alert
         data:
-          - refId: A
+          - refId: users_day
             relativeTimeRange:
               from: 600
               to: 0
             datasourceUid: PBFA97CFB590B2093
             model:
+              datasource:
+                type: prometheus
+                uid: PBFA97CFB590B2093
               editorMode: code
-              expr: cht_replication_limit_count
+              exemplar: false
+              expr: deriv(cht_replication_limit_count [1d]) * 60 * 60 * 24
               hide: false
+              instant: true
               intervalMs: 1000
               legendFormat: __auto
               maxDataPoints: 43200
-              range: true
-              refId: A
-          - refId: B
+              range: false
+              refId: users_day
+          - refId: users
             relativeTimeRange:
               from: 600
               to: 0
-            datasourceUid: __expr__
+            datasourceUid: PBFA97CFB590B2093
             model:
-              conditions:
-                - evaluator:
-                    params: []
-                    type: gt
-                  operator:
-                    type: and
-                  query:
-                    params:
-                      - B
-                  reducer:
-                    params: []
-                    type: last
-                  type: query
               datasource:
-                type: __expr__
-                uid: __expr__
-              expression: A
+                type: prometheus
+                uid: PBFA97CFB590B2093
+              editorMode: code
+              exemplar: false
+              expr: cht_connected_users_count
               hide: false
+              instant: true
               intervalMs: 1000
+              legendFormat: __auto
               maxDataPoints: 43200
-              reducer: last
-              refId: B
-              settings:
-                mode: ""
-              type: reduce
-          - refId: C
-            relativeTimeRange:
-              from: 600
-              to: 0
+              range: false
+              refId: users
+          - refId: alert
             datasourceUid: __expr__
             model:
               conditions:
                 - evaluator:
                     params:
-                      - 9
+                      - 0
+                      - 0
                     type: gt
                   operator:
                     type: and
                   query:
-                    params:
-                      - C
+                    params: []
                   reducer:
                     params: []
-                    type: last
+                    type: avg
                   type: query
               datasource:
+                name: Expression
                 type: __expr__
                 uid: __expr__
-              expression: B
+              expression: $users_day > ($users * 0.003 + 2)
               hide: false
               intervalMs: 1000
               maxDataPoints: 43200
-              refId: C
-              type: threshold
+              refId: alert
+              type: math
         dashboardUid: oa2OfL-Vk
         panelId: 21
         noDataState: NoData
