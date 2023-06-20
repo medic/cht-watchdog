@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/medic/cht-watchdog/compare/1.6.0...1.7.0) (2023-06-20)
+
+
+### Features
+
+* **#52:** set dynamic threshold for Users Over Rep Limit ([#65](https://github.com/medic/cht-watchdog/issues/65)) ([97a3abf](https://github.com/medic/cht-watchdog/commit/97a3abf69e1e0253c66ca3b038e57cc62eed804d)), closes [#52](https://github.com/medic/cht-watchdog/issues/52)
+
 # [1.6.0](https://github.com/medic/cht-watchdog/compare/1.5.2...1.6.0) (2023-06-14)
 
 
