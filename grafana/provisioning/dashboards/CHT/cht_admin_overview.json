@@ -181,7 +181,7 @@
         "showHeader": false,
         "sortBy": []
       },
-      "pluginVersion": "10.0.0",
+      "pluginVersion": "9.5.3",
       "targets": [
         {
           "datasource": {
@@ -672,7 +672,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "cht_connected_users_count{instance=~\"$cht_instance\"} / 10",
+          "expr": "rate(cht_couchdb_update_sequence{instance=~\"$cht_instance\", db=\"medic\"}[30d]) * 60 * 60 * 24 * 0.25 + 10",
           "hide": false,
           "instant": true,
           "legendFormat": "threshold",
@@ -2340,6 +2340,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 34,
+  "version": 35,
   "weekStart": ""
 }
