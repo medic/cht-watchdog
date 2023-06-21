@@ -164,7 +164,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "mode": "continuous-reds"
+            "mode": "thresholds"
           },
           "custom": {
             "axisCenteredZero": false,
@@ -239,10 +239,36 @@
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "rate(cht_couchdb_update_sequence{instance=~\"$cht_instance\", db=\"medic\"}[30d]) * 60 * 60 * 24 * 0.25 + 10",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "threshold",
+          "range": false,
+          "refId": "B"
         }
       ],
       "title": "Total Doc Conflicts",
       "transformations": [
+        {
+          "id": "configFromData",
+          "options": {
+            "configRefId": "B",
+            "mappings": [
+              {
+                "fieldName": "threshold",
+                "handlerKey": "threshold1"
+              }
+            ]
+          }
+        },
         {
           "id": "renameByRegex",
           "options": {
@@ -2553,6 +2579,6 @@
   "timezone": "",
   "title": "CHT Admin Details",
   "uid": "hkQUbyfVk",
-  "version": 41,
+  "version": 42,
   "weekStart": ""
 }
