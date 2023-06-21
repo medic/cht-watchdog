@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/medic/cht-watchdog/compare/1.7.0...1.8.0) (2023-06-21)
+
+
+### Features
+
+* **#52:** set dynamic threshold for DB Conflicts Rate alert ([#66](https://github.com/medic/cht-watchdog/issues/66)) ([9fe0798](https://github.com/medic/cht-watchdog/commit/9fe0798f36e6016ec473bc9039556b9d7d4725df)), closes [#52](https://github.com/medic/cht-watchdog/issues/52)
+
 # [1.7.0](https://github.com/medic/cht-watchdog/compare/1.6.0...1.7.0) (2023-06-20)
 
 
