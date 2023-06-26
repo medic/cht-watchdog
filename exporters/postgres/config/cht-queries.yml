@@ -5,6 +5,9 @@ couch2pg_progress:
       substring(source from position('/' in source) + 1) as db 
     FROM 
       couchdb_progress
+    WHERE
+      source like '%/%' and
+      seq like '%-%'
   metrics:
     - db:
         usage: "LABEL"
