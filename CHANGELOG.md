@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/medic/cht-watchdog/compare/1.8.0...1.8.1) (2023-06-27)
+
+
+### Bug Fixes
+
+* **#68:** Defensive couch2pg select ([#71](https://github.com/medic/cht-watchdog/issues/71)) ([ae9c1c4](https://github.com/medic/cht-watchdog/commit/ae9c1c415845d7e815bde5efc0cfa04daa2ad070)), closes [#68](https://github.com/medic/cht-watchdog/issues/68)
+
 # [1.8.0](https://github.com/medic/cht-watchdog/compare/1.7.0...1.8.0) (2023-06-21)
 
 
