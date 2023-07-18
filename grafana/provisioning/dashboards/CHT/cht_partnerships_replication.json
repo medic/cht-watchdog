@@ -15,7 +15,7 @@
       }
     ]
   },
-  "description": "Monitor metrics for CHT replication health",
+  "description": "Monitor metrics for replication health",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "gnetId": 12230,
@@ -24,6 +24,89 @@
   "links": [],
   "liveNow": false,
   "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
+      },
+      "description": "Target replication performance under 3min.\nTolerated replication performance under 6min.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "match": "null",
+                "result": {
+                  "text": "N/A"
+                }
+              },
+              "type": "special"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#C4162A",
+                "value": null
+              },
+              {
+                "color": "rgba(237, 129, 40, 0.89)",
+                "value": 70
+              },
+              {
+                "color": "#299c46",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 51,
+      "links": [],
+      "maxDataPoints": 100,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "10.0.1",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
+          },
+          "editorMode": "code",
+          "expr": "(\n        (   \n                sum(http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"90\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                + (\n                        sum(http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"180\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                        - sum(http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"90\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                ) / 2\n        ) / sum(http_request_duration_seconds_count{instance=~\"$instance\",route=~\".*/get-ids\",code=~\"^2..$\"})\n) * 100",
+          "legendFormat": "score",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Replication Apdex",
+      "type": "stat"
+    },
     {
       "aliasColors": {},
       "bars": false,
@@ -44,7 +127,7 @@
       "gridPos": {
         "h": 6,
         "w": 12,
-        "x": 0,
+        "x": 12,
         "y": 0
       },
       "hiddenSeries": false,
@@ -140,89 +223,6 @@
         "type": "prometheus",
         "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
       },
-      "description": "Target replication performance under 3min.\nTolerated replication performance under 6min.",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "mappings": [
-            {
-              "options": {
-                "match": "null",
-                "result": {
-                  "text": "N/A"
-                }
-              },
-              "type": "special"
-            }
-          ],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#C4162A",
-                "value": null
-              },
-              {
-                "color": "rgba(237, 129, 40, 0.89)",
-                "value": 70
-              },
-              {
-                "color": "#299c46",
-                "value": 90
-              }
-            ]
-          },
-          "unit": "none"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 2,
-        "w": 6,
-        "x": 12,
-        "y": 0
-      },
-      "id": 51,
-      "links": [],
-      "maxDataPoints": 100,
-      "options": {
-        "colorMode": "background",
-        "graphMode": "area",
-        "justifyMode": "auto",
-        "orientation": "horizontal",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "10.0.1",
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
-          },
-          "editorMode": "code",
-          "expr": "(\n        (   \n                sum(http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"90\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                + (\n                        sum(http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"180\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                        - sum(http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"90\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                ) / 2\n        ) / sum(http_request_duration_seconds_count{instance=~\"$instance\",route=~\".*/get-ids\",code=~\"^2..$\"})\n) * 100",
-          "legendFormat": "score",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "title": "Replication Apdex",
-      "type": "stat"
-    },
-    {
-      "datasource": {
-        "type": "prometheus",
-        "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
-      },
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -262,9 +262,9 @@
       },
       "gridPos": {
         "h": 2,
-        "w": 6,
-        "x": 18,
-        "y": 0
+        "w": 12,
+        "x": 0,
+        "y": 2
       },
       "id": 63,
       "links": [],
@@ -318,10 +318,10 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 5,
+        "h": 9,
         "w": 12,
-        "x": 12,
-        "y": 2
+        "x": 0,
+        "y": 4
       },
       "hiddenSeries": false,
       "id": 73,
@@ -416,7 +416,7 @@
       "gridPos": {
         "h": 5,
         "w": 12,
-        "x": 0,
+        "x": 12,
         "y": 6
       },
       "hiddenSeries": false,
@@ -513,7 +513,7 @@
       "gridPos": {
         "h": 9,
         "w": 12,
-        "x": 0,
+        "x": 12,
         "y": 11
       },
       "hiddenSeries": false,
@@ -734,6 +734,6 @@
   "timezone": "",
   "title": "CHT Replication Dashboard",
   "uid": "d4f05050-804e-4ea4-9642-4d088cc39a1b",
-  "version": 4,
+  "version": 6,
   "weekStart": ""
 }
