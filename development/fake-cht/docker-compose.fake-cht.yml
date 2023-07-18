@@ -6,14 +6,14 @@ volumes:
 services:
   fake-cht:
     image: node:latest
-    user: "node"
+    # user: "node"
     working_dir: /home/node/app
     volumes:
       - ./development/fake-cht:/home/node/app
     networks:
       - cht-watchdog-net
     command: >
-      sh -c "npm install &&
+      sh -c "npm ci &&
              npm start"
 
   postgres:
