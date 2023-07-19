@@ -20,7 +20,7 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 12230,
   "graphTooltip": 0,
-  "id": 5,
+  "id": 6,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -90,7 +90,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.1",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -125,23 +125,21 @@
       "fill": 1,
       "fillGradient": 0,
       "gridPos": {
-        "h": 6,
+        "h": 5,
         "w": 12,
         "x": 12,
         "y": 0
       },
       "hiddenSeries": false,
-      "id": 64,
+      "id": 32,
       "legend": {
         "alignAsTable": true,
         "avg": false,
-        "current": true,
-        "max": false,
+        "current": false,
+        "max": true,
         "min": false,
         "rightSide": true,
         "show": true,
-        "sort": "current",
-        "sortDesc": true,
         "total": false,
         "values": true
       },
@@ -152,7 +150,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.0.1",
+      "pluginVersion": "9.5.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -167,28 +165,15 @@
             "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
           },
           "editorMode": "code",
-          "expr": "sum(http_request_duration_seconds_count{instance=~\"$instance\",route=~\".*/get-ids\",code=~\"^[23]..$\"}) ",
-          "legendFormat": "Success",
+          "expr": "sum(rate(http_request_duration_seconds_count{instance=~\"$instance\",route=~\".*/get-ids\"}[$interval])) by (route)",
+          "legendFormat": "{{route}}",
           "range": true,
           "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
-          },
-          "editorMode": "code",
-          "expr": "sum(http_request_duration_seconds_count{instance=~\"$instance\",route=~\".*/get-ids\",code=~\"^[45]..$\"} OR on() vector(0))",
-          "hide": false,
-          "instant": false,
-          "legendFormat": "Error",
-          "range": true,
-          "refId": "B"
         }
       ],
       "thresholds": [],
       "timeRegions": [],
-      "title": "Replication Count",
+      "title": "Replication Rate",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -202,13 +187,13 @@
       },
       "yaxes": [
         {
-          "$$hashKey": "object:178",
+          "$$hashKey": "object:573",
           "format": "short",
           "logBase": 1,
           "show": true
         },
         {
-          "$$hashKey": "object:179",
+          "$$hashKey": "object:574",
           "format": "short",
           "logBase": 1,
           "show": false
@@ -283,7 +268,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.1",
+      "pluginVersion": "9.5.1",
       "targets": [
         {
           "datasource": {
@@ -342,7 +327,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.0.1",
+      "pluginVersion": "9.5.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -405,102 +390,6 @@
         "type": "prometheus",
         "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
       },
-      "fieldConfig": {
-        "defaults": {
-          "links": []
-        },
-        "overrides": []
-      },
-      "fill": 1,
-      "fillGradient": 0,
-      "gridPos": {
-        "h": 5,
-        "w": 12,
-        "x": 12,
-        "y": 6
-      },
-      "hiddenSeries": false,
-      "id": 32,
-      "legend": {
-        "alignAsTable": true,
-        "avg": false,
-        "current": false,
-        "max": true,
-        "min": false,
-        "rightSide": true,
-        "show": true,
-        "total": false,
-        "values": true
-      },
-      "lines": true,
-      "linewidth": 1,
-      "nullPointMode": "null",
-      "options": {
-        "alertThreshold": true
-      },
-      "percentage": false,
-      "pluginVersion": "10.0.1",
-      "pointradius": 2,
-      "points": false,
-      "renderer": "flot",
-      "seriesOverrides": [],
-      "spaceLength": 10,
-      "stack": true,
-      "steppedLine": false,
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
-          },
-          "editorMode": "code",
-          "expr": "sum(rate(http_request_duration_seconds_count{instance=~\"$instance\",route=~\".*/get-ids\"}[$interval])) by (route)",
-          "legendFormat": "{{route}}",
-          "range": true,
-          "refId": "A"
-        }
-      ],
-      "thresholds": [],
-      "timeRegions": [],
-      "title": "Replications Per Seconds",
-      "tooltip": {
-        "shared": true,
-        "sort": 0,
-        "value_type": "individual"
-      },
-      "type": "graph",
-      "xaxis": {
-        "mode": "time",
-        "show": true,
-        "values": []
-      },
-      "yaxes": [
-        {
-          "$$hashKey": "object:573",
-          "format": "short",
-          "logBase": 1,
-          "show": true
-        },
-        {
-          "$$hashKey": "object:574",
-          "format": "short",
-          "logBase": 1,
-          "show": false
-        }
-      ],
-      "yaxis": {
-        "align": false
-      }
-    },
-    {
-      "aliasColors": {},
-      "bars": false,
-      "dashLength": 10,
-      "dashes": false,
-      "datasource": {
-        "type": "prometheus",
-        "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
-      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -514,7 +403,7 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 11
+        "y": 5
       },
       "hiddenSeries": false,
       "id": 18,
@@ -538,7 +427,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.0.1",
+      "pluginVersion": "9.5.1",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -734,6 +623,6 @@
   "timezone": "",
   "title": "CHT Replication Dashboard (Requires CHT Core 4.3)",
   "uid": "d4f05050-804e-4ea4-9642-4d088cc39a1b",
-  "version": 6,
+  "version": 7,
   "weekStart": ""
 }
