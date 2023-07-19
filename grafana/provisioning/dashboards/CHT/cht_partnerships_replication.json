@@ -732,7 +732,7 @@
     ]
   },
   "timezone": "",
-  "title": "CHT Replication Dashboard",
+  "title": "CHT Replication Dashboard (Requires CHT Core 4.3)",
   "uid": "d4f05050-804e-4ea4-9642-4d088cc39a1b",
   "version": 6,
   "weekStart": ""
