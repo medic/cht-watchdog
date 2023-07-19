@@ -19,3 +19,5 @@ scrape_configs:
       regex: "(?:https?:\\/\\/|)(?:www\\.|)(.*?)(?:\\/|)$"
       target_label: instance
       replacement: "$1"
+    - source_labels: [instance]
+      target_label: __address__
