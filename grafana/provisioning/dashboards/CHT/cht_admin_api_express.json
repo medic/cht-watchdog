@@ -96,7 +96,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "sum(rate(http_request_duration_seconds_count{instance=~\"$instance\"}[$interval]))",
+            "expr": "sum(rate(http_request_duration_seconds_count{instance=~\"$cht_instance\"}[$interval]))",
             "refId": "A"
           }
         ],
@@ -172,7 +172,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "sum(http_request_duration_seconds_count{instance=~\"$instance\"})",
+            "expr": "sum(http_request_duration_seconds_count{instance=~\"$cht_instance\"})",
             "instant": false,
             "refId": "A"
           }
@@ -252,7 +252,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "(\n\tsum(\n\t\thttp_request_duration_seconds_count{instance=~\"$instance\",code=~\"^[45]..$\"} OR on() vector(0)\n\t) / \n\tsum(\n\t\thttp_request_duration_seconds_count{instance=~\"$instance\"}\n\t)\n)*100",
+            "expr": "(\n\tsum(\n\t\thttp_request_duration_seconds_count{instance=~\"$cht_instance\",code=~\"^[45]..$\"} OR on() vector(0)\n\t) / \n\tsum(\n\t\thttp_request_duration_seconds_count{instance=~\"$cht_instance\"}\n\t)\n)*100",
             "legendFormat": "error %",
             "refId": "A"
           }
@@ -328,7 +328,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "sum(http_response_size_bytes_sum{instance=~\"$instance\"}) + sum(http_request_size_bytes_sum{instance=~\"$instance\"})",
+            "expr": "sum(http_response_size_bytes_sum{instance=~\"$cht_instance\"}) + sum(http_request_size_bytes_sum{instance=~\"$cht_instance\"})",
             "refId": "A"
           }
         ],
@@ -404,7 +404,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "sum(rate(http_response_size_bytes_sum{instance=~\"$instance\"}[$interval])) + sum(rate(http_request_size_bytes_sum{instance=~\"$instance\"}[$interval]))",
+            "expr": "sum(rate(http_response_size_bytes_sum{instance=~\"$cht_instance\"}[$interval])) + sum(rate(http_request_size_bytes_sum{instance=~\"$cht_instance\"}[$interval]))",
             "refId": "A"
           }
         ],
@@ -483,7 +483,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "sum(changes(process_start_time_seconds{instance=~\"$instance\"}[$restarts_interval]))",
+            "expr": "sum(changes(process_start_time_seconds{instance=~\"$cht_instance\"}[$restarts_interval]))",
             "refId": "A"
           }
         ],
@@ -573,7 +573,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "nodejs_eventloop_lag_seconds{instance=~\"$instance\"}",
+            "expr": "nodejs_eventloop_lag_seconds{instance=~\"$cht_instance\"}",
             "hide": false,
             "instant": false,
             "legendFormat": "last",
@@ -584,7 +584,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "nodejs_eventloop_lag_p99_seconds{instance=~\"$instance\"}",
+            "expr": "nodejs_eventloop_lag_p99_seconds{instance=~\"$cht_instance\"}",
             "legendFormat": "p99",
             "refId": "B"
           },
@@ -593,7 +593,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "nodejs_eventloop_lag_p50_seconds{instance=~\"$instance\"}",
+            "expr": "nodejs_eventloop_lag_p50_seconds{instance=~\"$cht_instance\"}",
             "legendFormat": "p50",
             "refId": "C"
           }
@@ -683,7 +683,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "rate(process_cpu_seconds_total{instance=~\"$instance\"}[$interval])",
+            "expr": "rate(process_cpu_seconds_total{instance=~\"$cht_instance\"}[$interval])",
             "legendFormat": "cpu",
             "refId": "A"
           }
@@ -773,7 +773,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "process_virtual_memory_bytes{instance=~\"$instance\"}",
+            "expr": "process_virtual_memory_bytes{instance=~\"$cht_instance\"}",
             "legendFormat": "virtual memory",
             "refId": "A"
           },
@@ -782,7 +782,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "process_heap_bytes{instance=~\"$instance\"}",
+            "expr": "process_heap_bytes{instance=~\"$cht_instance\"}",
             "legendFormat": "heap memory",
             "refId": "B"
           }
@@ -872,7 +872,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "expressjs_number_of_open_connections{instance=~\"$instance\"}",
+            "expr": "expressjs_number_of_open_connections{instance=~\"$cht_instance\"}",
             "legendFormat": "{{instance}}",
             "refId": "A"
           }
@@ -963,7 +963,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "( process_open_fds{instance=~\"$instance\"} / process_max_fds{instance=~\"$instance\"})",
+            "expr": "( process_open_fds{instance=~\"$cht_instance\"} / process_max_fds{instance=~\"$cht_instance\"})",
             "legendFormat": "{{instance}}",
             "refId": "A"
           }
@@ -1053,7 +1053,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "nodejs_active_handles_total{instance=~\"$instance\"}",
+            "expr": "nodejs_active_handles_total{instance=~\"$cht_instance\"}",
             "legendFormat": "Active Handler",
             "refId": "A"
           },
@@ -1062,7 +1062,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "nodejs_active_requests_total{instance=~\"$instance\"}",
+            "expr": "nodejs_active_requests_total{instance=~\"$cht_instance\"}",
             "legendFormat": "Active Request",
             "refId": "B"
           }
@@ -1178,7 +1178,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "rate(nodejs_gc_duration_seconds_sum{instance=~\"$instance\"}[$interval])",
+            "expr": "rate(nodejs_gc_duration_seconds_sum{instance=~\"$cht_instance\"}[$interval])",
             "legendFormat": "{{kind}}",
             "refId": "A"
           }
@@ -1269,7 +1269,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "rate(nodejs_gc_duration_seconds_count{instance=~\"$instance\"}[$interval])",
+            "expr": "rate(nodejs_gc_duration_seconds_count{instance=~\"$cht_instance\"}[$interval])",
             "legendFormat": "{{kind}}",
             "refId": "A"
           }
@@ -1360,7 +1360,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "nodejs_gc_duration_seconds_sum{instance=~\"$instance\"}",
+            "expr": "nodejs_gc_duration_seconds_sum{instance=~\"$cht_instance\"}",
             "legendFormat": "{{kind}}",
             "refId": "A"
           }
@@ -1452,7 +1452,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "nodejs_gc_duration_seconds_count{instance=~\"$instance\"}",
+            "expr": "nodejs_gc_duration_seconds_count{instance=~\"$cht_instance\"}",
             "legendFormat": "{{kind}}",
             "refId": "A"
           }
@@ -1543,7 +1543,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "nodejs_heap_size_total_bytes{instance=~\"$instance\"}",
+            "expr": "nodejs_heap_size_total_bytes{instance=~\"$cht_instance\"}",
             "legendFormat": "total",
             "refId": "A"
           },
@@ -1552,7 +1552,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "nodejs_heap_size_used_bytes{instance=~\"$instance\"}",
+            "expr": "nodejs_heap_size_used_bytes{instance=~\"$cht_instance\"}",
             "legendFormat": "used",
             "refId": "B"
           },
@@ -1561,7 +1561,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "process_resident_memory_bytes{instance=~\"$instance\"}",
+            "expr": "process_resident_memory_bytes{instance=~\"$cht_instance\"}",
             "legendFormat": "resident",
             "refId": "C"
           },
@@ -1570,7 +1570,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "nodejs_external_memory_bytes{instance=~\"$instance\"}",
+            "expr": "nodejs_external_memory_bytes{instance=~\"$cht_instance\"}",
             "legendFormat": "external",
             "refId": "D"
           }
@@ -1660,7 +1660,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "nodejs_heap_space_size_used_bytes{instance=~\"$instance\"}",
+            "expr": "nodejs_heap_space_size_used_bytes{instance=~\"$cht_instance\"}",
             "legendFormat": "{{space}}",
             "refId": "A"
           }
@@ -1778,7 +1778,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "sum(rate(http_request_duration_seconds_count{instance=~\"$instance\"}[$interval])) by (code)",
+            "expr": "sum(rate(http_request_duration_seconds_count{instance=~\"$cht_instance\"}[$interval])) by (code)",
             "legendFormat": "{{code}}",
             "refId": "A"
           }
@@ -1873,7 +1873,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{instance=~\"$instance\"}[$interval])) by (code,le))",
+            "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{instance=~\"$cht_instance\"}[$interval])) by (code,le))",
             "legendFormat": "{{code}}(95%)",
             "refId": "A"
           },
@@ -1882,7 +1882,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "histogram_quantile(1, sum(rate(http_request_duration_seconds_bucket{instance=~\"$instance\"}[$interval])) by (code,le))",
+            "expr": "histogram_quantile(1, sum(rate(http_request_duration_seconds_bucket{instance=~\"$cht_instance\"}[$interval])) by (code,le))",
             "legendFormat": "{{code}}(100%)",
             "refId": "E"
           }
@@ -1976,7 +1976,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "sum(http_request_duration_seconds_count{instance=~\"$instance\"}) by (code)",
+            "expr": "sum(http_request_duration_seconds_count{instance=~\"$cht_instance\"}) by (code)",
             "legendFormat": "{{code}}",
             "refId": "A"
           }
@@ -2070,7 +2070,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "sum(http_response_size_bytes_sum{instance=~\"$instance\"}) by (route)",
+            "expr": "sum(http_response_size_bytes_sum{instance=~\"$cht_instance\"}) by (route)",
             "legendFormat": "{{route}}",
             "refId": "A"
           }
@@ -2164,7 +2164,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "sum(http_request_duration_seconds_count{instance=~\"$instance\"}) by (route)",
+            "expr": "sum(http_request_duration_seconds_count{instance=~\"$cht_instance\"}) by (route)",
             "legendFormat": "{{route}}",
             "refId": "A"
           }
@@ -2252,7 +2252,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "topk(5, sum by (route)(http_request_duration_seconds_sum{instance=~\"$instance\"}))",
+            "expr": "topk(5, sum by (route)(http_request_duration_seconds_sum{instance=~\"$cht_instance\"}))",
             "instant": true,
             "legendFormat": "{{route}}",
             "refId": "A"
@@ -2315,7 +2315,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "topk(5, sum by (route)(http_request_duration_seconds_sum{instance=~\"$instance\",code=~\"^[23]..$\"}))",
+            "expr": "topk(5, sum by (route)(http_request_duration_seconds_sum{instance=~\"$cht_instance\",code=~\"^[23]..$\"}))",
             "instant": true,
             "legendFormat": "{{route}}",
             "refId": "A"
@@ -2378,7 +2378,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "topk(5, sum by (route)(http_request_duration_seconds_sum{instance=~\"$instance\",code=~\"^[45]..$\"}))",
+            "expr": "topk(5, sum by (route)(http_request_duration_seconds_sum{instance=~\"$cht_instance\",code=~\"^[45]..$\"}))",
             "instant": true,
             "legendFormat": "{{route}}",
             "refId": "A"
@@ -2441,7 +2441,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "topk(5, sum by (route)(http_request_duration_seconds_count{instance=~\"$instance\"}))",
+            "expr": "topk(5, sum by (route)(http_request_duration_seconds_count{instance=~\"$cht_instance\"}))",
             "instant": true,
             "legendFormat": "{{route}}",
             "refId": "A"
@@ -2504,7 +2504,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "topk(5, http_request_duration_seconds_count{instance=~\"$instance\",code=~\"^[23]..$\"})",
+            "expr": "topk(5, http_request_duration_seconds_count{instance=~\"$cht_instance\",code=~\"^[23]..$\"})",
             "instant": true,
             "legendFormat": "({{code}}) {{route}}",
             "refId": "A"
@@ -2567,7 +2567,7 @@
               "type": "prometheus",
               "uid": "PBFA97CFB590B2093"
             },
-            "expr": "topk(5, http_request_duration_seconds_count{instance=~\"$instance\",code=~\"^[45]..$\"})",
+            "expr": "topk(5, http_request_duration_seconds_count{instance=~\"$cht_instance\",code=~\"^[45]..$\"})",
             "instant": true,
             "legendFormat": "({{code}}) {{route}}",
             "refId": "A"
