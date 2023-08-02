@@ -114,7 +114,8 @@ try {
 }
 
 app.use(prometheusMiddleware({
-  metricsPath: '/api/v1/express-metrics'
+  metricsPath: '/api/v1/express-metrics',
+  metricsPrefix: 'cht_api',
 }));
 
 app.get('/api/v2/monitoring', (req, res) => {
