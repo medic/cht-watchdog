@@ -2581,8 +2581,7 @@
   "schemaVersion": 38,
   "style": "dark",
   "tags": [
-    "CHT 4.3+",
-    "CoreDev"
+    "CHT 4.3+"
   ],
   "templating": {
     "list": [
