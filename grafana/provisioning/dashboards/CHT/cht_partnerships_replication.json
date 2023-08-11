@@ -98,7 +98,7 @@
             "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
           },
           "editorMode": "code",
-          "expr": "(\n        (   \n                sum(http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"90\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                + (\n                        sum(http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"180\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                        - sum(http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"90\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                ) / 2\n        ) / sum(http_request_duration_seconds_count{instance=~\"$instance\",route=~\".*/get-ids\",code=~\"^2..$\"})\n) * 100",
+          "expr": "(\n        (   \n                sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"90\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                + (\n                        sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"180\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                        - sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"90\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                ) / 2\n        ) / sum(cht_api_http_request_duration_seconds_count{instance=~\"$instance\",route=~\".*/get-ids\",code=~\"^2..$\"})\n) * 100",
           "legendFormat": "score",
           "range": true,
           "refId": "A"
@@ -165,7 +165,7 @@
             "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
           },
           "editorMode": "code",
-          "expr": "sum(rate(http_request_duration_seconds_count{instance=~\"$instance\",route=~\".*/get-ids\"}[$interval])) by (route)",
+          "expr": "sum(rate(cht_api_http_request_duration_seconds_count{instance=~\"$instance\",route=~\".*/get-ids\"}[$interval])) by (route)",
           "legendFormat": "{{route}}",
           "range": true,
           "refId": "A"
@@ -276,7 +276,7 @@
             "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
           },
           "editorMode": "code",
-          "expr": "(\n\tsum(\n\t\thttp_request_duration_seconds_count{instance=~\"$instance\",route=~\".*/get-ids\",code=~\"^[45]..$\"} OR on() vector(0)\n\t) / \n\tsum(\n\t\thttp_request_duration_seconds_count{instance=~\"$instance\",route=~\".*/get-ids\"}\n\t)\n)*100",
+          "expr": "(\n\tsum(\n\t\tcht_api_http_request_duration_seconds_count{instance=~\"$instance\",route=~\".*/get-ids\",code=~\"^[45]..$\"} OR on() vector(0)\n\t) / \n\tsum(\n\t\tcht_api_http_request_duration_seconds_count{instance=~\"$instance\",route=~\".*/get-ids\"}\n\t)\n)*100",
           "legendFormat": "error %",
           "range": true,
           "refId": "A"
@@ -342,7 +342,7 @@
             "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
           },
           "editorMode": "code",
-          "expr": "(\n        (   \n                sum(http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"180\",code=~\"^2..$\"})\n                + (\n                        sum(http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"360\",code=~\"^2..$\"})\n                        - sum(http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"180\",code=~\"^2..$\"})\n                ) / 2\n        ) / sum(http_request_duration_seconds_count{instance=~\"$instance\",code=~\"^2..$\"})\n) * 100",
+          "expr": "(\n        (   \n                sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"180\",code=~\"^2..$\"})\n                + (\n                        sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"360\",code=~\"^2..$\"})\n                        - sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$instance\",le=\"180\",code=~\"^2..$\"})\n                ) / 2\n        ) / sum(cht_api_http_request_duration_seconds_count{instance=~\"$instance\",code=~\"^2..$\"})\n) * 100",
           "legendFormat": "score",
           "range": true,
           "refId": "A"
@@ -442,7 +442,7 @@
             "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.5, sum by(le) (rate(http_request_duration_seconds_bucket{instance=~\"$instance\", route=~\".*/get-ids\"}[$interval])))",
+          "expr": "histogram_quantile(0.5, sum by(le) (rate(cht_api_http_request_duration_seconds_bucket{instance=~\"$instance\", route=~\".*/get-ids\"}[$interval])))",
           "legendFormat": "50th Percentile",
           "range": true,
           "refId": "A"
@@ -453,7 +453,7 @@
             "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(0.90, sum by(le) (rate(http_request_duration_seconds_bucket{instance=~\"$instance\", route=~\".*/get-ids\"}[$interval])))",
+          "expr": "histogram_quantile(0.90, sum by(le) (rate(cht_api_http_request_duration_seconds_bucket{instance=~\"$instance\", route=~\".*/get-ids\"}[$interval])))",
           "hide": false,
           "instant": false,
           "legendFormat": "90th Percentile",
@@ -466,7 +466,7 @@
             "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
           },
           "editorMode": "code",
-          "expr": "histogram_quantile(1.00, sum by(le) (rate(http_request_duration_seconds_bucket{instance=~\"$instance\", route=~\".*/get-ids\"}[$interval])))",
+          "expr": "histogram_quantile(1.00, sum by(le) (rate(cht_api_http_request_duration_seconds_bucket{instance=~\"$instance\", route=~\".*/get-ids\"}[$interval])))",
           "hide": false,
           "instant": false,
           "legendFormat": "Max",
