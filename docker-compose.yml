@@ -40,7 +40,7 @@ services:
     volumes:
       - grafana-data:/var/lib/grafana
       - ./grafana/grafana.ini:/etc/grafana/grafana.ini:ro
-      - ./grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./grafana/provisioning:/etc/grafana/provisioning:rw
     environment:
       - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER:-medic}
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-password}
