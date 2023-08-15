@@ -5,7 +5,7 @@ volumes:
 
 services:
   fake-cht:
-    image: node:latest
+    image: node:lts-alpine
     user: "node"
     working_dir: /home/node/app
     volumes:
@@ -17,7 +17,7 @@ services:
              npm start"
 
   postgres:
-    image: postgres:latest
+    image: postgres:15
     environment:
       POSTGRES_DB: cht
       POSTGRES_USER: postgres_root
