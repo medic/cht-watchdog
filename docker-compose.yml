@@ -17,7 +17,6 @@ volumes:
 
 services:
   prometheus:
-#    image: prom/prometheus:${PROMETHEUS_VERSION:-v2.46.0}
     image: prom/prometheus:${PROMETHEUS_VERSION:-v2.44.0}
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
@@ -35,7 +34,6 @@ services:
     restart: always
 
   grafana:
-#    image: grafana/grafana-oss:${GRAFANA_VERSION:-10.0.3}
     image: grafana/grafana-oss:${GRAFANA_VERSION:-9.5.3}
     ports:
       - "${GRAFANA_BIND:-127.0.0.1}:${GRAFANA_PORT:-3000}:3000"
