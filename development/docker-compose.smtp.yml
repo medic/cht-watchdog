@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   maildev:
-    image: maildev/maildev:latest
+    image: maildev/maildev:2.1.0
     ports:
       - "1080:1080"
     networks:

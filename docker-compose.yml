@@ -17,7 +17,7 @@ volumes:
 
 services:
   prometheus:
-    image: prom/prometheus:${PROMETHEUS_VERSION:-latest}
+    image: prom/prometheus:${PROMETHEUS_VERSION:-v2.44.0}
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -34,7 +34,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana-oss:${GRAFANA_VERSION:-latest}
+    image: grafana/grafana-oss:${GRAFANA_VERSION:-9.5.3}
     ports:
       - "${GRAFANA_BIND:-127.0.0.1}:${GRAFANA_PORT:-3000}:3000"
     volumes:
@@ -51,7 +51,7 @@ services:
     restart: always
 
   json-exporter:
-    image: prometheuscommunity/json-exporter:${JSON_EXPORTER_VERSION:-latest}
+    image: prometheuscommunity/json-exporter:${JSON_EXPORTER_VERSION:-v0.6.0}
     volumes:
       - ./exporters/json/config/cht.yml:/config.yml:ro
     networks:
