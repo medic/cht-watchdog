@@ -6,7 +6,7 @@ services:
       - ./exporters/postgres/postgres-instances.yml:/etc/prometheus/postgres-instances.yml:ro
       - ./exporters/postgres/config/scrape_config.yml:/etc/prometheus/scrape_configs/cht-postgres.yml:ro
   postgres-exporter:
-    image: prometheuscommunity/postgres-exporter:${POSTGRES_EXPORTER_VERSION:-v0.13.0}
+    image: prometheuscommunity/postgres-exporter:${POSTGRES_EXPORTER_VERSION:-v0.13.2}
     command:
       - '--config.file=/etc/postgres-exporter/postgres_exporter.yml'
       # disables the collection of all metrics except for custom queries (https://github.com/medic/cht-watchdog/issues/70)
