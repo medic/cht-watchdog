@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const initialResponse = require('../initial-response.json');
+const prometheusMiddleware = require('prometheus-api-metrics');
 const { updatePostgres } = require('./postgres');
 
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
@@ -111,6 +112,11 @@ try {
   lastResponse = initialResponse;
   console.log('Using initial-response data.');
 }
+
+app.use(prometheusMiddleware({
+  metricsPath: '/api/v1/express-metrics',
+  metricsPrefix: 'cht_api',
+}));
 
 app.get('/api/v2/monitoring', (req, res) => {
   const metrics = {

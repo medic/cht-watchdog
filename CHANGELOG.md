@@ -1,3 +1,17 @@
+# [1.10.0](https://github.com/medic/cht-watchdog/compare/1.9.0...1.10.0) (2023-09-07)
+
+
+### Features
+
+* **#60:** add prometheus job to scrape express-metrics ([#74](https://github.com/medic/cht-watchdog/issues/74)) ([5ea380c](https://github.com/medic/cht-watchdog/commit/5ea380ceafb6bbf3af34fc6e19f51716f7ae3e26)), closes [#60](https://github.com/medic/cht-watchdog/issues/60)
+
+## [1.8.2](https://github.com/medic/cht-watchdog/compare/1.8.1...1.8.2) (2023-07-28)
+
+
+### Bug Fixes
+
+* **#70:** disable all non-custom Postgres metrics ([#79](https://github.com/medic/cht-watchdog/issues/79)) ([2dcaea6](https://github.com/medic/cht-watchdog/commit/2dcaea6610d78a5b96766f6f82f7eb9879df8b40)), closes [#70](https://github.com/medic/cht-watchdog/issues/70)
+
 ## [1.8.1](https://github.com/medic/cht-watchdog/compare/1.8.0...1.8.1) (2023-06-27)
 
 
