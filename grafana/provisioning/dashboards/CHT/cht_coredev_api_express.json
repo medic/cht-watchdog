@@ -884,7 +884,7 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "expr": "cht_api_expressjs_number_of_open_connections{instance=~\"$cht_instance\"}",
+          "expr": "expressjs_number_of_open_connections{instance=~\"$cht_instance\"}",
           "legendFormat": "{{instance}}",
           "refId": "A"
         }
