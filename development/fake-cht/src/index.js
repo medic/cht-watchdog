@@ -116,9 +116,34 @@ try {
 app.use(prometheusMiddleware({
   metricsPath: '/api/v1/express-metrics',
   metricsPrefix: 'cht_api',
+  // based on one-month analysed period of production traffic
+  durationBuckets: [
+    0.004, 0.007, 0.013, 0.025, 0.05,
+    0.1, 0.25, 0.5, 1, 2,
+    3, 5, 7.5, 10, 25,
+    45, 90, 180, 360, 600,
+    1200, 1800, 3600
+  ],
 }));
 
+app.get('/*/get-ids', (req, res) => {
+  const timeout = getRandomInt(0, 5000);
+  setTimeout(() => {
+    if (timeout > 4000) {
+      res
+        .status(504)
+        .send({ message: 'Timeout' });
+      return;
+    }
+    res.json({ id: new Date().getTime() });
+  }, timeout);
+});
+
 app.get('/api/v2/monitoring', (req, res) => {
+  // generate requests to other endpoints
+  fetch('http://fake-cht:8081/api/v1/initial-replication/get-ids');
+  fetch('http://fake-cht:8081/api/v1/replication/get-ids');
+
   const metrics = {
     version: getVersion(),
     couchdb: getAllCouchDbs(lastResponse.couchdb),
