@@ -1885,23 +1885,14 @@
             "type": "prometheus",
             "uid": "PBFA97CFB590B2093"
           },
-          "expr": "histogram_quantile(0.95, sum(rate(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\"}[$interval])) by (code,le))",
-          "legendFormat": "{{code}}(95%)",
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
-          },
-          "expr": "histogram_quantile(1, sum(rate(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\"}[$interval])) by (code,le))",
-          "legendFormat": "{{code}}(100%)",
-          "refId": "E"
+          "expr": "histogram_quantile(0.90, sum(rate(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\"}[$interval])) by (le,route))",
+          "legendFormat": "{{route}}",
+          "refId": "B"
         }
       ],
       "thresholds": [],
       "timeRegions": [],
-      "title": "Response Latency",
+      "title": "Response Latency (90th Percentile)",
       "tooltip": {
         "shared": true,
         "sort": 0,
@@ -2632,19 +2623,19 @@
         "auto_min": "10s",
         "current": {
           "selected": false,
-          "text": "1m",
-          "value": "1m"
+          "text": "10m",
+          "value": "10m"
         },
         "hide": 0,
         "name": "interval",
         "options": [
           {
-            "selected": true,
-            "text": "1m",
-            "value": "1m"
+            "selected": false,
+            "text": "2m",
+            "value": "2m"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "10m",
             "value": "10m"
           },
@@ -2689,7 +2680,7 @@
             "value": "30d"
           }
         ],
-        "query": "1m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
+        "query": "2m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
         "queryValue": "",
         "refresh": 2,
         "skipUrlSync": false,

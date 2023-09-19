@@ -568,11 +568,11 @@
         "options": [
           {
             "selected": false,
-            "text": "1m",
-            "value": "1m"
+            "text": "2m",
+            "value": "2m"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "10m",
             "value": "10m"
           },
@@ -617,7 +617,7 @@
             "value": "30d"
           }
         ],
-        "query": "1m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
+        "query": "2m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
         "queryValue": "",
         "refresh": 2,
         "skipUrlSync": false,

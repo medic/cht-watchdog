@@ -126,7 +126,12 @@ app.use(prometheusMiddleware({
   ],
 }));
 
-app.get('/*/get-ids', (req, res) => {
+const replicationRoutes = [
+  '/api/v1/replication/get-ids',
+  '/api/v1/initial-replication/get-ids'
+];
+
+app.get(replicationRoutes, (req, res) => {
   const timeout = getRandomInt(0, 5000);
   setTimeout(() => {
     if (timeout > 4000) {
@@ -141,8 +146,9 @@ app.get('/*/get-ids', (req, res) => {
 
 app.get('/api/v2/monitoring', (req, res) => {
   // generate requests to other endpoints
-  fetch('http://fake-cht:8081/api/v1/initial-replication/get-ids');
-  fetch('http://fake-cht:8081/api/v1/replication/get-ids');
+  replicationRoutes.forEach(replicationRoute => {
+    fetch(`http://fake-cht:8081${replicationRoute}`);
+  });
 
   const metrics = {
     version: getVersion(),
