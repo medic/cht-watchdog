@@ -1,3 +1,10 @@
+## [1.11.1](https://github.com/medic/cht-watchdog/compare/1.11.0...1.11.1) (2023-09-21)
+
+
+### Bug Fixes
+
+* **#88:** refresh prometheus datasource in replication dashboard ([#89](https://github.com/medic/cht-watchdog/issues/89)) ([785190c](https://github.com/medic/cht-watchdog/commit/785190c2bdf2fe57c1151f08a86191f5874861e5)), closes [#88](https://github.com/medic/cht-watchdog/issues/88)
+
 # [1.11.0](https://github.com/medic/cht-watchdog/compare/1.10.0...1.11.0) (2023-09-21)
 
 
