@@ -2,7 +2,10 @@
   "name": "fake-cht",
   "version": "1.0.0",
   "scripts": {
-    "start": "node --experimental-fetch src/index.js"
+    "start": "node src/index.js"
+  },
+  "engines" : { 
+    "node" : ">=18.0.0"
   },
   "dependencies": {
     "express": "^4.18.2",
