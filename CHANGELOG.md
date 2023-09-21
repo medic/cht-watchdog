@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/medic/cht-watchdog/compare/1.10.0...1.11.0) (2023-09-21)
+
+
+### Features
+
+* **#60:** CHT API Server and CHT Replication dashboards ([#75](https://github.com/medic/cht-watchdog/issues/75)) ([e57487d](https://github.com/medic/cht-watchdog/commit/e57487dad835ab8d5d0fb743240358e2c0482231)), closes [#60](https://github.com/medic/cht-watchdog/issues/60)
+
 # [1.10.0](https://github.com/medic/cht-watchdog/compare/1.9.0...1.10.0) (2023-09-07)
 
 
