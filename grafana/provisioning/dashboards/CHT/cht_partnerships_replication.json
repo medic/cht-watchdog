@@ -39,7 +39,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
+        "uid": "PBFA97CFB590B2093"
       },
       "description": "Target replication performance under 3min.\nTolerated replication performance under 6min.",
       "fieldConfig": {
@@ -102,12 +102,12 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.2",
+      "pluginVersion": "9.5.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "(\n        (   \n                sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",le=\"90\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                + (\n                        sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",le=\"180\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                        - sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",le=\"90\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                ) / 2\n        ) / sum(cht_api_http_request_duration_seconds_count{instance=~\"$cht_instance\",route=~\".*/get-ids\",code=~\"^2..$\"})\n) * 100",
@@ -126,7 +126,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -162,7 +162,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.0.2",
+      "pluginVersion": "9.5.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -174,7 +174,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "sum(rate(cht_api_http_request_duration_seconds_count{instance=~\"$cht_instance\",route=~\".*/get-ids\"}[$interval])) by (route)",
@@ -218,7 +218,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -280,12 +280,12 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.2",
+      "pluginVersion": "9.5.3",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "(\n\tsum(\n\t\tcht_api_http_request_duration_seconds_count{instance=~\"$cht_instance\",route=~\".*/get-ids\",code=~\"^[45]..$\"} OR on() vector(0)\n\t) / \n\tsum(\n\t\tcht_api_http_request_duration_seconds_count{instance=~\"$cht_instance\",route=~\".*/get-ids\"}\n\t)\n)*100",
@@ -304,7 +304,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
+        "uid": "PBFA97CFB590B2093"
       },
       "fieldConfig": {
         "defaults": {
@@ -339,7 +339,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.0.2",
+      "pluginVersion": "9.5.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -351,7 +351,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "(\n        (   \n                sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",le=\"180\",code=~\"^2..$\"})\n                + (\n                        sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",le=\"360\",code=~\"^2..$\"})\n                        - sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",le=\"180\",code=~\"^2..$\"})\n                ) / 2\n        ) / sum(cht_api_http_request_duration_seconds_count{instance=~\"$cht_instance\",code=~\"^2..$\"})\n) * 100",
@@ -400,7 +400,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
+        "uid": "PBFA97CFB590B2093"
       },
       "description": "",
       "fieldConfig": {
@@ -439,7 +439,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "10.0.2",
+      "pluginVersion": "9.5.3",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -451,7 +451,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.5, sum by(le) (rate(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\", route=~\".*/get-ids\"}[$interval])))",
@@ -462,7 +462,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(0.90, sum by(le) (rate(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\", route=~\".*/get-ids\"}[$interval])))",
@@ -475,7 +475,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "fa8f4e3c-53cf-499d-89dd-8d6eaca0a756"
+            "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
           "expr": "histogram_quantile(1.00, sum by(le) (rate(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\", route=~\".*/get-ids\"}[$interval])))",
@@ -592,7 +592,7 @@
             "value": "6h"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "12h",
             "value": "12h"
           },
@@ -646,6 +646,6 @@
   "timezone": "",
   "title": "CHT Replication",
   "uid": "d4f05050-804e-4ea4-9642-4d088cc39a1b",
-  "version": 4,
+  "version": 5,
   "weekStart": ""
 }
