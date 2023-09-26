@@ -67,11 +67,11 @@
               },
               {
                 "color": "rgba(237, 129, 40, 0.89)",
-                "value": 70
+                "value": 80
               },
               {
                 "color": "#299c46",
-                "value": 90
+                "value": 98
               }
             ]
           },
@@ -110,7 +110,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "(\n        (   \n                sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",le=\"90\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                + (\n                        sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",le=\"180\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                        - sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",le=\"90\",route=~\".*/get-ids\",code=~\"^2..$\"})\n                ) / 2\n        ) / sum(cht_api_http_request_duration_seconds_count{instance=~\"$cht_instance\",route=~\".*/get-ids\",code=~\"^2..$\"})\n) * 100",
+          "expr": "(\n        (   \n                sum(delta(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",route=~\".*/get-ids\",le=\"180\",code=~\"^2..$\"}[$__range]))\n                + (\n                        sum(delta(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",route=~\".*/get-ids\",le=\"360\",code=~\"^2..$\"}[$__range]))\n                        - sum(delta(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",route=~\".*/get-ids\",le=\"180\",code=~\"^2..$\"}[$__range]))\n                ) / 2\n        ) / sum(delta(cht_api_http_request_duration_seconds_count{instance=~\"$cht_instance\",route=~\".*/get-ids\"}[$__range]))\n) * 100",
           "legendFormat": "score",
           "range": true,
           "refId": "A"
@@ -354,7 +354,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "(\n        (   \n                sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",le=\"180\",code=~\"^2..$\"})\n                + (\n                        sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",le=\"360\",code=~\"^2..$\"})\n                        - sum(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",le=\"180\",code=~\"^2..$\"})\n                ) / 2\n        ) / sum(cht_api_http_request_duration_seconds_count{instance=~\"$cht_instance\",code=~\"^2..$\"})\n) * 100",
+          "expr": "(\n        (   \n                sum(delta(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",route=~\".*/get-ids\",le=\"180\",code=~\"^2..$\"}[$__range]))\n                + (\n                        sum(delta(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",route=~\".*/get-ids\",le=\"360\",code=~\"^2..$\"}[$__range]))\n                        - sum(delta(cht_api_http_request_duration_seconds_bucket{instance=~\"$cht_instance\",route=~\".*/get-ids\",le=\"180\",code=~\"^2..$\"}[$__range]))\n                ) / 2\n        ) / sum(delta(cht_api_http_request_duration_seconds_count{instance=~\"$cht_instance\",route=~\".*/get-ids\"}[$__range]))\n) * 100",
           "legendFormat": "score",
           "range": true,
           "refId": "A"
@@ -646,6 +646,6 @@
   "timezone": "",
   "title": "CHT Replication",
   "uid": "d4f05050-804e-4ea4-9642-4d088cc39a1b",
-  "version": 5,
+  "version": 6,
   "weekStart": ""
 }
