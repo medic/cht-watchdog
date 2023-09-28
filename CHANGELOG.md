@@ -1,3 +1,10 @@
+## [1.11.2](https://github.com/medic/cht-watchdog/compare/1.11.1...1.11.2) (2023-09-28)
+
+
+### Bug Fixes
+
+* **#90:** incorrect cht replication dashboard apdex calculations ([#91](https://github.com/medic/cht-watchdog/issues/91)) ([a46358a](https://github.com/medic/cht-watchdog/commit/a46358a2f15f47293813a189050423bd71d3ff0d)), closes [#90](https://github.com/medic/cht-watchdog/issues/90)
+
 ## [1.11.1](https://github.com/medic/cht-watchdog/compare/1.11.0...1.11.1) (2023-09-21)
 
 
