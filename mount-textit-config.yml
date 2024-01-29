@@ -1,0 +1,5 @@
+version: "3.9"
+services:
+  prometheus:
+    volumes:
+      - ./textit/config/textit-scrape.yml:/etc/prometheus/scrape_configs/textit-scrape.yml:ro
