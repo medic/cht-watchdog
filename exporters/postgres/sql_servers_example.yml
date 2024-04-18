@@ -13,14 +13,13 @@ global:
   # Maximum amount of time a connection may be reused to any one target. Infinite by default.
   max_connection_lifetime: 10m
 
-# Collector definition files.
 collector_files:
   - "/etc/sql_exporter/couch2pg_collector.yml"
 
 jobs:
   - job_name: db_targets
     collectors: [couch2pg]
-    enable_ping: true # Optional, true by default. Set to `false` in case you connect to pgbouncer or a data warehouse
+    enable_ping: true
     static_configs:
       - targets:
           gamma: 'postgres://user:password@gamma.dev.medicmobile.org:5432/cht?sslmode=disable'
