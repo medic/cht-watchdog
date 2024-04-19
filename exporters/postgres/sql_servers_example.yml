@@ -4,7 +4,9 @@ global:
   # timing out first.
   scrape_timeout_offset: 500ms
   # Minimum interval between collector runs: by default (0s) collectors are executed on every scrape.
-  min_interval: 0s
+  # Medic recommends setting this to 60s so that the endpoint cant be used as a proxy to DOS the upstream Postgres server
+  # see https://github.com/burningalchemist/sql_exporter/issues/447#issue-2144289744 for more info
+  min_interval: 60s
   # Maximum number of open connections to any one target. Metric queries will run concurrently on
   # multiple connections.
   max_connections: 3
