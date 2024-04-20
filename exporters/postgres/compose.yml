@@ -1,4 +1,10 @@
 services:
+
+# todo: uncomment and get this working
+#  prometheus:
+#    volumes:
+#      - ./exporters/postgres/scrape.yml:/etc/prometheus/scrape_configs/cht-postgres.yml:ro
+
   sql_exporter:
     restart: unless-stopped
     image: burningalchemist/sql_exporter:latest
