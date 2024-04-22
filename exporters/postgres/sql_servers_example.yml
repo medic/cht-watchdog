@@ -24,5 +24,6 @@ jobs:
     enable_ping: true
     static_configs:
       - targets:
-          local-cht: 'postgres://cht_couch2pg:cht_couch2pg_password@172.17.0.1:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
+          # " same as URL in cht-instances.yml      ": 'postgres://USERNAME:PASSWORD@DB_SERVER_IP/DATABASE
+          "172-17-0-1.local-ip.medicmobile.org:10464": 'postgres://cht_couch2pg:cht_couch2pg_password@172.17.0.1:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
 

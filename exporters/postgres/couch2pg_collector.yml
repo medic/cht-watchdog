@@ -13,8 +13,8 @@ queries:
         seq like '%-%'
 
 metrics:
-  - metric_name: couch2pg
-    type: gauge
+  - metric_name: couch2pg_progress_sequence
+    type: counter
     help: 'couch2pg backlog.'
     key_labels:
       - db
