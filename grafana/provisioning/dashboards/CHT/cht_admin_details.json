@@ -474,7 +474,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "builder",
-          "expr": "couch2pg_progress_sequence{cht_instance=~\"$cht_instance\", db=~\"medic\"}",
+          "expr": "couch2pg_progress_sequence{target=~\"$cht_instance\", db=~\"medic\"}",
           "hide": false,
           "legendFormat": "__auto",
           "range": true,
@@ -510,7 +510,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "builder",
-          "expr": "couch2pg_progress_sequence{cht_instance=~\"$cht_instance\", db=~\"medic-users-meta\"}",
+          "expr": "couch2pg_progress_sequence{target=~\"$cht_instance\", db=~\"medic-users-meta\"}",
           "hide": false,
           "legendFormat": "__auto",
           "range": true,
@@ -545,7 +545,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "builder",
-          "expr": "couch2pg_progress_sequence{cht_instance=~\"$cht_instance\", db=~\"medic-sentinel\"}",
+          "expr": "couch2pg_progress_sequence{target=~\"$cht_instance\", db=~\"medic-sentinel\"}",
           "hide": false,
           "legendFormat": "__auto",
           "range": true,
@@ -2508,14 +2508,21 @@
       "type": "row"
     }
   ],
-  "refresh": "30s",
   "revision": 1,
-  "schemaVersion": 38,
-  "style": "dark",
+  "schemaVersion": 39,
   "tags": [],
   "templating": {
     "list": [
       {
+        "current": {
+          "selected": false,
+          "text": "disc-mali.ml",
+          "value": "disc-mali.ml"
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "PBFA97CFB590B2093"
+        },
         "definition": "query_result(up{job=~\"cht\"})",
         "hide": 0,
         "includeAll": false,
@@ -2579,6 +2586,6 @@
   "timezone": "",
   "title": "CHT Admin Details",
   "uid": "hkQUbyfVk",
-  "version": 42,
+  "version": 43,
   "weekStart": ""
 }
