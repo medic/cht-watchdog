@@ -114,7 +114,7 @@ Copy the example config files:
 
 ```shell
 cp development/fake-cht/example-config/cht-instances.yml cht-instances.yml
-cp development/fake-cht/example-config/postgres* ./exporters/postgres
+cp development/fake-cht/example-config/sql_servers.yml ./exporters/postgres/.
 ```
 
 You will also need to run a few additional commands from the [normal setup process](https://docs.communityhealthtoolkit.org/apps/guides/hosting/monitoring/setup/#setup) to prepare your new instance:
@@ -129,7 +129,7 @@ mkdir -p grafana/data && mkdir  -p prometheus/data
 From the root directory, run:
 
 ```shell
-docker compose -f docker-compose.yml -f exporters/postgres/docker-compose.postgres-exporter.yml -f development/fake-cht/docker-compose.fake-cht.yml up -d
+docker compose -f docker-compose.yml -f exporters/postgres/compose.yml -f development/fake-cht/docker-compose.fake-cht.yml up -d
 ```
 
 The Postgres data will be persisted in a Docker volume. To clear the data when you are finished testing (to allow for a fresh environment on the next run), run your `docker compose down` command with the `-v` flag to delete the volume.

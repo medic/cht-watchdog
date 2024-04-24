@@ -20,8 +20,8 @@ services:
     image: postgres:15
     environment:
       POSTGRES_DB: cht
-      POSTGRES_USER: postgres_root
-      POSTGRES_PASSWORD: postgres_root_password
+      POSTGRES_USER: cht_couch2pg
+      POSTGRES_PASSWORD: cht_couch2pg_password
     volumes:
       - fake-cht-postgres-data:/var/lib/postgresql/data
     networks:
