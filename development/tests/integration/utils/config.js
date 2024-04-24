@@ -12,12 +12,8 @@ const initConfigFiles = async () => {
     `${ROOT_PATH}/cht-instances.yml`
   );
   await copyIfNotExists(
-    `${ROOT_PATH}/development/fake-cht/example-config/postgres-instances.yml`,
-    `${ROOT_PATH}/exporters/postgres/postgres-instances.yml`
-  );
-  await copyIfNotExists(
-    `${ROOT_PATH}/development/fake-cht/example-config/postgres_exporter.yml`,
-    `${ROOT_PATH}/exporters/postgres/postgres_exporter.yml`
+    `${ROOT_PATH}/development/fake-cht/example-config/sql_servers.yml`,
+    `${ROOT_PATH}/exporters/postgres/sql_servers.yml`
   );
   await copyIfNotExists(
     `${ROOT_PATH}/grafana/grafana.example.ini`,
