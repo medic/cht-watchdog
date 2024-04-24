@@ -10,4 +10,4 @@ postgres_exporter.yml
 grafana.ini
 delete-rules.yml
 build
-sql_servers.yml
+exporters/postgres/sql_servers.yml
