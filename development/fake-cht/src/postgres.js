@@ -2,10 +2,10 @@ const { Client } = require('pg');
 const { randomUUID } = require('crypto');
 
 const POSTGRES_CLIENT_CONFIG = {
-  user: 'postgres_root',
+  user: 'cht_couch2pg',
   host: 'postgres',
   database: 'cht',
-  password: 'postgres_root_password',
+  password: 'cht_couch2pg_password',
   port: 5432,
 };
 
