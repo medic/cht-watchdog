@@ -61,7 +61,7 @@ Metrics loaded from the CHT `/monitoring` endpoint are configured via the json-e
 
 ### Adding a new metric from a Couch2pg Postgres DB
 
-Metrics loaded from a Couch2pg Postgres DB are configured via the postgres-exporter's [`cht-queries.yml`](../exporters/postgres/config/cht-queries.yml) file. New entries into the file can specify the associated Postgres query for loading the metric data. See the [postgres_exporter project](https://github.com/prometheus-community/postgres_exporter) on GitHub for more information.
+Metrics loaded from a Couch2pg Postgres DB are configured via the sql_exporter's [`couch2pg_collector.yml`](../exporters/postgres/couch2pg_collector.yml) file. New queries can be added by copying `couch2pg_collector.yml` into a new file following the `*_collector.yml` nomenclature. For example `reports-by-type_collector.yml` could be created with a new query to gather all CHW submitted reports. See the [sql_exporter project](https://github.com/burningalchemist/sql_exporter) on GitHub for more information.
 
 ### Scraping metrics from a new resource
 
@@ -135,7 +135,7 @@ docker compose -f docker-compose.yml -f exporters/postgres/compose.yml -f develo
 The Postgres data will be persisted in a Docker volume. To clear the data when you are finished testing (to allow for a fresh environment on the next run), run your `docker compose down` command with the `-v` flag to delete the volume.
 
 ```shell
-docker compose -f docker-compose.yml -f exporters/postgres/docker-compose.postgres-exporter.yml -f development/fake-cht/docker-compose.fake-cht.yml down -v
+docker compose -f docker-compose.yml -f exporters/postgres/compose.yml -f development/fake-cht/docker-compose.fake-cht.yml down -v
 ```
 
 ### Historical data
@@ -149,7 +149,7 @@ Each test is associated with an `xlsx` file in this directory that contains the 
 Start a fresh deployment of cht-watchdog without providing any CHT URL and with the test override:
 
 ```
-docker compose -f docker-compose.yml -f exporters/postgres/docker-compose.postgres-exporter.yml -f development/fake-cht/docker-compose.fake-cht.yml up -d
+docker compose -f docker-compose.yml -f exporters/postgres/compose.yml -f development/fake-cht/docker-compose.fake-cht.yml up -d
 ```
 
 Open the `xlsx` file of the test you want to run. Switch to the `data` sheet and Save As a `csv` file (named `data.csv`) in the `development` directory.
