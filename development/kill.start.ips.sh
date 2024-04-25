@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 echo '
     ,    /-.
    ((___/ __>
@@ -12,12 +12,14 @@ echo;echo "Killing...";echo
 docker compose  \
     -f docker-compose.yml \
     -f exporters/postgres/compose.yml \
+    -f development/fake-cht/docker-compose.fake-cht.yml \
     kill
 
 echo;echo "Starting...";echo
 docker compose  \
     -f docker-compose.yml \
     -f exporters/postgres/compose.yml \
+    -f development/fake-cht/docker-compose.fake-cht.yml \
     up -d \
     --remove-orphans
 
