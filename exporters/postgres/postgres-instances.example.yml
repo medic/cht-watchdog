@@ -1,5 +1,0 @@
-# Update this data to point to your Postgres DB endpoint and your CHT instance.
-# To monitor multiple instances, add additional entries to the outer list (target/labels pairs).
-- targets: [gamma.dev.medicmobile.org:5432/cht]
-  labels:
-    cht_instance: gamma.dev.medicmobile.org

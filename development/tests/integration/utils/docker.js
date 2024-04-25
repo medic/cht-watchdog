@@ -7,14 +7,14 @@ const startWatchdog = async () => {
   await exec(`docker compose \
     -f ${ROOT_PATH}/docker-compose.yml \
     -f ${ROOT_PATH}/development/docker-compose.test-data.yml \
-    -f ${ROOT_PATH}/exporters/postgres/docker-compose.postgres-exporter.yml \
+    -f ${ROOT_PATH}/exporters/postgres/compose.yml \
     up -d`);
 };
 
 const stopWatchdog = async () => {
   await exec(`docker compose \
     -f ${ROOT_PATH}/docker-compose.yml \
-    -f ${ROOT_PATH}/exporters/postgres/docker-compose.postgres-exporter.yml \
+    -f ${ROOT_PATH}/exporters/postgres/compose.yml \
     down -v`);
 };
 

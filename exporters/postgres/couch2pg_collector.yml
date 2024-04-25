@@ -1,0 +1,22 @@
+collector_name: couch2pg
+
+queries:
+  - query_name: couch2pg-query
+    query: |
+      SELECT
+        substring(seq for position('-' in seq) - 1) as sequence,
+        substring(source from position('/' in source) + 1) as db
+      FROM
+        couchdb_progress
+      WHERE
+        source like '%/%' and
+        seq like '%-%'
+
+metrics:
+  - metric_name: couch2pg_progress_sequence
+    type: counter
+    help: 'couch2pg backlog.'
+    key_labels:
+      - db
+    values: [sequence]
+    query_ref: couch2pg-query

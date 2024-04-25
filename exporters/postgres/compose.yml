@@ -1,0 +1,17 @@
+services:
+
+# todo: uncomment and get this working
+  prometheus:
+    volumes:
+      - ./exporters/postgres/scrape.yml:/etc/prometheus/scrape_configs/cht-postgres.yml:ro
+
+  sql_exporter:
+    restart: unless-stopped
+    image: burningalchemist/sql_exporter:latest
+    command: --config.file=/etc/sql_exporter/sql_servers.yml
+    volumes:
+      - "./exporters/postgres/:/etc/sql_exporter/"
+    ports:
+      - "${SQL_EXPORTER_IP:-127.0.0.1}:${SQL_EXPORTER_PORT:-9399}:9399"
+    networks:
+      - cht-watchdog-net

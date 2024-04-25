@@ -106,7 +106,7 @@
         "content": "# CHT Watchdog\n\nSee the [CHT documentation](https://docs.communityhealthtoolkit.org/apps/guides/hosting/monitoring/) for more information about monitoring and alerting!",
         "mode": "markdown"
       },
-      "pluginVersion": "10.0.0",
+      "pluginVersion": "10.1.1",
       "type": "text"
     },
     {
@@ -181,7 +181,7 @@
         "showHeader": false,
         "sortBy": []
       },
-      "pluginVersion": "9.5.3",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -374,7 +374,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.0",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -459,7 +459,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.0",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -546,7 +546,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "10.0.0",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -652,7 +652,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.0",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -776,7 +776,7 @@
         "showUnfilled": true,
         "valueMode": "color"
       },
-      "pluginVersion": "10.0.0",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -881,7 +881,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.0",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -969,7 +969,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "10.0.0",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -1076,7 +1076,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "10.0.0",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -1193,7 +1193,7 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": false
       },
-      "pluginVersion": "10.0.0",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -1215,7 +1215,7 @@
           },
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "sum(couch2pg_progress_sequence{cht_instance=~\"$cht_instance\", db=~\"medic|medic-sentinel|medic-users-meta\"})",
+          "expr": "sum(couch2pg_progress_sequence{target=~\"$cht_instance\", db=~\"medic|medic-sentinel|medic-users-meta\"})",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
@@ -1305,7 +1305,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.0",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -1482,7 +1482,7 @@
         "showHeader": false,
         "sortBy": []
       },
-      "pluginVersion": "10.0.0",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "category": "All categories",
@@ -1670,7 +1670,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "10.0.0",
+      "pluginVersion": "10.1.1",
       "targets": [
         {
           "datasource": {
@@ -2340,6 +2340,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 35,
+  "version": 36,
   "weekStart": ""
 }

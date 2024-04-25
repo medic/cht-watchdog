@@ -1,0 +1,29 @@
+# Global settings and defaults.
+global:
+  # Subtracted from Prometheus' scrape_timeout to give us some headroom and prevent Prometheus from
+  # timing out first.
+  scrape_timeout_offset: 500ms
+  # Minimum interval between collector runs: by default (0s) collectors are executed on every scrape.
+  # Medic recommends setting this to 60s so that the endpoint cant be used as a proxy to DOS the upstream Postgres server
+  # see https://github.com/burningalchemist/sql_exporter/issues/447#issue-2144289744 for more info
+  min_interval: 60s
+  # Maximum number of open connections to any one target. Metric queries will run concurrently on
+  # multiple connections.
+  max_connections: 3
+  # Maximum number of idle connections to any one target.
+  max_idle_connections: 3
+  # Maximum amount of time a connection may be reused to any one target. Infinite by default.
+  max_connection_lifetime: 10m
+
+collector_files:
+  - "/etc/sql_exporter/couch2pg_collector.yml"
+
+jobs:
+  - job_name: db_targets
+    collectors: [couch2pg]
+    enable_ping: true
+    static_configs:
+      - targets:
+          # " same as URL in cht-instances.yml      ": 'postgres://USERNAME:PASSWORD@DB_SERVER_IP/DATABASE
+          "172-17-0-1.local-ip.medicmobile.org:10464": 'postgres://cht_couch2pg:cht_couch2pg_password@172.17.0.1:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
+
