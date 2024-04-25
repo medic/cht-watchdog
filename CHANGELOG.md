@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/medic/cht-watchdog/compare/1.11.2...1.12.0) (2024-04-25)
+
+
+### Features
+
+* **#81:** replace deprecated SQL exporter with non-deprecated one  ([#100](https://github.com/medic/cht-watchdog/issues/100)) ([0d4cb13](https://github.com/medic/cht-watchdog/commit/0d4cb139152c37c6833591944bf75450a1c51676)), closes [#81](https://github.com/medic/cht-watchdog/issues/81) [#81](https://github.com/medic/cht-watchdog/issues/81)
+
 ## [1.11.2](https://github.com/medic/cht-watchdog/compare/1.11.1...1.11.2) (2023-09-28)
 
 
