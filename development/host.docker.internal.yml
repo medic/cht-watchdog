@@ -1,0 +1,20 @@
+# file to add shared host of host.docker.internal to all instances running in dev
+# thanks https://stackoverflow.com/a/70725882
+#  and thanks https://nickjanetakis.com/blog/connect-to-a-service-running-on-your-docker-host-from-a-container
+
+services:
+  prometheus:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  grafana:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  json-exporter:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  sql_exporter:
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

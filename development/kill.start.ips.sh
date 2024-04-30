@@ -13,6 +13,7 @@ docker compose  \
     -f docker-compose.yml \
     -f exporters/postgres/compose.yml \
     -f development/fake-cht/docker-compose.fake-cht.yml \
+    -f development/host.docker.internal.yml \
     kill
 
 echo;echo "Starting...";echo
@@ -20,6 +21,7 @@ docker compose  \
     -f docker-compose.yml \
     -f exporters/postgres/compose.yml \
     -f development/fake-cht/docker-compose.fake-cht.yml \
+    -f development/host.docker.internal.yml \
     up -d \
     --remove-orphans
 
