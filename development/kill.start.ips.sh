@@ -12,6 +12,7 @@ echo;echo "Killing...";echo
 docker compose  \
     -f docker-compose.yml \
     -f exporters/postgres/compose.yml \
+    -f data-ingest/compose.yml \
     -f development/fake-cht/docker-compose.fake-cht.yml \
     kill
 
@@ -19,6 +20,7 @@ echo;echo "Starting...";echo
 docker compose  \
     -f docker-compose.yml \
     -f exporters/postgres/compose.yml \
+    -f data-ingest/compose.yml \
     -f development/fake-cht/docker-compose.fake-cht.yml \
     up -d \
     --remove-orphans
@@ -49,6 +51,10 @@ for ipLine in "${ipsArray[@]}"; do
       portPath=":9090/targets?search=";;
     cht-watchdog-sql_exporter-1)
       portPath=":9399/metrics";;
+    cht-watchdog-data-ingest-1)
+      portPath=":9399/metrics";;
+    cht-watchdog-fake-cht-1)
+      portPath=":8081/api/v1/express-metrics";;
     *)
       portPath="";;
   esac
