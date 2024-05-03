@@ -1,0 +1,15 @@
+services:
+
+# todo: uncomment and get this working
+  prometheus:
+    image: alpine 
+    volumes:
+
+  sql_exporter:
+    volumes:
+      - "./:/etc/sql_exporter/"
+
+
+networks:
+    cht-watchdog-net:
+
