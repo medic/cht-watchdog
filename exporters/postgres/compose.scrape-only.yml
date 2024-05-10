@@ -1,0 +1,6 @@
+services:
+
+  prometheus:
+    volumes:
+      - ./exporters/postgres/scrape-custom.yml:/etc/prometheus/scrape_configs/cht-postgres.yml:ro
+
