@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/medic/cht-watchdog/compare/1.12.0...1.13.0) (2024-05-10)
+
+
+### Features
+
+* **#99:** add  couch2pg exporter compose file to run stand alone without watchdog ([#102](https://github.com/medic/cht-watchdog/issues/102)) ([7817175](https://github.com/medic/cht-watchdog/commit/78171754e619b45318a88a407879fec6c7314f80)), closes [#99](https://github.com/medic/cht-watchdog/issues/99)
+
 # [1.12.0](https://github.com/medic/cht-watchdog/compare/1.11.2...1.12.0) (2024-04-25)
 
 
