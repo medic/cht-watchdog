@@ -1215,7 +1215,7 @@
           },
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "sum(couch2pg_progress_sequence{target=~\"$cht_instance\", db=~\"medic|medic-sentinel|medic-users-meta\"})",
+          "expr": "sum(couch2pg_progress_sequence{cht_instance=~\"$cht_instance\", db=~\"medic|medic-sentinel|medic-users-meta\"})",
           "hide": false,
           "instant": true,
           "legendFormat": "__auto",
@@ -2340,6 +2340,6 @@
   "timezone": "",
   "title": "CHT Admin Overview",
   "uid": "oa2OfL-Vk",
-  "version": 36,
+  "version": 37,
   "weekStart": ""
 }
