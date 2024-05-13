@@ -16,7 +16,7 @@ services:
       sh -c "npm install &&
              npm start"
 
-  postgres:
+  fake-postgres:
     image: postgres:15
     environment:
       POSTGRES_DB: cht

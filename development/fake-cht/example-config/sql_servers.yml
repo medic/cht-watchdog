@@ -25,5 +25,5 @@ jobs:
     static_configs:
       - targets:
           # " same as URL in cht-instances.yml      ": 'postgres://USERNAME:PASSWORD@DB_SERVER_IP/DATABASE
-          "fake-cht:8081": 'postgres://cht_couch2pg:cht_couch2pg_password@postgres:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
+          "db": 'postgres://cht_couch2pg:cht_couch2pg_password@fake-postgres:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
 

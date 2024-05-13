@@ -16,6 +16,8 @@ volumes:
 services:
   prometheus:
     image: prom/prometheus:${PROMETHEUS_VERSION:-v2.46.0}
+    ports:
+      - "${PROMETHEUS_BIND:-127.0.0.1}:${PROMETHEUS_PORT:-9090}:9090"
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
