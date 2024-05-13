@@ -24,7 +24,8 @@ jobs:
     enable_ping: true
     static_configs:
       - targets:
-          # change USERNAME, PASSWORD, DB_SERVER as needed. Likely DATABASE and PORT don't need to change
+          # change USERNAME, PASSWORD, DB_SERVER as needed. Likely DATABASE and PORT don't need to change.
+          # be sure each new server gets a unique name (eg "db1", "db2" etc.)
           #     'postgres://USERNAME:PASSWORD@DB_SERVER_IP/DATABASE:PORT
-          "db": 'postgres://cht_couch2pg:cht_couch2pg_password@172.17.0.1:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
+          "db1": 'postgres://cht_couch2pg:cht_couch2pg_password@172.17.0.1:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
 
