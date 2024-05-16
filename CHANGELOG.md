@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/medic/cht-watchdog/compare/1.13.0...1.14.0) (2024-05-16)
+
+
+### Features
+
+* **couch-backlog:** multi-couch2pg isntances on 1 db, update fake-cht, add prometheus env vars ([#108](https://github.com/medic/cht-watchdog/issues/108)) ([7bfcbf7](https://github.com/medic/cht-watchdog/commit/7bfcbf7819a4ee82a906109804d110b5a476387b))
+
 # [1.13.0](https://github.com/medic/cht-watchdog/compare/1.12.0...1.13.0) (2024-05-10)
 
 
