@@ -4,13 +4,16 @@ queries:
   - query_name: couch2pg-query
     query: |
       SELECT
-        substring(seq for position('-' in seq) - 1) as sequence,
-        substring(source from position('/' in source) + 1) as db
+        split_part(seq,'-',1) as sequence,
+        split_part(source,'/',2) as db,
+        split_part(source,'/',1) as cht_instance
       FROM
         couchdb_progress
       WHERE
         source like '%/%' and
         seq like '%-%'
+      ORDER BY
+        cht_instance, db
 
 metrics:
   - metric_name: couch2pg_progress_sequence
@@ -18,5 +21,6 @@ metrics:
     help: 'couch2pg backlog.'
     key_labels:
       - db
+      - cht_instance
     values: [sequence]
     query_ref: couch2pg-query

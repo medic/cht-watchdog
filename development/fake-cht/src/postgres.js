@@ -3,7 +3,7 @@ const { randomUUID } = require('crypto');
 
 const POSTGRES_CLIENT_CONFIG = {
   user: 'cht_couch2pg',
-  host: 'postgres',
+  host: 'fake-postgres',
   database: 'cht',
   password: 'cht_couch2pg_password',
   port: 5432,
@@ -24,7 +24,7 @@ const insertCouchdbProgress = (seq, dbName) => [
     DO
       UPDATE SET seq = $1;
   `,
-  [`${seq}-${randomUUID()}`, `fake-cht/${dbName}`]
+  [`${seq}-${randomUUID()}`, `fake-cht:8081/${dbName}`]
 ];
 
 const populateCouchdbProcessTable = async (client, metrics) => {
