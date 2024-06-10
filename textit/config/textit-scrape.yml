@@ -5,7 +5,7 @@ scrape_configs:
     scheme: 'https'
     basic_auth:
       username: 'metrics'
-      password: 'dd26ad4be9b023d925d753b95e0c366373685688'
+      password: ''
     metrics_path: '/mr/org/201cdde5-7024-4118-b305-554d7175a5f1/metrics'
     static_configs:
       - targets: ['textit.com']
