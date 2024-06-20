@@ -1,0 +1,6 @@
+grafana:
+  enabled: true
+  image:
+    tag: 10.0.3 # grafana version, pinned in Watchdog
+prometheus:
+  enabled: false
