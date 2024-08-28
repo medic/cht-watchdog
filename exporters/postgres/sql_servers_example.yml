@@ -20,7 +20,7 @@ collector_files:
 
 jobs:
   - job_name: db_targets
-    collectors: [couch2pg]
+    collectors: [couch2pg] # change this to [couch2pg] to monitor couch2pg
     enable_ping: true
     static_configs:
       - targets:
@@ -29,4 +29,3 @@ jobs:
           # sql server (eg "postgres-rds-prod", "postgres-rds-dev1" etc.)
           #     'postgres://USERNAME:PASSWORD@DB_SERVER_IP/DATABASE:PORT
           "db1": 'postgres://cht_couch2pg:cht_couch2pg_password@172.17.0.1:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
-
