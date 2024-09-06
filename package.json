@@ -8,7 +8,7 @@
     "apply-dev-patches": "node ./development/development_patches.js apply",
     "revert-dev-patches": "node ./development/development_patches.js revert",
     "semantic-release": "semantic-release",
-    "postinstall": "husky install",
+    "postinstall": "husky",
     "test": "npm run test-integration",
     "test-integration": "mocha \"./development/tests/integration/**/*.js\""
   },
@@ -19,8 +19,8 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "chai": "^4.5.0",
-    "eslint": "^8.39.0",
-    "husky": "^8.0.3",
+    "eslint": "^8.57.0",
+    "husky": "^9.1.5",
     "mocha": "^10.7.3",
     "semantic-release": "^21.0.2"
   },
