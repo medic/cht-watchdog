@@ -34,7 +34,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana-oss:${GRAFANA_VERSION:-10.0.3}
+    image: grafana/grafana-oss:${GRAFANA_VERSION:-11.2.0}
     ports:
       - "${GRAFANA_BIND:-127.0.0.1}:${GRAFANA_PORT:-3000}:3000"
     volumes:
