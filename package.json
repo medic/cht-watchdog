@@ -1,7 +1,7 @@
 {
   "name": "cht-watchdog",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.8.1"
   },
   "scripts": {
     "lint": "eslint 'development/**/*.js'",
