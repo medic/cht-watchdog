@@ -2,19 +2,21 @@ name: Integration tests
 
 on: [push, pull_request]
 
-env:
-  NODE_VERSION: 18.x
-
 jobs:
   build:
+    name: Tests for Node version ${{ matrix.node-version }}
     runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        node-version: [ 18.x, 20.x, 22.x ]
+      fail-fast: false
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Use Node.js ${{ env.NODE_VERSION }}
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         run: npm ci
       - name: Run test suite
