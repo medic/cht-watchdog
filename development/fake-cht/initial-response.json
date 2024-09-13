@@ -10,28 +10,115 @@
       "update_sequence": 0,
       "doc_count": 0,
       "doc_del_count": 0,
-      "fragmentation": 0
+      "fragmentation": 0,
+      "sizes": {
+        "file": 0,
+        "active": 0
+      },
+      "view_index": {
+        "medic": {
+          "name": "medic",
+          "sizes": {
+            "file": 0,
+            "active": 0
+          }
+        },
+        "medic-admin": {
+          "name": "medic-admin",
+          "sizes": {
+            "file": 0,
+            "active": 0
+          }
+        },
+        "medic-client": {
+          "name": "medic-client",
+          "sizes": {
+            "file": 0,
+            "active": 0
+          }
+        },
+        "medic-conflicts": {
+          "name": "medic-conflicts",
+          "sizes": {
+            "file": 0,
+            "active": 0
+          }
+        },
+        "medic-scripts": {
+          "name": "medic-scripts",
+          "sizes": {
+            "file": 0,
+            "active": 0
+          }
+        },
+        "medic-sms": {
+          "name": "medic-sms",
+          "sizes": {
+            "file": 0,
+            "active": 0
+          }
+        }
+      }
     },
     "sentinel": {
       "name": "medic-sentinel",
       "update_sequence": 0,
       "doc_count": 0,
       "doc_del_count": 0,
-      "fragmentation": 0
+      "fragmentation": 0,
+      "sizes": {
+        "file": 0,
+        "active": 0
+      },
+      "view_index": {
+        "sentinel": {
+          "name": "sentinel",
+          "sizes": {
+            "file": 0,
+            "active": 0
+          }
+        }
+      }
     },
     "usersmeta": {
       "name": "medic-users-meta",
       "update_sequence": 0,
       "doc_count": 0,
       "doc_del_count": 0,
-      "fragmentation": 0
+      "fragmentation": 0,
+      "sizes": {
+        "file": 0,
+        "active": 0
+      },
+      "view_index": {
+        "users-meta": {
+          "name": "users-meta",
+          "sizes": {
+            "file": 0,
+            "active": 0
+          }
+        }
+      }
     },
     "users": {
       "name": "_users",
       "update_sequence": 0,
       "doc_count": 0,
       "doc_del_count": 0,
-      "fragmentation": 0
+      "fragmentation": 0,
+      "sizes": {
+        "file": 0,
+        "active": 0
+      },
+      "view_index": {
+        "users": {
+          "name": "users",
+          "sizes": {
+            "file": 0,
+            "active": 0
+          }
+        }
+      }
     }
   },
   "date": {

@@ -4,6 +4,20 @@ const initialResponse = require('../initial-response.json');
 const prometheusMiddleware = require('prometheus-api-metrics');
 const { updatePostgres } = require('./postgres');
 
+const VIEW_INDEXES_BY_DB = {
+  ['medic']: [
+    'medic',
+    'medic-admin',
+    'medic-client',
+    'medic-conflicts',
+    'medic-scripts',
+    'medic-sms',
+  ],
+  ['medic-sentinel']: ['sentinel'],
+  ['medic-users-meta']: ['users-meta'],
+  _users: ['users'],
+};
+
 const getRandomInt = (min, max) => Math.floor(Math.random() * (max - min)) + min;
 
 const randomGauge = (min, max, current, maxChange) => {
@@ -18,12 +32,32 @@ const randomCounter = (current, changeFactor) => {
 
 const getVersion = () => ({ app: '4.1.1', node: 'v16.17.1', couchdb: '2.3.1' });
 
-const getCouchDb = ({ name, update_sequence, doc_count, doc_del_count, fragmentation }) => ({
+const getSizes = ({ active, file }) => ({
+  active: randomGauge(0, 100000000, active, 10000),
+  file: randomGauge(0, 100000000, file, 10000),
+});
+
+const getViewIndex = ({ name, sizes }) => ({
+  name,
+  sizes: getSizes(sizes),
+});
+
+const getViewIndexes = (dbName, viewIndexes) => {
+  const result = {};
+  VIEW_INDEXES_BY_DB[dbName].forEach(viewIndex => {
+    result[viewIndex] = getViewIndex(viewIndexes[viewIndex]);
+  });
+  return result;
+};
+
+const getCouchDb = ({ name, update_sequence, doc_count, doc_del_count, fragmentation, sizes, view_index }) => ({
   name,
   update_sequence: randomCounter(update_sequence, 100),
   doc_count: randomCounter(doc_count, 100),
   doc_del_count: randomCounter(doc_del_count, 1),
   fragmentation: randomGauge(1, 10, fragmentation, 1) + Math.random(),
+  sizes: getSizes(sizes),
+  view_index: getViewIndexes(name, view_index),
 });
 
 const getAllCouchDbs = ({ medic, sentinel, usersmeta, users }) => ({
