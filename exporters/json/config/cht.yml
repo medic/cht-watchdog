@@ -9,7 +9,11 @@ x-cht_couchdb_doc_del_total: &cht_couchdb_doc_del_total
   valuetype: counter
 x-cht_couchdb_fragmentation: &cht_couchdb_fragmentation
   name: cht_couchdb_fragmentation
-  help: The fragmentation of the db, lower is better, “1” is no fragmentation.
+  help: The fragmentation of the entire db (including view indexes) as stored on disk. A lower value is better. `1` is no fragmentation.
+  valuetype: gauge
+x-cht_couchdb_size_bytes: &cht_couchdb_size_bytes
+  name: cht_couchdb_size_bytes
+  help: The size in bytes of the database. This includes documents, metadata, and attachments, but does not include view indexes.
   valuetype: gauge
 x-cht_couchdb_update_sequence: &cht_couchdb_update_sequence
   name: cht_couchdb_update_sequence
@@ -23,6 +27,10 @@ x-cht_messaging_outgoing_total: &cht_messaging_outgoing_total
   name: cht_messaging_outgoing_total
   help: Counts of the total number of messages.
   valuetype: counter
+x-cht_couchdb_view_index_size_bytes: &cht_couchdb_view_index_size_bytes
+  name: cht_couchdb_view_index_size_bytes
+  help: The size in bytes the view.
+  valuetype: gauge
 
 modules:
   default:
@@ -99,6 +107,47 @@ modules:
         labels:
           db: '_users'
 
+      - <<: *cht_couchdb_size_bytes
+        path: '{.couchdb.medic.sizes.active}'
+        labels:
+          db: 'medic'
+          type: 'active'
+      - <<: *cht_couchdb_size_bytes
+        path: '{.couchdb.medic.sizes.file}'
+        labels:
+          db: 'medic'
+          type: 'file'
+      - <<: *cht_couchdb_size_bytes
+        path: '{.couchdb.sentinel.sizes.active}'
+        labels:
+          db: 'sentinel'
+          type: 'active'
+      - <<: *cht_couchdb_size_bytes
+        path: '{.couchdb.sentinel.sizes.file}'
+        labels:
+          db: 'sentinel'
+          type: 'file'
+      - <<: *cht_couchdb_size_bytes
+        path: '{.couchdb.usersmeta.sizes.active}'
+        labels:
+          db: 'medic-users-meta'
+          type: 'active'
+      - <<: *cht_couchdb_size_bytes
+        path: '{.couchdb.usersmeta.sizes.file}'
+        labels:
+          db: 'medic-users-meta'
+          type: 'file'
+      - <<: *cht_couchdb_size_bytes
+        path: '{.couchdb.users.sizes.active}'
+        labels:
+          db: '_users'
+          type: 'active'
+      - <<: *cht_couchdb_size_bytes
+        path: '{.couchdb.users.sizes.file}'
+        labels:
+          db: '_users'
+          type: 'file'
+
       - <<: *cht_couchdb_update_sequence
         path: '{.couchdb.medic.update_sequence}'
         labels:
@@ -115,6 +164,115 @@ modules:
         path: '{.couchdb.users.update_sequence}'
         labels:
           db: '_users'
+
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.medic.view_index.medic.sizes.active}'
+        labels:
+          db: 'medic'
+          view_index: 'medic'
+          type: 'active'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.medic.view_index.medic.sizes.file}'
+        labels:
+          db: 'medic'
+          view_index: 'medic'
+          type: 'file'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.medic.view_index.medic-admin.sizes.active}'
+        labels:
+          db: 'medic'
+          view_index: 'medic-admin'
+          type: 'active'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.medic.view_index.medic-admin.sizes.file}'
+        labels:
+          db: 'medic'
+          view_index: 'medic-admin'
+          type: 'file'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.medic.view_index.medic-client.sizes.active}'
+        labels:
+          db: 'medic'
+          view_index: 'medic-client'
+          type: 'active'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.medic.view_index.medic-client.sizes.file}'
+        labels:
+          db: 'medic'
+          view_index: 'medic-client'
+          type: 'file'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.medic.view_index.medic-conflicts.sizes.active}'
+        labels:
+          db: 'medic'
+          view_index: 'medic-conflicts'
+          type: 'active'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.medic.view_index.medic-conflicts.sizes.file}'
+        labels:
+          db: 'medic'
+          view_index: 'medic-conflicts'
+          type: 'file'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.medic.view_index.medic-scripts.sizes.active}'
+        labels:
+          db: 'medic'
+          view_index: 'medic-scripts'
+          type: 'active'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.medic.view_index.medic-scripts.sizes.file}'
+        labels:
+          db: 'medic'
+          view_index: 'medic-scripts'
+          type: 'file'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.medic.view_index.medic-sms.sizes.active}'
+        labels:
+          db: 'medic'
+          view_index: 'medic-sms'
+          type: 'active'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.medic.view_index.medic-sms.sizes.file}'
+        labels:
+          db: 'medic'
+          view_index: 'medic-sms'
+          type: 'file'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.sentinel.view_index.sentinel.sizes.active}'
+        labels:
+          db: 'sentinel'
+          view_index: 'sentinel'
+          type: 'active'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.sentinel.view_index.sentinel.sizes.file}'
+        labels:
+          db: 'sentinel'
+          view_index: 'sentinel'
+          type: 'file'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.usersmeta.view_index.users-meta.sizes.active}'
+        labels:
+          db: 'medic-users-meta'
+          view_index: 'users-meta'
+          type: 'active'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.usersmeta.view_index.users-meta.sizes.file}'
+        labels:
+          db: 'medic-users-meta'
+          view_index: 'users-meta'
+          type: 'file'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.users.view_index.users.sizes.active}'
+        labels:
+          db: '_users'
+          view_index: 'users'
+          type: 'active'
+      - <<: *cht_couchdb_view_index_size_bytes
+        path: '{.couchdb.users.view_index.users.sizes.file}'
+        labels:
+          db: '_users'
+          view_index: 'users'
+          type: 'file'
 
       - name: cht_date_current_millis
         path: '{.date.current}'
