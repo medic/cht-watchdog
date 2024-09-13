@@ -166,109 +166,109 @@ modules:
           db: '_users'
 
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.medic.view_index.medic.sizes.active}'
+        path: '{.couchdb.medic.view_indexes[?(@.name=="medic")].sizes.active}'
         labels:
           db: 'medic'
           view_index: 'medic'
           type: 'active'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.medic.view_index.medic.sizes.file}'
+        path: '{.couchdb.medic.view_indexes[?(@.name=="medic")].sizes.file}'
         labels:
           db: 'medic'
           view_index: 'medic'
           type: 'file'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.medic.view_index.medic-admin.sizes.active}'
+        path: '{.couchdb.medic.view_indexes[?(@.name=="medic-admin")].sizes.active}'
         labels:
           db: 'medic'
           view_index: 'medic-admin'
           type: 'active'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.medic.view_index.medic-admin.sizes.file}'
+        path: '{.couchdb.medic.view_indexes[?(@.name=="medic-admin")].sizes.file}'
         labels:
           db: 'medic'
           view_index: 'medic-admin'
           type: 'file'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.medic.view_index.medic-client.sizes.active}'
+        path: '{.couchdb.medic.view_indexes[?(@.name=="medic-client")].sizes.active}'
         labels:
           db: 'medic'
           view_index: 'medic-client'
           type: 'active'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.medic.view_index.medic-client.sizes.file}'
+        path: '{.couchdb.medic.view_indexes[?(@.name=="medic-client")].sizes.file}'
         labels:
           db: 'medic'
           view_index: 'medic-client'
           type: 'file'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.medic.view_index.medic-conflicts.sizes.active}'
+        path: '{.couchdb.medic.view_indexes[?(@.name=="medic-conflicts")].sizes.active}'
         labels:
           db: 'medic'
           view_index: 'medic-conflicts'
           type: 'active'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.medic.view_index.medic-conflicts.sizes.file}'
+        path: '{.couchdb.medic.view_indexes[?(@.name=="medic-conflicts")].sizes.file}'
         labels:
           db: 'medic'
           view_index: 'medic-conflicts'
           type: 'file'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.medic.view_index.medic-scripts.sizes.active}'
+        path: '{.couchdb.medic.view_indexes[?(@.name=="medic-scripts")].sizes.active}'
         labels:
           db: 'medic'
           view_index: 'medic-scripts'
           type: 'active'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.medic.view_index.medic-scripts.sizes.file}'
+        path: '{.couchdb.medic.view_indexes[?(@.name=="medic-scripts")].sizes.file}'
         labels:
           db: 'medic'
           view_index: 'medic-scripts'
           type: 'file'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.medic.view_index.medic-sms.sizes.active}'
+        path: '{.couchdb.medic.view_indexes[?(@.name=="medic-sms")].sizes.active}'
         labels:
           db: 'medic'
           view_index: 'medic-sms'
           type: 'active'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.medic.view_index.medic-sms.sizes.file}'
+        path: '{.couchdb.medic.view_indexes[?(@.name=="medic-sms")].sizes.file}'
         labels:
           db: 'medic'
           view_index: 'medic-sms'
           type: 'file'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.sentinel.view_index.sentinel.sizes.active}'
+        path: '{.couchdb.sentinel.view_indexes[?(@.name=="sentinel")].sizes.active}'
         labels:
           db: 'sentinel'
           view_index: 'sentinel'
           type: 'active'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.sentinel.view_index.sentinel.sizes.file}'
+        path: '{.couchdb.sentinel.view_indexes[?(@.name=="sentinel")].sizes.file}'
         labels:
           db: 'sentinel'
           view_index: 'sentinel'
           type: 'file'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.usersmeta.view_index.users-meta.sizes.active}'
+        path: '{.couchdb.usersmeta.view_indexes[?(@.name=="users-meta")].sizes.active}'
         labels:
           db: 'medic-users-meta'
           view_index: 'users-meta'
           type: 'active'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.usersmeta.view_index.users-meta.sizes.file}'
+        path: '{.couchdb.usersmeta.view_indexes[?(@.name=="users-meta")].sizes.file}'
         labels:
           db: 'medic-users-meta'
           view_index: 'users-meta'
           type: 'file'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.users.view_index.users.sizes.active}'
+        path: '{.couchdb.users.view_indexes[?(@.name=="users")].sizes.active}'
         labels:
           db: '_users'
           view_index: 'users'
           type: 'active'
       - <<: *cht_couchdb_view_index_size_bytes
-        path: '{.couchdb.users.view_index.users.sizes.file}'
+        path: '{.couchdb.users.view_indexes[?(@.name=="users")].sizes.file}'
         labels:
           db: '_users'
           view_index: 'users'

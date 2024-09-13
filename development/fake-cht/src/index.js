@@ -42,22 +42,15 @@ const getViewIndex = ({ name, sizes }) => ({
   sizes: getSizes(sizes),
 });
 
-const getViewIndexes = (dbName, viewIndexes) => {
-  const result = {};
-  VIEW_INDEXES_BY_DB[dbName].forEach(viewIndex => {
-    result[viewIndex] = getViewIndex(viewIndexes[viewIndex]);
-  });
-  return result;
-};
-
-const getCouchDb = ({ name, update_sequence, doc_count, doc_del_count, fragmentation, sizes, view_index }) => ({
+const getCouchDb = ({ name, update_sequence, doc_count, doc_del_count, fragmentation, sizes, view_indexes }) => ({
   name,
   update_sequence: randomCounter(update_sequence, 100),
   doc_count: randomCounter(doc_count, 100),
   doc_del_count: randomCounter(doc_del_count, 1),
   fragmentation: randomGauge(1, 10, fragmentation, 1) + Math.random(),
   sizes: getSizes(sizes),
-  view_index: getViewIndexes(name, view_index),
+  view_indexes: VIEW_INDEXES_BY_DB[name]
+    .map(viewIndexName => getViewIndex(view_indexes.find(viewIndex => viewIndex.name === viewIndexName))),
 });
 
 const getAllCouchDbs = ({ medic, sentinel, usersmeta, users }) => ({

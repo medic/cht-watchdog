@@ -15,50 +15,50 @@
         "file": 0,
         "active": 0
       },
-      "view_index": {
-        "medic": {
+      "view_indexes": [
+        {
           "name": "medic",
           "sizes": {
             "file": 0,
             "active": 0
           }
         },
-        "medic-admin": {
+        {
           "name": "medic-admin",
           "sizes": {
             "file": 0,
             "active": 0
           }
         },
-        "medic-client": {
+        {
           "name": "medic-client",
           "sizes": {
             "file": 0,
             "active": 0
           }
         },
-        "medic-conflicts": {
+        {
           "name": "medic-conflicts",
           "sizes": {
             "file": 0,
             "active": 0
           }
         },
-        "medic-scripts": {
+        {
           "name": "medic-scripts",
           "sizes": {
             "file": 0,
             "active": 0
           }
         },
-        "medic-sms": {
+        {
           "name": "medic-sms",
           "sizes": {
             "file": 0,
             "active": 0
           }
         }
-      }
+      ]
     },
     "sentinel": {
       "name": "medic-sentinel",
@@ -70,15 +70,15 @@
         "file": 0,
         "active": 0
       },
-      "view_index": {
-        "sentinel": {
+      "view_indexes": [
+        {
           "name": "sentinel",
           "sizes": {
             "file": 0,
             "active": 0
           }
         }
-      }
+      ]
     },
     "usersmeta": {
       "name": "medic-users-meta",
@@ -90,15 +90,15 @@
         "file": 0,
         "active": 0
       },
-      "view_index": {
-        "users-meta": {
+      "view_indexes": [
+        {
           "name": "users-meta",
           "sizes": {
             "file": 0,
             "active": 0
           }
         }
-      }
+      ]
     },
     "users": {
       "name": "_users",
@@ -110,15 +110,15 @@
         "file": 0,
         "active": 0
       },
-      "view_index": {
-        "users": {
+      "view_indexes": [
+        {
           "name": "users",
           "sizes": {
             "file": 0,
             "active": 0
           }
         }
-      }
+      ]
     }
   },
   "date": {
