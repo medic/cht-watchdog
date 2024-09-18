@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/medic/cht-watchdog/compare/1.14.0...1.15.0) (2024-09-18)
+
+
+### Features
+
+* **#112:** update default service versions ([#113](https://github.com/medic/cht-watchdog/issues/113)) ([e1acda3](https://github.com/medic/cht-watchdog/commit/e1acda367e50e3b8e79b0dee5e8290e2d60d4c9c)), closes [#112](https://github.com/medic/cht-watchdog/issues/112)
+
 # [1.14.0](https://github.com/medic/cht-watchdog/compare/1.13.0...1.14.0) (2024-05-16)
 
 
