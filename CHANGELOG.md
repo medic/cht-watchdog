@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/medic/cht-watchdog/compare/1.15.0...1.16.0) (2024-09-18)
+
+
+### Features
+
+* **#9428:** collect new size metrics from CHT monitoring API ([#114](https://github.com/medic/cht-watchdog/issues/114)) ([b043b5d](https://github.com/medic/cht-watchdog/commit/b043b5dbe2f715adf634739acb0d01f7e5b093e0)), closes [#9428](https://github.com/medic/cht-watchdog/issues/9428)
+
 # [1.15.0](https://github.com/medic/cht-watchdog/compare/1.14.0...1.15.0) (2024-09-18)
 
 
