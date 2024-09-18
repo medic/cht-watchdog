@@ -29,6 +29,11 @@ services:
       - ./cht-instances.yml:/etc/prometheus/cht-instances.yml:ro
       - ./exporters/json/config/scrape_config.yml:/etc/prometheus/scrape_configs/cht-json.yml:ro
       - prometheus-data:/prometheus
+    logging:
+      driver: "local"
+      options:
+        max-size: "${LOG_MAX_SIZE:-50m}"
+        max-file: "${LOG_MAX_FILES:-20}"
     networks:
       - cht-watchdog-net
     restart: always
@@ -46,6 +51,11 @@ services:
       - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD:-password}
       - GF_USERS_ALLOW_SIGN_UP=false
       - GF_INSTALL_PLUGINS=${GRAFANA_PLUGINS:-grafana-discourse-datasource}
+    logging:
+      driver: "local"
+      options:
+        max-size: "${LOG_MAX_SIZE:-50m}"
+        max-file: "${LOG_MAX_FILES:-20}"
     networks:
       - cht-watchdog-net
     restart: always
@@ -54,6 +64,11 @@ services:
     image: prometheuscommunity/json-exporter:${JSON_EXPORTER_VERSION:-v0.6.0}
     volumes:
       - ./exporters/json/config/cht.yml:/config.yml:ro
+    logging:
+      driver: "local"
+      options:
+        max-size: "${LOG_MAX_SIZE:-50m}"
+        max-file: "${LOG_MAX_FILES:-20}"
     networks:
       - cht-watchdog-net
     restart: always

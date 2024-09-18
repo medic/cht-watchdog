@@ -57,7 +57,7 @@ Tips:
 
 ### Adding a new metric from CHT /monitoring API
 
-Metrics loaded from the CHT `/monitoring` endpoint are configured via the json-exporter's [`config.yml`](../exporters/json/config/cht.yml) file. The `modules.default.metrics` section contains the configuration for mapping the JSON response from the CHT `/monitoring` endpoint to Prometheus metrics. New values added to this JSON can be included in Prometheus by adding additional mapping here. See the [json_exporter project](https://github.com/prometheus-community/json_exporter) on GitHub for more information.
+Metrics loaded from the CHT `/monitoring` endpoint are configured via the json-exporter's [`config/cht.yml`](../exporters/json/config/cht.yml) file. The `modules.default.metrics` section contains the configuration for mapping the JSON response from the CHT `/monitoring` endpoint to Prometheus metrics. New values added to this JSON can be included in Prometheus by adding additional mapping here. See the [json_exporter project](https://github.com/prometheus-community/json_exporter) on GitHub for more information.
 
 ### Adding a new metric from a Couch2pg Postgres DB
 
