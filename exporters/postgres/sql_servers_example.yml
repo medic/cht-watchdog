@@ -16,7 +16,7 @@ global:
   max_connection_lifetime: 10m
 
 collector_files:
-  - "/etc/sql_exporter/couch2pg_collector.yml"
+  - "/etc/sql_exporter/cht_sync_collector.yml"
 
 jobs:
   - job_name: db_targets
