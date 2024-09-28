@@ -19,7 +19,7 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "chai": "^4.5.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.11.1",
     "husky": "^9.1.6",
     "mocha": "^10.7.3",
     "semantic-release": "^24.1.1"
