@@ -12,3 +12,6 @@ updates:
       commitlint:
         patterns:
           - "@commitlint/*"
+    ignore:
+      - dependency-name: "chai" # ESM Modules
+      - dependency-name: "eslint" # ESM Modules
