@@ -28,4 +28,4 @@ jobs:
           # be sure each new server gets a unique name. A good rule of thumb is to use the name of the
           # sql server (eg "postgres-rds-prod", "postgres-rds-dev1" etc.)
           #     'postgres://USERNAME:PASSWORD@DB_SERVER_IP/DATABASE:PORT
-          "db1": 'postgres://cht_couch2pg:cht_couch2pg_password@172.17.0.1:5432/cht?sslmode=disable' # //NOSONAR - password is safe to commit
+          "db1": 'postgres://postgres:password@172.17.0.1:5432/data?sslmode=disable' # //NOSONAR - password is safe to commit
