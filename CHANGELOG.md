@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/medic/cht-watchdog/compare/1.16.0...1.17.0) (2024-10-18)
+
+
+### Features
+
+* add cht-sync collector and update the sql exporter example ([b31f6b0](https://github.com/medic/cht-watchdog/commit/b31f6b0d1c0ff138763f5aafecd60c2d8c667465))
+
 # [1.16.0](https://github.com/medic/cht-watchdog/compare/1.15.0...1.16.0) (2024-09-18)
 
 
