@@ -21,7 +21,7 @@
     "chai": "^4.5.0",
     "eslint": "^8.57.0",
     "husky": "^9.1.6",
-    "mocha": "^10.7.3",
+    "mocha": "^10.8.2",
     "semantic-release": "^24.2.0"
   },
   "version": "1.17.0",
