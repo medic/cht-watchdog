@@ -4,7 +4,7 @@ A monitoring and alerting stack for the CHT built on [Prometheus](https://promet
 
 ## Using
 
-See our [docs site](https://docs.communityhealthtoolkit.org/apps/guides/hosting/monitoring/setup/)!
+See our [docs site](https://docs.communityhealthtoolkit.org/hosting/monitoring/setup/)!
 
 ## Development and Releasing
 
