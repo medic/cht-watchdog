@@ -11,6 +11,7 @@ scrape_configs:
       - targets: ['grafana:3000']
   - job_name: cht-express-metrics
     metrics_path: /api/v1/express-metrics
+    scheme: "https"
     file_sd_configs:
       - files:
         - '/etc/prometheus/cht-instances.yml'
