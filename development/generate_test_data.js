@@ -11,7 +11,7 @@ const getLabalValue = label => {
 
 const getLabelSection = labels => {
   const validLabels = labels.filter(label => label !== '');
-  if(!validLabels.length) {
+  if (!validLabels.length) {
     return '';
   }
   return `{${validLabels.map(getLabalValue).join(',')}}`;

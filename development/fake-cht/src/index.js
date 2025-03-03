@@ -72,7 +72,7 @@ const getSentinel = ({ backlog }) => ({
 const getOutgoingTotal = ({ due, scheduled, muted, failed, delivered }) => ({
   due: randomGauge(0, 1000, due, 3),
   scheduled: randomGauge(0, 1000, scheduled, 3),
-  muted: randomGauge(0, 1000, muted,3),
+  muted: randomGauge(0, 1000, muted, 3),
   failed: randomCounter(failed, 1),
   delivered: randomCounter(delivered, 5),
 });
@@ -115,7 +115,7 @@ const getOutboundPush = ({ backlog }) => ({
 });
 
 const getFeedback = ({ count }) => ({
-  count: randomCounter(count,1),
+  count: randomCounter(count, 1),
 });
 
 const getConflict = ({ count }) => ({
