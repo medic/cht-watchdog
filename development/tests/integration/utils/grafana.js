@@ -10,7 +10,7 @@ const FETCH_HEADERS = {
   'Authorization': AUTH_HEADER
 };
 
-const fetchWithTimeout = async (resource, options = {}, body) => {
+const fetchWithTimeout = async (resource, options = {}, body = null) => {
   const { timeout = 1000 } = options;
   const controller = new AbortController();
   const id = setTimeout(() => controller.abort(), timeout);

@@ -14,8 +14,12 @@ const getLabelsString = (labels) => {
   return `{${Object.entries(labels).map(([key, value]) => `${key}="${value}"`).join(',')}}`;
 };
 
-const getMetricString = ({ metricName, value, timestamp, labels }) =>
-  `${metricName}${getLabelsString(labels)} ${value} ${timestamp}`;
+const getMetricString = ({
+  metricName,
+  value,
+  timestamp,
+  labels
+}) => `${metricName}${getLabelsString(labels)} ${value} ${timestamp}`;
 
 const injectMetrics = async (data) => {
   const lines = data.map(getMetricString);
