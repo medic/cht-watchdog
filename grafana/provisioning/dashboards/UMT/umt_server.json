@@ -2961,7 +2961,7 @@
           "type": "prometheus",
           "uid": "PBFA97CFB590B2093"
         },
-        "definition": "query_result(up{job=~\"umt_exporter\"})",
+        "definition": "query_result(up{job=~\"cht-user-management-metrics\"})",
         "hide": 0,
         "includeAll": false,
         "label": "UMT Instance",
@@ -2970,7 +2970,7 @@
         "options": [],
         "query": {
           "qryType": 3,
-          "query": "query_result(up{job=~\"umt_exporter\"})",
+          "query": "query_result(up{job=~\"cht-user-management-metrics\"})",
           "refId": "PrometheusVariableQueryEditor-VariableQuery"
         },
         "refresh": 1,
