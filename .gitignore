@@ -12,4 +12,4 @@ delete-rules.yml
 build
 exporters/postgres/sql_servers.yml
 data-ingest
-./exporters/postgres/scrape-custom.yml
+exporters/*/scrape-custom.yml
