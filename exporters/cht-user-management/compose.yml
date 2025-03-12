@@ -1,0 +1,5 @@
+services:
+
+  prometheus:
+    volumes:
+      - ./exporters/cht-user-management/scrape-custom.yml:/etc/prometheus/scrape_configs/cht-user-management.yml:ro
