@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/medic/cht-watchdog/compare/1.17.0...1.18.0) (2025-03-19)
+
+
+### Features
+
+* **#144:** additional configuration for cht-user-management ([#146](https://github.com/medic/cht-watchdog/issues/146)) ([8cf360b](https://github.com/medic/cht-watchdog/commit/8cf360b78fdebdaacb1b812bd5455a3907fc19c9)), closes [#144](https://github.com/medic/cht-watchdog/issues/144)
+
 # [1.17.0](https://github.com/medic/cht-watchdog/compare/1.16.0...1.17.0) (2024-10-18)
 
 
