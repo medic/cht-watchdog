@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/medic/cht-watchdog/compare/1.18.0...1.19.0) (2025-04-28)
+
+
+### Features
+
+* **#133:** uplift to Prometheus `3.3.0` ([#147](https://github.com/medic/cht-watchdog/issues/147)) ([439a7dc](https://github.com/medic/cht-watchdog/commit/439a7dc00414c3b83459cc7941df836cfc2c056e)), closes [#133](https://github.com/medic/cht-watchdog/issues/133)
+
 # [1.18.0](https://github.com/medic/cht-watchdog/compare/1.17.0...1.18.0) (2025-03-19)
 
 
