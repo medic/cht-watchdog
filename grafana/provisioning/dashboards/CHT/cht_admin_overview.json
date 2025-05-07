@@ -2000,7 +2000,7 @@
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
-              "expr": "scrape_duration_seconds",
+              "expr": "scrape_duration_seconds{instance=\"$cht_instance\"}",
               "instant": false,
               "legendFormat": "__auto",
               "range": true,
