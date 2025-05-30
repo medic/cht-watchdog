@@ -1,3 +1,10 @@
+## [1.19.1](https://github.com/medic/cht-watchdog/compare/1.19.0...1.19.1) (2025-05-30)
+
+
+### Bug Fixes
+
+* **#154:** fix for apdex calculations ([#155](https://github.com/medic/cht-watchdog/issues/155)) ([46ef502](https://github.com/medic/cht-watchdog/commit/46ef50251ac7aec97de568dd8469bba80cc91c2d))
+
 # [1.19.0](https://github.com/medic/cht-watchdog/compare/1.18.0...1.19.0) (2025-04-28)
 
 
