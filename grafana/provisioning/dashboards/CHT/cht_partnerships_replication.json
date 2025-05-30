@@ -41,7 +41,7 @@
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       },
-      "description": "A score of 100 means all sync time at the server are fast enough to satisfy user's expectations (sync is faster than 3 minutes).  As performance takes longer than 3 minutes, users begin to be less satisfied and this ApDex number reduces. Users tolerate syncs which take between 3mins and 6mins, they are frustrated by sync times over 6mins.  See the <a href='https://en.wikipedia.org/wiki/Apdex'>Apdex Wikipedia article</a> for more details.",
+      "description": "A score of 100 means all successful syncs proceeded by the server are fast enough to satisfy user's expectations (the sync completes in less than 3 mins).  When the server takes longer than 3 minutes, users begin to be less satisfied and this ApDex number reduces. Users tolerate syncs which take between 3mins and 6mins. Users are frustrated by sync times over 6mins.  See the <a href='https://en.wikipedia.org/wiki/Apdex'>Apdex Wikipedia article</a> for more details.",
       "fieldConfig": {
         "defaults": {
           "color": {
