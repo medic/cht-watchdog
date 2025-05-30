@@ -41,7 +41,7 @@
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       },
-      "description": "The target is a score of 100 means the average user is satisfied (sync under 3 min).  The more users that are tolerating sync (3min to 6min sync) or frustrated (greater than 6min sync), the lower the score is.  See the <a href='https://en.wikipedia.org/wiki/Apdex'>Apdex Wikipedia article</a> for more details.",
+      "description": "A score of 100 means all sync time at the server are fast enough to satisfy user's expectations (sync is faster than 3 minutes).  As performance takes longer than 3 minutes, users begin to be less satisfied and this ApDex number reduces. Users tolerate syncs which take between 3mins and 6mins, they are frustrated by sync times over 6mins.  See the <a href='https://en.wikipedia.org/wiki/Apdex'>Apdex Wikipedia article</a> for more details.",
       "fieldConfig": {
         "defaults": {
           "color": {
