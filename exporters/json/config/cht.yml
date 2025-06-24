@@ -29,7 +29,11 @@ x-cht_messaging_outgoing_total: &cht_messaging_outgoing_total
   valuetype: counter
 x-cht_couchdb_view_index_size_bytes: &cht_couchdb_view_index_size_bytes
   name: cht_couchdb_view_index_size_bytes
-  help: The size in bytes the view.
+  help: The size in bytes of CouchDB views.
+  valuetype: gauge
+x-cht_couchdb_nouveau_index_size_bytes: &cht_couchdb_nouveau_index_size_bytes
+  name: cht_couchdb_nouveau_index_size_bytes
+  help: The size in bytes of CouchDB Nouveau views.
   valuetype: gauge
 
 modules:
@@ -272,6 +276,19 @@ modules:
         labels:
           db: '_users'
           view_index: 'users'
+          type: 'file'
+
+      - <<: *cht_couchdb_nouveau_index_size_bytes
+        path: '{.couchdb.medic.nouveau_indexes[?(@.name=="medic/contacts_by_freetext")].file_size}'
+        labels:
+          db: 'medic'
+          nouveau_index: 'contacts_by_freetext'
+          type: 'file'
+      - <<: *cht_couchdb_nouveau_index_size_bytes
+        path: '{.couchdb.medic.nouveau_indexes[?(@.name=="medic/reports_by_freetext")].file_size}'
+        labels:
+          db: 'medic'
+          nouveau_index: 'reports_by_freetext'
           type: 'file'
 
       - name: cht_date_current_millis
