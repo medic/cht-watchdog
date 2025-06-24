@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/medic/cht-watchdog/compare/1.19.1...1.20.0) (2025-06-24)
+
+
+### Features
+
+* **#136:** add new metrics of CouchDB Nouveau to JSON exporter ([#157](https://github.com/medic/cht-watchdog/issues/157)) ([329ad6b](https://github.com/medic/cht-watchdog/commit/329ad6bb567e1818cb9620daa4b85ecbfebc009b)), closes [#136](https://github.com/medic/cht-watchdog/issues/136)
+
 ## [1.19.1](https://github.com/medic/cht-watchdog/compare/1.19.0...1.19.1) (2025-05-30)
 
 
