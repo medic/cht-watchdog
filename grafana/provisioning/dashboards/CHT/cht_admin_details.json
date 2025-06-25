@@ -62,8 +62,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "blue",
-            "mode": "fixed"
+            "mode": "palette-classic"
           },
           "custom": {
             "axisCenteredZero": false,
@@ -120,8 +119,8 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": false
+          "placement": "right",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -137,7 +136,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "cht_couchdb_doc_total{db=\"$db_name\", instance=~\"$cht_instance\"} >= 0",
+          "expr": "cht_couchdb_doc_total{instance=~\"$cht_instance\"} >= 0",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -148,8 +147,8 @@
         {
           "id": "renameByRegex",
           "options": {
-            "regex": "(.*)",
-            "renamePattern": "cht_couchdb_doc_total"
+            "regex": ".*db=\"([^\"]+)\".*",
+            "renamePattern": "$1"
           }
         }
       ],
