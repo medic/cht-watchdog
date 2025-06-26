@@ -111,6 +111,15 @@
         }
       ],
       "title": "Doc Count [_users]",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "_users"
+          }
+        }
+      ],
       "type": "timeseries"
     },
     {
@@ -171,6 +180,15 @@
         }
       ],
       "title": "Doc Count [medic]",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "medic"
+          }
+        }
+      ],
       "type": "timeseries"
     },
     {
@@ -231,6 +249,15 @@
         }
       ],
       "title": "Doc Count [medic-users-meta]",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "medic-users-meta"
+          }
+        }
+      ],
       "type": "timeseries"
     },
     {
@@ -291,6 +318,15 @@
         }
       ],
       "title": "Doc Count [sentinel]",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "sentinel"
+          }
+        }
+      ],
       "type": "timeseries"
     },
     {
