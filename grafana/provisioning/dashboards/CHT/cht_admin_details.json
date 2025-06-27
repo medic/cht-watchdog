@@ -58,42 +58,12 @@
         "type": "prometheus",
         "uid": "PBFA97CFB590B2093"
       },
-      "description": "Total number of docs in the database",
+      "description": "Total number of docs in _users database",
       "fieldConfig": {
         "defaults": {
           "color": {
             "fixedColor": "blue",
             "mode": "fixed"
-          },
-          "custom": {
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
           },
           "mappings": [],
           "thresholds": {
@@ -120,7 +90,6 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom",
           "showLegend": false
         },
         "tooltip": {
@@ -128,8 +97,6 @@
           "sort": "none"
         }
       },
-      "repeat": "db_name",
-      "repeatDirection": "h",
       "targets": [
         {
           "datasource": {
@@ -137,19 +104,226 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "cht_couchdb_doc_total{db=\"$db_name\", instance=~\"$cht_instance\"}",
+          "expr": "cht_couchdb_doc_total{db=\"_users\", instance=~\"$cht_instance\"} >= 0",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Doc Count [$db_name]",
+      "title": "Doc Count [_users]",
       "transformations": [
         {
           "id": "renameByRegex",
           "options": {
             "regex": "(.*)",
-            "renamePattern": "cht_couchdb_doc_total"
+            "renamePattern": "_users"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "Total number of docs in medic database",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 13,
+        "y": 0
+      },
+      "id": 2,
+      "maxPerRow": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "cht_couchdb_doc_total{db=\"medic\", instance=~\"$cht_instance\"} >= 0",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Doc Count [medic]",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "medic"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "Total number of docs in medic-users-meta database",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "id": 2,
+      "maxPerRow": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "cht_couchdb_doc_total{db=\"medic-users-meta\", instance=~\"$cht_instance\"} >= 0",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Doc Count [medic-users-meta]",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "medic-users-meta"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "description": "Total number of docs in sentinel database",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "blue",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 13,
+        "y": 1
+      },
+      "id": 2,
+      "maxPerRow": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "PBFA97CFB590B2093"
+          },
+          "editorMode": "code",
+          "expr": "cht_couchdb_doc_total{db=\"sentinel\", instance=~\"$cht_instance\"} >= 0",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Doc Count [sentinel]",
+      "transformations": [
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "(.*)",
+            "renamePattern": "sentinel"
           }
         }
       ],
@@ -235,7 +409,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "builder",
-          "expr": "cht_conflict_count{instance=~\"$cht_instance\"}",
+          "expr": "cht_conflict_count{instance=~\"$cht_instance\"} >= 0",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -363,7 +537,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "builder",
-          "expr": "cht_couchdb_doc_del_total{instance=~\"$cht_instance\"}",
+          "expr": "cht_couchdb_doc_del_total{instance=~\"$cht_instance\"} >= 0",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -665,7 +839,7 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "cht_couchdb_fragmentation{instance=~\"$cht_instance\"}",
+          "expr": "cht_couchdb_fragmentation{instance=~\"$cht_instance\"} >= 0",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -752,7 +926,7 @@
               },
               "editorMode": "code",
               "exemplar": false,
-              "expr": "cht_date_current_millis{instance=~\"$cht_instance\"}",
+              "expr": "cht_date_current_millis{instance=~\"$cht_instance\"} >= 0",
               "instant": true,
               "legendFormat": "__auto",
               "range": false,
@@ -845,7 +1019,7 @@
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "builder",
-              "expr": "cht_sentinel_backlog_count{instance=~\"$cht_instance\"}",
+              "expr": "cht_sentinel_backlog_count{instance=~\"$cht_instance\"} >= 0",
               "legendFormat": "__auto",
               "range": true,
               "refId": "backlog"
@@ -968,7 +1142,7 @@
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "builder",
-              "expr": "cht_replication_limit_count{instance=~\"$cht_instance\"}",
+              "expr": "cht_replication_limit_count{instance=~\"$cht_instance\"} >= 0",
               "legendFormat": "__auto",
               "range": true,
               "refId": "users_over_limit"
@@ -1093,7 +1267,7 @@
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "builder",
-              "expr": "cht_feedback_total{instance=~\"$cht_instance\"}",
+              "expr": "cht_feedback_total{instance=~\"$cht_instance\"} >= 0",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -1193,7 +1367,7 @@
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "builder",
-              "expr": "cht_outbound_push_backlog_count{instance=~\"$cht_instance\"}",
+              "expr": "cht_outbound_push_backlog_count{instance=~\"$cht_instance\"} >= 0",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -1319,7 +1493,7 @@
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "builder",
-              "expr": "cht_connected_users_count{instance=~\"$cht_instance\"}",
+              "expr": "cht_connected_users_count{instance=~\"$cht_instance\"} >= 0",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -1430,7 +1604,7 @@
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "builder",
-              "expr": "sum(cht_messaging_outgoing_total{instance=~\"$cht_instance\"})",
+              "expr": "sum(cht_messaging_outgoing_total{instance=~\"$cht_instance\"}) >= 0",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -1527,7 +1701,7 @@
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "builder",
-              "expr": "cht_messaging_outgoing_total{instance=~\"$cht_instance\", status=\"due\"}",
+              "expr": "cht_messaging_outgoing_total{instance=~\"$cht_instance\", status=\"due\"} >= 0",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -1624,7 +1798,7 @@
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "builder",
-              "expr": "cht_messaging_outgoing_total{instance=~\"$cht_instance\", status=\"delivered\"}",
+              "expr": "cht_messaging_outgoing_total{instance=~\"$cht_instance\", status=\"delivered\"} >= 0",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -1721,7 +1895,7 @@
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "builder",
-              "expr": "cht_messaging_outgoing_total{instance=~\"$cht_instance\", status=\"muted\"}",
+              "expr": "cht_messaging_outgoing_total{instance=~\"$cht_instance\", status=\"muted\"} >= 0",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -1818,7 +1992,7 @@
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "builder",
-              "expr": "cht_messaging_outgoing_total{instance=~\"$cht_instance\", status=\"failed\"}",
+              "expr": "cht_messaging_outgoing_total{instance=~\"$cht_instance\", status=\"failed\"} >= 0",
               "legendFormat": "__auto",
               "range": true,
               "refId": "A"
@@ -1912,7 +2086,7 @@
               },
               "editorMode": "builder",
               "exemplar": false,
-              "expr": "sum(cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"pending\"})",
+              "expr": "sum(cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"pending\"} >= 0)",
               "instant": true,
               "legendFormat": "__auto",
               "range": false,
@@ -1925,7 +2099,7 @@
               },
               "editorMode": "builder",
               "exemplar": false,
-              "expr": "sum(cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"muted\"})",
+              "expr": "sum(cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"muted\"} >= 0)",
               "hide": false,
               "instant": true,
               "legendFormat": "__auto",
@@ -1939,7 +2113,7 @@
               },
               "editorMode": "builder",
               "exemplar": false,
-              "expr": "sum(cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"final\"})",
+              "expr": "sum(cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"final\"} >= 0)",
               "hide": false,
               "instant": true,
               "legendFormat": "__auto",
@@ -2018,7 +2192,7 @@
               },
               "editorMode": "builder",
               "exemplar": false,
-              "expr": "cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"pending\"}",
+              "expr": "cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"pending\"} >= 0",
               "instant": true,
               "legendFormat": "__auto",
               "range": false,
@@ -2096,7 +2270,7 @@
               },
               "editorMode": "builder",
               "exemplar": false,
-              "expr": "cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"muted\"}",
+              "expr": "cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"muted\"} >= 0",
               "instant": true,
               "legendFormat": "__auto",
               "range": false,
@@ -2174,7 +2348,7 @@
               },
               "editorMode": "builder",
               "exemplar": false,
-              "expr": "cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"final\"}",
+              "expr": "cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"final\"} >= 0",
               "instant": true,
               "legendFormat": "__auto",
               "range": false,
@@ -2245,7 +2419,7 @@
               },
               "editorMode": "builder",
               "exemplar": false,
-              "expr": "cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"pending\"}",
+              "expr": "cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"pending\"} >= 0",
               "instant": true,
               "legendFormat": "__auto",
               "range": false,
@@ -2315,7 +2489,7 @@
               },
               "editorMode": "builder",
               "exemplar": false,
-              "expr": "cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"muted\"}",
+              "expr": "cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"muted\"} >= 0",
               "instant": true,
               "legendFormat": "__auto",
               "range": false,
@@ -2385,7 +2559,7 @@
               },
               "editorMode": "builder",
               "exemplar": false,
-              "expr": "cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"final\"}",
+              "expr": "cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"final\"} >= 0",
               "instant": true,
               "legendFormat": "__auto",
               "range": false,
@@ -2457,7 +2631,7 @@
               },
               "editorMode": "builder",
               "exemplar": false,
-              "expr": "sum(cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"pending\"})",
+              "expr": "sum(cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"pending\"} >= 0)",
               "instant": true,
               "legendFormat": "__auto",
               "range": false,
@@ -2470,7 +2644,7 @@
               },
               "editorMode": "builder",
               "exemplar": false,
-              "expr": "sum(cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"muted\"})",
+              "expr": "sum(cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"muted\"} >= 0)",
               "hide": false,
               "instant": true,
               "legendFormat": "__auto",
@@ -2484,7 +2658,7 @@
               },
               "editorMode": "builder",
               "exemplar": false,
-              "expr": "sum(cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"final\"})",
+              "expr": "sum(cht_messaging_outgoing_last_hundred{instance=~\"$cht_instance\", group=\"final\"} >= 0)",
               "hide": false,
               "instant": true,
               "legendFormat": "__auto",
@@ -2567,7 +2741,7 @@
         "name": "db_name",
         "options": [],
         "query": {
-          "query": "cht_couchdb_doc_total{instance=~\"$cht_instance\"}",
+          "query": "cht_couchdb_doc_total{instance=~\"$cht_instance\"} >= 0",
           "refId": "StandardVariableQuery"
         },
         "refresh": 1,
@@ -2586,6 +2760,6 @@
   "timezone": "",
   "title": "CHT Admin Details",
   "uid": "hkQUbyfVk",
-  "version": 43,
+  "version": 44,
   "weekStart": ""
 }
