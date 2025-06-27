@@ -1,3 +1,10 @@
+## [1.20.1](https://github.com/medic/cht-watchdog/compare/1.20.0...1.20.1) (2025-06-27)
+
+
+### Bug Fixes
+
+* **#159 #161:** exclude negative numbers from results, correctly show document counts ([#160](https://github.com/medic/cht-watchdog/issues/160)) ([54c9285](https://github.com/medic/cht-watchdog/commit/54c9285ac32e76b2038f157bfd6dd09e8fc642fd)), closes [#159](https://github.com/medic/cht-watchdog/issues/159) [#161](https://github.com/medic/cht-watchdog/issues/161)
+
 # [1.20.0](https://github.com/medic/cht-watchdog/compare/1.19.1...1.20.0) (2025-06-24)
 
 
