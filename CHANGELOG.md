@@ -1,3 +1,10 @@
+## [1.20.2](https://github.com/medic/cht-watchdog/compare/1.20.1...1.20.2) (2025-11-05)
+
+
+### Bug Fixes
+
+* **#174:** apdex chart no longer shows null ([#175](https://github.com/medic/cht-watchdog/issues/175)) ([01a2567](https://github.com/medic/cht-watchdog/commit/01a2567aea30ec6b24c60ed8980302a3cb7a1a87)), closes [#174](https://github.com/medic/cht-watchdog/issues/174)
+
 ## [1.20.1](https://github.com/medic/cht-watchdog/compare/1.20.0...1.20.1) (2025-06-27)
 
 
