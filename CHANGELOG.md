@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/medic/cht-watchdog/compare/1.20.2...1.21.0) (2025-12-02)
+
+
+### Features
+
+* **#179:** change scrape interval to 5 min ([#180](https://github.com/medic/cht-watchdog/issues/180)) ([8067ed3](https://github.com/medic/cht-watchdog/commit/8067ed3e85eb65bb349b1d768dbc7cf26e79e00f)), closes [#179](https://github.com/medic/cht-watchdog/issues/179)
+
 ## [1.20.2](https://github.com/medic/cht-watchdog/compare/1.20.1...1.20.2) (2025-11-05)
 
 
