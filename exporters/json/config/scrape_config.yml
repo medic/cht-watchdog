@@ -3,7 +3,6 @@ scrape_configs:
     static_configs:
       - targets: ['json-exporter:7979']
   - job_name: cht
-    scrape_interval: 5m
     metrics_path: /probe
     params:
       module: [default]
