@@ -1,3 +1,10 @@
+# [1.22.0](https://github.com/medic/cht-watchdog/compare/1.21.0...1.22.0) (2025-12-16)
+
+
+### Features
+
+* **#182:** support Prometheus retention by size ([#183](https://github.com/medic/cht-watchdog/issues/183)) ([d03b622](https://github.com/medic/cht-watchdog/commit/d03b622021bd7ca84ff10f2f8ece4b9a42048f62)), closes [#182](https://github.com/medic/cht-watchdog/issues/182)
+
 # [1.21.0](https://github.com/medic/cht-watchdog/compare/1.20.2...1.21.0) (2025-12-02)
 
 
