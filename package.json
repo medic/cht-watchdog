@@ -1,7 +1,7 @@
 {
   "name": "cht-watchdog",
   "engines": {
-    "node": ">=20.8.1"
+    "node": ">=22"
   },
   "scripts": {
     "lint": "eslint 'development/**/*.js'",
@@ -19,10 +19,10 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "chai": "^4.5.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.36.0",
     "husky": "^9.1.7",
     "mocha": "^11.7.5",
-    "semantic-release": "^24.2.9"
+    "semantic-release": "^25.0.3"
   },
   "version": "1.22.0",
   "repository": {
