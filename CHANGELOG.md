@@ -1,3 +1,10 @@
+# [1.23.0](https://github.com/medic/cht-watchdog/compare/1.22.0...1.23.0) (2026-02-23)
+
+
+### Features
+
+* uplift default application dependency versions ([#190](https://github.com/medic/cht-watchdog/issues/190)) ([4f180fa](https://github.com/medic/cht-watchdog/commit/4f180fa360a04a9158002c21a8d99826dd88a3e0))
+
 # [1.22.0](https://github.com/medic/cht-watchdog/compare/1.21.0...1.22.0) (2025-12-16)
 
 
