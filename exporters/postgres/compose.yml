@@ -6,7 +6,7 @@ services:
 
   sql_exporter:
     restart: unless-stopped
-    image: burningalchemist/sql_exporter:${SQL_EXPORTER_VERSION:-0.15}
+    image: burningalchemist/sql_exporter:${SQL_EXPORTER_VERSION:-0.19}
     command: --config.file=/etc/sql_exporter/sql_servers.yml
     volumes:
       - "./exporters/postgres/:/etc/sql_exporter/"
