@@ -15,7 +15,7 @@ volumes:
 
 services:
   prometheus:
-    image: prom/prometheus:${PROMETHEUS_VERSION:-v3.3.0}
+    image: prom/prometheus:${PROMETHEUS_VERSION:-v3.9.1}
     ports:
       - "${PROMETHEUS_BIND:-127.0.0.1}:${PROMETHEUS_PORT:-9090}:9090"
     command:
@@ -40,7 +40,7 @@ services:
     restart: always
 
   grafana:
-    image: grafana/grafana-oss:${GRAFANA_VERSION:-11.2.0}
+    image: grafana/grafana-oss:${GRAFANA_VERSION:-12.3.3}
     ports:
       - "${GRAFANA_BIND:-127.0.0.1}:${GRAFANA_PORT:-3000}:3000"
     volumes:
@@ -62,7 +62,7 @@ services:
     restart: always
 
   json-exporter:
-    image: prometheuscommunity/json-exporter:${JSON_EXPORTER_VERSION:-v0.6.0}
+    image: prometheuscommunity/json-exporter:${JSON_EXPORTER_VERSION:-v0.7.0}
     volumes:
       - ./exporters/json/config/cht.yml:/config.yml:ro
     logging:
