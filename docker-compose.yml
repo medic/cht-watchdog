@@ -62,7 +62,7 @@ services:
     restart: always
 
   json-exporter:
-    image: prometheuscommunity/json-exporter:${JSON_EXPORTER_VERSION:-v0.6.0}
+    image: prometheuscommunity/json-exporter:${JSON_EXPORTER_VERSION:-v0.7.0}
     volumes:
       - ./exporters/json/config/cht.yml:/config.yml:ro
     logging:
