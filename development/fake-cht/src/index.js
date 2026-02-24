@@ -135,6 +135,7 @@ let lastResponse;
 try {
   lastResponse = require('../last-response.json');
   console.log('Using last-response data.');
+  // eslint-disable-next-line no-unused-vars
 } catch (e) {
   lastResponse = initialResponse;
   console.log('Using initial-response data.');
