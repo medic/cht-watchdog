@@ -22,3 +22,26 @@ scrape_configs:
       replacement: "$1"
     - source_labels: [instance]
       target_label: __address__
+    # In some cases express wildcards don't capture what should be parameters in
+    # routes that are proxied to couchdb.
+    # These custom rules work around these cases and prevent parameters from
+    # becoming individual labels.
+    metric_relabel_configs:
+    # Per-user meta databases: /medic-user-alice-meta/... -> /medic-user-:name-meta/...
+    - source_labels: [route]
+      regex: '/medic-user-[^/]+-meta(/.*|)'
+      target_label: route
+      replacement: '/medic-user-:name-meta${1}'
+    # ids in meta databases:
+    #    /medic-user-:name-meta/telemetry-... -> /medic-user-:name-meta/*path
+    - source_labels: [route]
+      regex: '(/medic-user-:name-meta/)[^/_][^/]*\*path'
+      target_label: route
+      replacement: '${1}*path'
+    # _local checkpoint ids that start with '_' escape the rule above (its [^/_]
+    # guard rejects them), so collapse anything under _local/ explicitly:
+    #    /medic-user-:name-meta/_local/_xyz -> /medic-user-:name-meta/_local/*path
+    - source_labels: [route]
+      regex: '(/medic-user-:name-meta/_local/).*\*path'
+      target_label: route
+      replacement: '${1}*path'
