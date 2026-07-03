@@ -1,3 +1,11 @@
+## [1.23.1](https://github.com/medic/cht-watchdog/compare/1.23.0...1.23.1) (2026-07-03)
+
+
+### Bug Fixes
+
+* **#203:** add rules for meta databases ([#206](https://github.com/medic/cht-watchdog/issues/206)) ([31b9329](https://github.com/medic/cht-watchdog/commit/31b932915aad033ab1c893eae3042050b460ca02)), closes [#203](https://github.com/medic/cht-watchdog/issues/203)
+* **#204:** change replication dashboard to show response code ([#205](https://github.com/medic/cht-watchdog/issues/205)) ([d51b899](https://github.com/medic/cht-watchdog/commit/d51b8994c3869cdf240479d5b86f81b587ac76b5)), closes [#204](https://github.com/medic/cht-watchdog/issues/204)
+
 # [1.23.0](https://github.com/medic/cht-watchdog/compare/1.22.0...1.23.0) (2026-02-23)
 
 
