@@ -35,13 +35,13 @@ scrape_configs:
     # ids in meta databases:
     #    /medic-user-:name-meta/telemetry-... -> /medic-user-:name-meta/*path
     - source_labels: [route]
-      regex: '(/medic-user-:name-meta/)[^/_][^/]*\*path'
+      regex: '/medic-user-:name-meta/[^_].*\*path'
       target_label: route
-      replacement: '${1}*path'
+      replacement: '/medic-user-:name-meta/*path'
     # _local checkpoint ids that start with '_' escape the rule above (its [^/_]
     # guard rejects them), so collapse anything under _local/ explicitly:
     #    /medic-user-:name-meta/_local/_xyz -> /medic-user-:name-meta/_local/*path
     - source_labels: [route]
-      regex: '(/medic-user-:name-meta/_local/).*\*path'
+      regex: '/medic-user-:name-meta/_local/.*\*path'
       target_label: route
-      replacement: '${1}*path'
+      replacement: '/medic-user-:name-meta/_local/*path'
