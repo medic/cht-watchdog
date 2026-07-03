@@ -177,8 +177,8 @@
             "uid": "PBFA97CFB590B2093"
           },
           "editorMode": "code",
-          "expr": "sum(rate(cht_api_http_request_duration_seconds_count{instance=~\"$cht_instance\",route=~\".*/get-ids\"}[$interval])) by (route)",
-          "legendFormat": "{{route}}",
+          "expr": "sum(rate(cht_api_http_request_duration_seconds_count{instance=~\"$cht_instance\",route=~\".*/get-ids\"}[$interval])) by (code)",
+          "legendFormat": "{{code}}",
           "range": true,
           "refId": "A"
         }
