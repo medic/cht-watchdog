@@ -22,7 +22,7 @@
     "eslint": "^9.36.0",
     "husky": "^9.1.7",
     "mocha": "^11.8.0",
-    "semantic-release": "^25.0.9"
+    "semantic-release": "^26.0.1"
   },
   "version": "1.23.1",
   "repository": {
